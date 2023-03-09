@@ -1,0 +1,2106 @@
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap"
+        rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+
+    <!-- <link href="lib/bootstrap-extension-5.3.0/css/bootstrap-extension.min.css" rel="stylesheet"> -->
+    <title>An Analysis-Synthesis Approach To Perceptually Guided Audio Texture Generation</title>
+    <style>
+        body {
+            font-family: 'Open Sans', sans-serif;
+            width: 100%;
+            /* font-family: 'Montserrat', Arial, Helvetica, sans-serif; */
+        }
+
+        audio {
+            width: 100%;
+        }
+
+        .pipe-content {
+            border-right: solid lightgray 2px;
+        }
+
+        .bg-topbar {}
+
+        .sub-headings {
+            /* text-decoration: underline #0D6EFD; */
+            font-weight: bold;
+        }
+
+        .example-headings {
+            font-weight: bold;
+        }
+
+        .table-center-align {
+            text-align: center;
+        }
+
+        .dashed-boder {
+            border-bottom: solid lightgray 2px;
+            border-style: dashed;
+            border-top: none;
+            border-left: none;
+            border-right: none;
+        }
+
+        .reduced-img-size {
+            width: 60%;
+        }
+
+        .label-large {
+            font-size: larger;
+            font-weight: 600;
+            /* text-decoration: underline; */
+        }
+
+        .greyout {
+            opacity: 0.4;
+            filter: alpha(opacity=40);
+            /* msie */
+            background-color: floralwhite;
+        }
+
+        .div {
+            border: solid black 1px;
+        }
+    </style>
+    <script>
+        function scrollToTheTop() {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+        }
+    </script>
+</head>
+
+<body>
+    <div class="container-fluid" style="width: 100%">
+        <div class="row">&nbsp;</div>
+        <div class="row">
+            <div class="col-2 m-0">
+                &nbsp;
+            </div>
+            <div class="col-8 text-center p-1" style="border: solid darkgray 2px;">
+                <i>A Companion Webpage For</i>
+                <h2><b>An Analysis-Synthesis <br />Approach To Perceptually Guided Audio Texture Generation</b>
+                </h2>
+            </div>
+            <div class="col-3">
+                &nbsp;
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid" style="width: 100%">
+        <div class="row">
+            <div class="col-2">
+                &nbsp;
+            </div>
+            <div class="col-8 h4 text-left pt-2">
+                <div class="row">
+                    <div class="col-5 text-end"><a href="#">Paper</a></div>
+                    <div class="col-1 text-center"> <a href="#">Code</a></div>
+                    <div class="col-4 text-start"> <a href="#index">Examples</a></div>
+                </div>
+            </div>
+            <div class="col-2">
+                &nbsp;
+            </div>
+        </div>
+        <div class="row">&nbsp;</div>
+
+
+        <div class="row">
+            <div class="col-2">
+                &nbsp;
+            </div>
+            <div class="col-8 h4 text-center pt-2">
+                Video Section
+            </div>
+            <div class="col-2">
+                &nbsp;
+            </div>
+        </div>
+        <div class="row">&nbsp;</div>
+
+
+        <div class="row">
+            <div class="col-2">
+                &nbsp;
+            </div>
+            <div class="col-8 h5 text-start pt-2" id="index">
+                <u class="h4"><b>Index</b></u>
+
+                <ul>
+                    <li class="pt-2"><a href="#greatesthits-examples">Perceptually guided examples for Greatest Hits</a></li>
+                    <li class="pt-2"><a href="#water-examples">Perceptually guided examples for Water</a></li>
+                    <!-- <li class="pt-2"><a href="">Augmenting examples by Localized Exploration</a></li> -->
+                    <li class="pt-2"><a href="#selective-attr-transfer-examples">Examples for Selective Semantic Attribute Transfer</a></li>
+                    <li class="pt-2"><a href="#sefa-failure-modes">SeFa failure modes</a></li>
+                </ul>
+            </div>
+            <div class="col-2">
+                &nbsp;
+            </div>
+        </div>
+        <div class="row">&nbsp;</div>
+
+
+
+
+
+        <div class="row">
+            <div class="col-2">
+                &nbsp;
+            </div>
+            <div class="col-8 h4 text-start pt-2" id="greatesthits-examples">
+                <u><b>Guided examples for Greatest Hits</b></u>
+            </div>
+            <div class="col-2">
+                &nbsp;
+            </div>
+        </div>
+        <div class="row">&nbsp;</div>
+
+
+        <div class="row">
+            <div class="col-2">
+                &nbsp;
+            </div>
+            <div class="col-8 text-start pt-2" id="greatesthits-examples">
+                For the GreatestHits dataset, we develop semantic concept clusters and directions
+                for concepts of <b>perceived brightness</b> (whether the
+                sound contains mostly high frequency components or is dark or dull
+                containing low frequency components), <b>rate</b> (whether the number
+                of impact sounds in a sample is high or low), and <b>impact type</b>
+                (whether the impact sounds are sharp hits or scratchy sounds).
+            </div>
+            <div class="col-2">
+                &nbsp;
+            </div>
+        </div>
+        <div class="row">&nbsp;</div>
+        <div class="row">&nbsp;</div>
+
+
+
+
+        <div class="row">
+            <div class="row">
+                <div class="col-2">
+                    &nbsp;
+                </div>
+                <div class="col-8 h5 text-center">
+                    <u><b>Guiding Perceived Brightness</b></u>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-2">
+                    &nbsp;
+                </div>
+                <div class="col-8 pt-2">
+                    <div class="row">
+                        <div class="col-1 pt-5 text-center example-headings">sample 1</div>
+                        <div class="p-0 col-2">
+                            <img src="resources/paper_samples_images/brightness_sample1_0.png" width="100%" />
+                            <audio controls="" preload="auto">
+                                <source src="resources/paper_samples/brightness_sample1_0.wav" type="audio/wav" />
+                            </audio>
+                        </div>
+                        <div class=" p-0 col-2">
+                            <img src="resources/paper_samples_images/brightness_sample1_1.png" width="100%" />
+                            <audio controls="" preload="auto">
+                                <source src="resources/paper_samples/brightness_sample1_1.wav" type="audio/wav" />
+                            </audio>
+                        </div>
+                        <div class=" p-0 col-2">
+                            <img src="resources/paper_samples_images/brightness_sample1_2.png" width="100%" />
+                            <audio controls="" preload="auto">
+                                <source src="resources/paper_samples/brightness_sample1_2.wav" type="audio/wav" />
+                            </audio>
+                        </div>
+                        <div class=" p-0 col-2">
+                            <img src="resources/paper_samples_images/brightness_sample1_3.png" width="100%" />
+                            <audio controls="" preload="auto">
+                                <source src="resources/paper_samples/brightness_sample1_3.wav" type="audio/wav" />
+                            </audio>
+                        </div>
+                        <div class=" p-0 col-2">
+                            <img src="resources/paper_samples_images/brightness_sample1_4.png" width="100%" />
+                            <audio controls="" preload="auto">
+                                <source src="resources/paper_samples/brightness_sample1_4.wav" type="audio/wav" />
+                            </audio>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-2">
+                    &nbsp;
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-2">
+                    &nbsp;
+                </div>
+                <div class="col-8 text-start pt-2">
+                    <div class="row">
+                        <div class="col-1 pt-5 text-center example-headings">sample 2</div>
+                        <div class="p-0 col-2">
+                            <img src="resources/paper_samples_images/brightness_sample2_0.png" width="100%" />
+                            <audio controls="" preload="auto">
+                                <source src="resources/paper_samples/brightness_sample2_0.wav" type="audio/wav" />
+                            </audio>
+                        </div>
+                        <div class=" p-0 col-2">
+                            <img src="resources/paper_samples_images/brightness_sample2_1.png" width="100%" />
+                            <audio controls="" preload="auto">
+                                <source src="resources/paper_samples/brightness_sample2_1.wav" type="audio/wav" />
+                            </audio>
+                        </div>
+                        <div class=" p-0 col-2">
+                            <img src="resources/paper_samples_images/brightness_sample2_2.png" width="100%" />
+                            <audio controls="" preload="auto">
+                                <source src="resources/paper_samples/brightness_sample2_2.wav" type="audio/wav" />
+                            </audio>
+                        </div>
+                        <div class=" p-0 col-2">
+                            <img src="resources/paper_samples_images/brightness_sample2_3.png" width="100%" />
+                            <audio controls="" preload="auto">
+                                <source src="resources/paper_samples/brightness_sample2_3.wav" type="audio/wav" />
+                            </audio>
+                        </div>
+                        <div class=" p-0 col-2">
+                            <img src="resources/paper_samples_images/brightness_sample2_4.png" width="100%" />
+                            <audio controls="" preload="auto">
+                                <source src="resources/paper_samples/brightness_sample2_4.wav" type="audio/wav" />
+                            </audio>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-2">
+                    &nbsp;
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-2">
+                    &nbsp;
+                </div>
+                <div class="col-8 pt-2">
+                    <div class="row">
+                        <div class="col-1 pt-5 text-center example-headings">sample 3</div>
+                        <div class="p-0 col-2">
+                            <img src="resources/paper_samples_images/brightness_sample3_0.png" width="100%" />
+                            <audio controls="" preload="auto">
+                                <source src="resources/paper_samples/brightness_sample3_0.wav" type="audio/wav" />
+                            </audio>
+                        </div>
+                        <div class=" p-0 col-2">
+                            <img src="resources/paper_samples_images/brightness_sample3_1.png" width="100%" />
+                            <audio controls="" preload="auto">
+                                <source src="resources/paper_samples/brightness_sample3_1.wav" type="audio/wav" />
+                            </audio>
+                        </div>
+                        <div class=" p-0 col-2">
+                            <img src="resources/paper_samples_images/brightness_sample3_2.png" width="100%" />
+                            <audio controls="" preload="auto">
+                                <source src="resources/paper_samples/brightness_sample3_2.wav" type="audio/wav" />
+                            </audio>
+                        </div>
+                        <div class=" p-0 col-2">
+                            <img src="resources/paper_samples_images/brightness_sample3_3.png" width="100%" />
+                            <audio controls="" preload="auto">
+                                <source src="resources/paper_samples/brightness_sample3_3.wav" type="audio/wav" />
+                            </audio>
+                        </div>
+                        <div class=" p-0 col-2">
+                            <img src="resources/paper_samples_images/brightness_sample3_4.png" width="100%" />
+                            <audio controls="" preload="auto">
+                                <source src="resources/paper_samples/brightness_sample3_4.wav" type="audio/wav" />
+                            </audio>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-2">
+                    &nbsp;
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-2">
+                    &nbsp;
+                </div>
+                <div class="col-8 pt-2">
+                    <div class="row">
+                        <div class="col-1 pt-5 text-center example-headings">sample 4</div>
+                        <div class="p-0 col-2">
+                            <img src="resources/paper_samples_images/brightness_sample4_0.png" width="100%" />
+                            <audio controls="" preload="auto">
+                                <source src="resources/paper_samples/brightness_sample4_0.wav" type="audio/wav" />
+                            </audio>
+                        </div>
+                        <div class=" p-0 col-2">
+                            <img src="resources/paper_samples_images/brightness_sample4_1.png" width="100%" />
+                            <audio controls="" preload="auto">
+                                <source src="resources/paper_samples/brightness_sample4_1.wav" type="audio/wav" />
+                            </audio>
+                        </div>
+                        <div class=" p-0 col-2">
+                            <img src="resources/paper_samples_images/brightness_sample4_2.png" width="100%" />
+                            <audio controls="" preload="auto">
+                                <source src="resources/paper_samples/brightness_sample4_2.wav" type="audio/wav" />
+                            </audio>
+                        </div>
+                        <div class=" p-0 col-2">
+                            <img src="resources/paper_samples_images/brightness_sample4_3.png" width="100%" />
+                            <audio controls="" preload="auto">
+                                <source src="resources/paper_samples/brightness_sample4_3.wav" type="audio/wav" />
+                            </audio>
+                        </div>
+                        <div class=" p-0 col-2">
+                            <img src="resources/paper_samples_images/brightness_sample4_4.png" width="100%" />
+                            <audio controls="" preload="auto">
+                                <source src="resources/paper_samples/brightness_sample4_4.wav" type="audio/wav" />
+                            </audio>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-2">
+                    &nbsp;
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-2">
+                    &nbsp;
+                </div>
+                <div class="col-8 pt-2">
+                    <div class="row">
+                        <div class="col-1 pt-5 text-center example-headings">sample 5</div>
+                        <div class="p-0 col-2">
+                            <img src="resources/paper_samples_images/brightness_sample5_0.png" width="100%" />
+                            <audio controls="" preload="auto">
+                                <source src="resources/paper_samples/brightness_sample5_0.wav" type="audio/wav" />
+                            </audio>
+                        </div>
+                        <div class=" p-0 col-2">
+                            <img src="resources/paper_samples_images/brightness_sample5_1.png" width="100%" />
+                            <audio controls="" preload="auto">
+                                <source src="resources/paper_samples/brightness_sample5_1.wav" type="audio/wav" />
+                            </audio>
+                        </div>
+                        <div class=" p-0 col-2">
+                            <img src="resources/paper_samples_images/brightness_sample5_2.png" width="100%" />
+                            <audio controls="" preload="auto">
+                                <source src="resources/paper_samples/brightness_sample5_2.wav" type="audio/wav" />
+                            </audio>
+                        </div>
+                        <div class=" p-0 col-2">
+                            <img src="resources/paper_samples_images/brightness_sample5_3.png" width="100%" />
+                            <audio controls="" preload="auto">
+                                <source src="resources/paper_samples/brightness_sample5_3.wav" type="audio/wav" />
+                            </audio>
+                        </div>
+                        <div class=" p-0 col-2">
+                            <img src="resources/paper_samples_images/brightness_sample5_4.png" width="100%" />
+                            <audio controls="" preload="auto">
+                                <source src="resources/paper_samples/brightness_sample5_4.wav" type="audio/wav" />
+                            </audio>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-2">
+                    &nbsp;
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+        <div class="row">&nbsp;</div>
+        <div class="row">
+            <div class="col-4"></div>
+            <div class="col-4 border-bottom"></div>
+        </div>
+        <div class="row">&nbsp;</div>
+
+
+
+
+
+
+        <div class="row">
+            <div class="row">
+                <div class="col-2">
+                    &nbsp;
+                </div>
+                <div class="col-8 h5 text-center">
+                    <u><b>Guiding Impact Type</b></u>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-2">
+                    &nbsp;
+                </div>
+                <div class="col-8 pt-2">
+                    <div class="row">
+                        <div class="col-1 pt-5 text-center example-headings">sample 1</div>
+                        <div class="p-0 col-2">
+                            <img src="resources/paper_samples_images/impacttype_sample1_0.png" width="100%" />
+                            <audio controls="" preload="auto">
+                                <source src="resources/paper_samples/impacttype_sample1_0.wav" type="audio/wav" />
+                            </audio>
+                        </div>
+                        <div class=" p-0 col-2">
+                            <img src="resources/paper_samples_images/impacttype_sample1_1.png" width="100%" />
+                            <audio controls="" preload="auto">
+                                <source src="resources/paper_samples/impacttype_sample1_1.wav" type="audio/wav" />
+                            </audio>
+                        </div>
+                        <div class=" p-0 col-2">
+                            <img src="resources/paper_samples_images/impacttype_sample1_2.png" width="100%" />
+                            <audio controls="" preload="auto">
+                                <source src="resources/paper_samples/impacttype_sample1_2.wav" type="audio/wav" />
+                            </audio>
+                        </div>
+                        <div class=" p-0 col-2">
+                            <img src="resources/paper_samples_images/impacttype_sample1_3.png" width="100%" />
+                            <audio controls="" preload="auto">
+                                <source src="resources/paper_samples/impacttype_sample1_3.wav" type="audio/wav" />
+                            </audio>
+                        </div>
+                        <div class=" p-0 col-2">
+                            <img src="resources/paper_samples_images/impacttype_sample1_4.png" width="100%" />
+                            <audio controls="" preload="auto">
+                                <source src="resources/paper_samples/impacttype_sample1_4.wav" type="audio/wav" />
+                            </audio>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-2">
+                    &nbsp;
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-2">
+                    &nbsp;
+                </div>
+                <div class="col-8 pt-2">
+                    <div class="row">
+                        <div class="col-1 pt-5 text-center example-headings">sample 2</div>
+                        <div class="p-0 col-2">
+                            <img src="resources/paper_samples_images/impacttype_sample2_0.png" width="100%" />
+                            <audio controls="" preload="auto">
+                                <source src="resources/paper_samples/impacttype_sample2_0.wav" type="audio/wav" />
+                            </audio>
+                        </div>
+                        <div class=" p-0 col-2">
+                            <img src="resources/paper_samples_images/impacttype_sample2_1.png" width="100%" />
+                            <audio controls="" preload="auto">
+                                <source src="resources/paper_samples/impacttype_sample2_1.wav" type="audio/wav" />
+                            </audio>
+                        </div>
+                        <div class=" p-0 col-2">
+                            <img src="resources/paper_samples_images/impacttype_sample2_2.png" width="100%" />
+                            <audio controls="" preload="auto">
+                                <source src="resources/paper_samples/impacttype_sample2_2.wav" type="audio/wav" />
+                            </audio>
+                        </div>
+                        <div class=" p-0 col-2">
+                            <img src="resources/paper_samples_images/impacttype_sample2_3.png" width="100%" />
+                            <audio controls="" preload="auto">
+                                <source src="resources/paper_samples/impacttype_sample2_3.wav" type="audio/wav" />
+                            </audio>
+                        </div>
+                        <div class=" p-0 col-2">
+                            <img src="resources/paper_samples_images/impacttype_sample2_4.png" width="100%" />
+                            <audio controls="" preload="auto">
+                                <source src="resources/paper_samples/impacttype_sample2_4.wav" type="audio/wav" />
+                            </audio>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-2">
+                    &nbsp;
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-2">
+                    &nbsp;
+                </div>
+                <div class="col-8 pt-2">
+                    <div class="row">
+                        <div class="col-1 pt-5 text-center example-headings">sample 3</div>
+                        <div class="p-0 col-2">
+                            <img src="resources/paper_samples_images/impacttype_sample3_0.png" width="100%" />
+                            <audio controls="" preload="auto">
+                                <source src="resources/paper_samples/impacttype_sample3_0.wav" type="audio/wav" />
+                            </audio>
+                        </div>
+                        <div class=" p-0 col-2">
+                            <img src="resources/paper_samples_images/impacttype_sample3_1.png" width="100%" />
+                            <audio controls="" preload="auto">
+                                <source src="resources/paper_samples/impacttype_sample3_1.wav" type="audio/wav" />
+                            </audio>
+                        </div>
+                        <div class=" p-0 col-2">
+                            <img src="resources/paper_samples_images/impacttype_sample3_2.png" width="100%" />
+                            <audio controls="" preload="auto">
+                                <source src="resources/paper_samples/impacttype_sample3_2.wav" type="audio/wav" />
+                            </audio>
+                        </div>
+                        <div class=" p-0 col-2">
+                            <img src="resources/paper_samples_images/impacttype_sample3_3.png" width="100%" />
+                            <audio controls="" preload="auto">
+                                <source src="resources/paper_samples/impacttype_sample3_3.wav" type="audio/wav" />
+                            </audio>
+                        </div>
+                        <div class=" p-0 col-2">
+                            <img src="resources/paper_samples_images/impacttype_sample3_4.png" width="100%" />
+                            <audio controls="" preload="auto">
+                                <source src="resources/paper_samples/impacttype_sample3_4.wav" type="audio/wav" />
+                            </audio>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-2">
+                    &nbsp;
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-2">
+                    &nbsp;
+                </div>
+                <div class="col-8 pt-2">
+                    <div class="row">
+                        <div class="col-1 pt-5 text-center example-headings">sample 4</div>
+                        <div class="p-0 col-2">
+                            <img src="resources/paper_samples_images/impacttype_sample4_0.png" width="100%" />
+                            <audio controls="" preload="auto">
+                                <source src="resources/paper_samples/impacttype_sample4_0.wav" type="audio/wav" />
+                            </audio>
+                        </div>
+                        <div class=" p-0 col-2">
+                            <img src="resources/paper_samples_images/impacttype_sample4_1.png" width="100%" />
+                            <audio controls="" preload="auto">
+                                <source src="resources/paper_samples/impacttype_sample4_1.wav" type="audio/wav" />
+                            </audio>
+                        </div>
+                        <div class=" p-0 col-2">
+                            <img src="resources/paper_samples_images/impacttype_sample4_2.png" width="100%" />
+                            <audio controls="" preload="auto">
+                                <source src="resources/paper_samples/impacttype_sample4_2.wav" type="audio/wav" />
+                            </audio>
+                        </div>
+                        <div class=" p-0 col-2">
+                            <img src="resources/paper_samples_images/impacttype_sample4_3.png" width="100%" />
+                            <audio controls="" preload="auto">
+                                <source src="resources/paper_samples/impacttype_sample4_3.wav" type="audio/wav" />
+                            </audio>
+                        </div>
+                        <div class=" p-0 col-2">
+                            <img src="resources/paper_samples_images/impacttype_sample4_4.png" width="100%" />
+                            <audio controls="" preload="auto">
+                                <source src="resources/paper_samples/impacttype_sample4_4.wav" type="audio/wav" />
+                            </audio>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-2">
+                    &nbsp;
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-2">
+                    &nbsp;
+                </div>
+                <div class="col-8 pt-2">
+                    <div class="row">
+                        <div class="col-1 pt-5 text-center example-headings">sample 5</div>
+                        <div class="p-0 col-2">
+                            <img src="resources/paper_samples_images/impacttype_sample5_0.png" width="100%" />
+                            <audio controls="" preload="auto">
+                                <source src="resources/paper_samples/impacttype_sample5_0.wav" type="audio/wav" />
+                            </audio>
+                        </div>
+                        <div class=" p-0 col-2">
+                            <img src="resources/paper_samples_images/impacttype_sample5_1.png" width="100%" />
+                            <audio controls="" preload="auto">
+                                <source src="resources/paper_samples/impacttype_sample5_1.wav" type="audio/wav" />
+                            </audio>
+                        </div>
+                        <div class=" p-0 col-2">
+                            <img src="resources/paper_samples_images/impacttype_sample5_2.png" width="100%" />
+                            <audio controls="" preload="auto">
+                                <source src="resources/paper_samples/impacttype_sample5_2.wav" type="audio/wav" />
+                            </audio>
+                        </div>
+                        <div class=" p-0 col-2">
+                            <img src="resources/paper_samples_images/impacttype_sample5_3.png" width="100%" />
+                            <audio controls="" preload="auto">
+                                <source src="resources/paper_samples/impacttype_sample5_3.wav" type="audio/wav" />
+                            </audio>
+                        </div>
+                        <div class=" p-0 col-2">
+                            <img src="resources/paper_samples_images/impacttype_sample5_4.png" width="100%" />
+                            <audio controls="" preload="auto">
+                                <source src="resources/paper_samples/impacttype_sample5_4.wav" type="audio/wav" />
+                            </audio>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-2">
+                    &nbsp;
+                </div>
+            </div>
+        </div>
+        <div class="row">&nbsp;</div>
+        <div class="row">
+            <div class="col-4"></div>
+            <div class="col-4 border-bottom"></div>
+        </div>
+        <div class="row">&nbsp;</div>
+
+
+        <div class="row">
+            <div class="row">
+                <div class="col-2">
+                    &nbsp;
+                </div>
+                <div class="col-8 h5 text-center">
+                    <u><b>Guiding Rate</b></u>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-2">
+                    &nbsp;
+                </div>
+                <div class="col-8 pt-2">
+                    <div class="row">
+                        <div class="col-1 pt-5 text-center example-headings">sample 1</div>
+                        <div class="p-0 col-2">
+                            <img src="resources/paper_samples_images/rate_sample2_0.png" width="100%" />
+                            <audio controls="" preload="auto">
+                                <source src="resources/paper_samples/rate_sample2_0.wav" type="audio/wav" />
+                            </audio>
+                        </div>
+                        <div class=" p-0 col-2">
+                            <img src="resources/paper_samples_images/rate_sample2_1.png" width="100%" />
+                            <audio controls="" preload="auto">
+                                <source src="resources/paper_samples/rate_sample2_1.wav" type="audio/wav" />
+                            </audio>
+                        </div>
+                        <div class=" p-0 col-2">
+                            <img src="resources/paper_samples_images/rate_sample2_2.png" width="100%" />
+                            <audio controls="" preload="auto">
+                                <source src="resources/paper_samples/rate_sample2_2.wav" type="audio/wav" />
+                            </audio>
+                        </div>
+                        <div class=" p-0 col-2">
+                            <img src="resources/paper_samples_images/rate_sample2_3.png" width="100%" />
+                            <audio controls="" preload="auto">
+                                <source src="resources/paper_samples/rate_sample2_3.wav" type="audio/wav" />
+                            </audio>
+                        </div>
+                        <div class=" p-0 col-2">
+                            <img src="resources/paper_samples_images/rate_sample2_4.png" width="100%" />
+                            <audio controls="" preload="auto">
+                                <source src="resources/paper_samples/rate_sample2_4.wav" type="audio/wav" />
+                            </audio>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-2">
+                    &nbsp;
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-2">
+                    &nbsp;
+                </div>
+                <div class="col-8 pt-2">
+                    <div class="row">
+                        <div class="col-1 pt-5 text-center example-headings">sample 2</div>
+                        <div class="p-0 col-2">
+                            <img src="resources/paper_samples_images/rate_sample3_0.png" width="100%" />
+                            <audio controls="" preload="auto">
+                                <source src="resources/paper_samples/rate_sample3_0.wav" type="audio/wav" />
+                            </audio>
+                        </div>
+                        <div class=" p-0 col-2">
+                            <img src="resources/paper_samples_images/rate_sample3_1.png" width="100%" />
+                            <audio controls="" preload="auto">
+                                <source src="resources/paper_samples/rate_sample3_1.wav" type="audio/wav" />
+                            </audio>
+                        </div>
+                        <div class=" p-0 col-2">
+                            <img src="resources/paper_samples_images/rate_sample3_2.png" width="100%" />
+                            <audio controls="" preload="auto">
+                                <source src="resources/paper_samples/rate_sample3_2.wav" type="audio/wav" />
+                            </audio>
+                        </div>
+                        <div class=" p-0 col-2">
+                            <img src="resources/paper_samples_images/rate_sample3_3.png" width="100%" />
+                            <audio controls="" preload="auto">
+                                <source src="resources/paper_samples/rate_sample3_3.wav" type="audio/wav" />
+                            </audio>
+                        </div>
+                        <div class=" p-0 col-2">
+                            <img src="resources/paper_samples_images/rate_sample3_4.png" width="100%" />
+                            <audio controls="" preload="auto">
+                                <source src="resources/paper_samples/rate_sample3_4.wav" type="audio/wav" />
+                            </audio>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-2">
+                    &nbsp;
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-2">
+                    &nbsp;
+                </div>
+                <div class="col-8 pt-2">
+                    <div class="row">
+                        <div class="col-1 pt-5 text-center example-headings">sample 3</div>
+                        <div class="p-0 col-2">
+                            <img src="resources/paper_samples_images/rate_sample4_0.png" width="100%" />
+                            <audio controls="" preload="auto">
+                                <source src="resources/paper_samples/rate_sample4_0.wav" type="audio/wav" />
+                            </audio>
+                        </div>
+                        <div class=" p-0 col-2">
+                            <img src="resources/paper_samples_images/rate_sample4_1.png" width="100%" />
+                            <audio controls="" preload="auto">
+                                <source src="resources/paper_samples/rate_sample4_1.wav" type="audio/wav" />
+                            </audio>
+                        </div>
+                        <div class=" p-0 col-2">
+                            <img src="resources/paper_samples_images/rate_sample4_2.png" width="100%" />
+                            <audio controls="" preload="auto">
+                                <source src="resources/paper_samples/rate_sample4_2.wav" type="audio/wav" />
+                            </audio>
+                        </div>
+                        <div class=" p-0 col-2">
+                            <img src="resources/paper_samples_images/rate_sample4_3.png" width="100%" />
+                            <audio controls="" preload="auto">
+                                <source src="resources/paper_samples/rate_sample4_3.wav" type="audio/wav" />
+                            </audio>
+                        </div>
+                        <div class=" p-0 col-2">
+                            <img src="resources/paper_samples_images/rate_sample4_4.png" width="100%" />
+                            <audio controls="" preload="auto">
+                                <source src="resources/paper_samples/rate_sample4_4.wav" type="audio/wav" />
+                            </audio>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-2">
+                    &nbsp;
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-2">
+                    &nbsp;
+                </div>
+                <div class="col-8 pt-2">
+                    <div class="row">
+                        <div class="col-1 pt-5 text-center example-headings">sample 4</div>
+                        <div class="p-0 col-2">
+                            <img src="resources/paper_samples_images/rate_sample5_0.png" width="100%" />
+                            <audio controls="" preload="auto">
+                                <source src="resources/paper_samples/rate_sample5_0.wav" type="audio/wav" />
+                            </audio>
+                        </div>
+                        <div class=" p-0 col-2">
+                            <img src="resources/paper_samples_images/rate_sample5_1.png" width="100%" />
+                            <audio controls="" preload="auto">
+                                <source src="resources/paper_samples/rate_sample5_1.wav" type="audio/wav" />
+                            </audio>
+                        </div>
+                        <div class=" p-0 col-2">
+                            <img src="resources/paper_samples_images/rate_sample5_2.png" width="100%" />
+                            <audio controls="" preload="auto">
+                                <source src="resources/paper_samples/rate_sample5_2.wav" type="audio/wav" />
+                            </audio>
+                        </div>
+                        <div class=" p-0 col-2">
+                            <img src="resources/paper_samples_images/rate_sample5_3.png" width="100%" />
+                            <audio controls="" preload="auto">
+                                <source src="resources/paper_samples/rate_sample5_3.wav" type="audio/wav" />
+                            </audio>
+                        </div>
+                        <div class=" p-0 col-2">
+                            <img src="resources/paper_samples_images/rate_sample5_4.png" width="100%" />
+                            <audio controls="" preload="auto">
+                                <source src="resources/paper_samples/rate_sample5_4.wav" type="audio/wav" />
+                            </audio>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-2">
+                    &nbsp;
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-2">
+                    &nbsp;
+                </div>
+                <div class="col-8 pt-2">
+                    <div class="row">
+                        <div class="col-1 pt-5 text-center example-headings">sample 5</div>
+                        <div class="p-0 col-2">
+                            <img src="resources/paper_samples_images/rate_sample1_0.png" width="100%" />
+                            <audio controls="" preload="auto">
+                                <source src="resources/paper_samples/rate_sample1_0.wav" type="audio/wav" />
+                            </audio>
+                        </div>
+                        <div class=" p-0 col-2">
+                            <img src="resources/paper_samples_images/rate_sample1_1.png" width="100%" />
+                            <audio controls="" preload="auto">
+                                <source src="resources/paper_samples/rate_sample1_1.wav" type="audio/wav" />
+                            </audio>
+                        </div>
+                        <div class=" p-0 col-2">
+                            <img src="resources/paper_samples_images/rate_sample1_2.png" width="100%" />
+                            <audio controls="" preload="auto">
+                                <source src="resources/paper_samples/rate_sample1_2.wav" type="audio/wav" />
+                            </audio>
+                        </div>
+                        <div class=" p-0 col-2">
+                            <img src="resources/paper_samples_images/rate_sample1_3.png" width="100%" />
+                            <audio controls="" preload="auto">
+                                <source src="resources/paper_samples/rate_sample1_3.wav" type="audio/wav" />
+                            </audio>
+                        </div>
+                        <div class=" p-0 col-2">
+                            <img src="resources/paper_samples_images/rate_sample1_4.png" width="100%" />
+                            <audio controls="" preload="auto">
+                                <source src="resources/paper_samples/rate_sample1_4.wav" type="audio/wav" />
+                            </audio>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-2">
+                    &nbsp;
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+
+        <div class='row'>
+            <div class='col-2'>
+                &nbsp;
+            </div>
+            <div class='col-8 table-center-align dashed-boder'>
+                <a href="javascript:scrollToTheTop()">Back to top</a>
+            </div>
+            <div class='col-2'>
+                &nbsp;
+            </div>
+        </div>
+        <!--Greatest Hits Examples complete-->
+
+
+
+
+
+
+
+
+
+        <div class="row">&nbsp;</div>
+        <div class="row">
+            <div class="col-2">
+                &nbsp;
+            </div>
+            <div class="col-8 h4 text-start pt-2" id="water-examples">
+                <u><b>Guided examples for Water</b></u>
+            </div>
+            <div class="col-2">
+                &nbsp;
+            </div>
+        </div>
+        <div class="row">&nbsp;</div>
+
+
+        <div class="row">
+            <div class="col-2">
+                &nbsp;
+            </div>
+            <div class="col-8 text-start pt-2" id="greatesthits-examples">
+                For this dataset, we develop semantic concept clusters and directions for the continuously valued
+                concept of <b>fill-level</b> of the container.
+            </div>
+            <div class="col-2">
+                &nbsp;
+            </div>
+        </div>
+        <div class="row">&nbsp;</div>
+        <div class="row">&nbsp;</div>
+
+        <div class="row" id="water-examples">
+            <div class="row">
+                <div class="col-2">
+                    &nbsp;
+                </div>
+                <div class="col-8 h5 text-center">
+                    <u><b>Guiding Water Fill-Level</b></u>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-1">
+                    &nbsp;
+                </div>
+                <div class="col-8 pt-2 text-start">
+                    <b>sample 1</b>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 pt-2">
+                    <div class="row">
+                        <!-- <div class="col-1 pt-5 text-center example-headings">sample 1</div> -->
+                        <div class="p-0 col-1">
+                            <img src="resources/paper_samples_images/water_sample1_0.png" width="100%" />
+                            <audio controls width="110%">
+                                <source src="resources/paper_samples/water_sample1_0.wav" type="audio/wav" />
+                            </audio>
+                        </div>
+                        <div class=" p-0 col-1">
+                            <img src="resources/paper_samples_images/water_sample1_1.png" width="100%" />
+                            <audio controls="" preload="auto">
+                                <source src="resources/paper_samples/water_sample1_1.wav" type="audio/wav" />
+                            </audio>
+                        </div>
+                        <div class=" p-0 col-1">
+                            <img src="resources/paper_samples_images/water_sample1_2.png" width="100%" />
+                            <audio controls="" preload="auto">
+                                <source src="resources/paper_samples/water_sample1_2.wav" type="audio/wav" />
+                            </audio>
+                        </div>
+                        <div class=" p-0 col-1">
+                            <img src="resources/paper_samples_images/water_sample1_3.png" width="100%" />
+                            <audio controls="" preload="auto">
+                                <source src="resources/paper_samples/water_sample1_3.wav" type="audio/wav" />
+                            </audio>
+                        </div>
+                        <div class=" p-0 col-1">
+                            <img src="resources/paper_samples_images/water_sample1_4.png" width="100%" />
+                            <audio controls="" preload="auto">
+                                <source src="resources/paper_samples/water_sample1_4.wav" type="audio/wav" />
+                            </audio>
+                        </div>
+                        <div class=" p-0 col-1">
+                            <img src="resources/paper_samples_images/water_sample1_5.png" width="100%" />
+                            <audio controls="" preload="auto">
+                                <source src="resources/paper_samples/water_sample1_5.wav" type="audio/wav" />
+                            </audio>
+                        </div>
+                        <div class=" p-0 col-1">
+                            <img src="resources/paper_samples_images/water_sample1_6.png" width="100%" />
+                            <audio controls="" preload="auto">
+                                <source src="resources/paper_samples/water_sample1_6.wav" type="audio/wav" />
+                            </audio>
+                        </div>
+                        <div class=" p-0 col-1">
+                            <img src="resources/paper_samples_images/water_sample1_7.png" width="100%" />
+                            <audio controls="" preload="auto">
+                                <source src="resources/paper_samples/water_sample1_7.wav" type="audio/wav" />
+                            </audio>
+                        </div>
+                        <div class=" p-0 col-1">
+                            <img src="resources/paper_samples_images/water_sample1_8.png" width="100%" />
+                            <audio controls="" preload="auto">
+                                <source src="resources/paper_samples/water_sample1_8.wav" type="audio/wav" />
+                            </audio>
+                        </div>
+                        <div class=" p-0 col-1">
+                            <img src="resources/paper_samples_images/water_sample1_9.png" width="100%" />
+                            <audio controls="" preload="auto">
+                                <source src="resources/paper_samples/water_sample1_9.wav" type="audio/wav" />
+                            </audio>
+                        </div>
+                        <div class=" p-0 col-1">
+                            <img src="resources/paper_samples_images/water_sample1_10.png" width="100%" />
+                            <audio controls="" preload="auto">
+                                <source src="resources/paper_samples/water_sample1_10.wav" type="audio/wav" />
+                            </audio>
+                        </div>
+                        <div class=" p-0 col-1">
+                            <img src="resources/paper_samples_images/water_sample1_11.png" width="100%" />
+                            <audio controls="" preload="auto">
+                                <source src="resources/paper_samples/water_sample1_11.wav" type="audio/wav" />
+                            </audio>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="col-1">
+                </div>
+                <div class="col-8 pt-2 text-start">
+                    <b>sample 2</b>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 pt-2">
+                    <div class="row">
+                        <div class="p-0 col-1">
+                            <img src="resources/paper_samples_images/water_sample2_0.png" width="100%" />
+                            <audio controls width="110%">
+                                <source src="resources/paper_samples/water_sample2_0.wav" type="audio/wav" />
+                            </audio>
+                        </div>
+                        <div class=" p-0 col-1">
+                            <img src="resources/paper_samples_images/water_sample2_1.png" width="100%" />
+                            <audio controls="" preload="auto">
+                                <source src="resources/paper_samples/water_sample2_1.wav" type="audio/wav" />
+                            </audio>
+                        </div>
+                        <div class=" p-0 col-1">
+                            <img src="resources/paper_samples_images/water_sample2_2.png" width="100%" />
+                            <audio controls="" preload="auto">
+                                <source src="resources/paper_samples/water_sample2_2.wav" type="audio/wav" />
+                            </audio>
+                        </div>
+                        <div class=" p-0 col-1">
+                            <img src="resources/paper_samples_images/water_sample2_3.png" width="100%" />
+                            <audio controls="" preload="auto">
+                                <source src="resources/paper_samples/water_sample2_3.wav" type="audio/wav" />
+                            </audio>
+                        </div>
+                        <div class=" p-0 col-1">
+                            <img src="resources/paper_samples_images/water_sample2_4.png" width="100%" />
+                            <audio controls="" preload="auto">
+                                <source src="resources/paper_samples/water_sample2_4.wav" type="audio/wav" />
+                            </audio>
+                        </div>
+                        <div class=" p-0 col-1">
+                            <img src="resources/paper_samples_images/water_sample2_5.png" width="100%" />
+                            <audio controls="" preload="auto">
+                                <source src="resources/paper_samples/water_sample2_5.wav" type="audio/wav" />
+                            </audio>
+                        </div>
+                        <div class=" p-0 col-1">
+                            <img src="resources/paper_samples_images/water_sample2_6.png" width="100%" />
+                            <audio controls="" preload="auto">
+                                <source src="resources/paper_samples/water_sample2_6.wav" type="audio/wav" />
+                            </audio>
+                        </div>
+                        <div class=" p-0 col-1">
+                            <img src="resources/paper_samples_images/water_sample2_7.png" width="100%" />
+                            <audio controls="" preload="auto">
+                                <source src="resources/paper_samples/water_sample2_7.wav" type="audio/wav" />
+                            </audio>
+                        </div>
+                        <div class=" p-0 col-1">
+                            <img src="resources/paper_samples_images/water_sample2_8.png" width="100%" />
+                            <audio controls="" preload="auto">
+                                <source src="resources/paper_samples/water_sample2_8.wav" type="audio/wav" />
+                            </audio>
+                        </div>
+                        <div class=" p-0 col-1">
+                            <img src="resources/paper_samples_images/water_sample2_9.png" width="100%" />
+                            <audio controls="" preload="auto">
+                                <source src="resources/paper_samples/water_sample2_9.wav" type="audio/wav" />
+                            </audio>
+                        </div>
+                        <div class=" p-0 col-1">
+                            <img src="resources/paper_samples_images/water_sample2_10.png" width="100%" />
+                            <audio controls="" preload="auto">
+                                <source src="resources/paper_samples/water_sample2_10.wav" type="audio/wav" />
+                            </audio>
+                        </div>
+                        <div class=" p-0 col-1">
+                            <img src="resources/paper_samples_images/water_sample2_11.png" width="100%" />
+                            <audio controls="" preload="auto">
+                                <source src="resources/paper_samples/water_sample2_11.wav" type="audio/wav" />
+                            </audio>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class='row'>&nbsp;</div>
+
+            <div class='row'>
+                <div class='col-2'>
+                    &nbsp;
+                </div>
+                <div class='col-8 table-center-align dashed-boder'>
+                    <a href="javascript:scrollToTheTop()">Back to top</a>
+                </div>
+                <div class='col-2'>
+                    &nbsp;
+                </div>
+            </div>
+            <!--Water Examples complete-->
+
+
+
+            <div class="row">&nbsp;</div>
+            <div class='row'>&nbsp;</div>
+            <div class="row">
+                <div class="col-2">
+                    &nbsp;
+                </div>
+                <div class="col-8 h4 text-start pt-2" id="selective-attr-transfer-examples">
+                    <u><b>Examples for Selective Semantic Attribute Transfer</b></u>
+                </div>
+                <div class="col-2">
+                    &nbsp;
+                </div>
+            </div>
+            <div class="row">&nbsp;</div>
+
+
+            <div class="row">
+                <div class="col-2">
+                    &nbsp;
+                </div>
+                <div class="col-8 text-start pt-2">
+                    This idea is inspired from applications such as photoshop, where a user can
+                    select an object and use a brush tool to pick the color of the object
+                    and transfer the color to another object. With selective semantic attribute transfer, 
+                    we would like to select a semantic attribute on a <b>reference sample</b>
+                    and transfer that semantic attribute value to another <b>target sample</b>.
+                </div>
+                <div class="col-2">
+                    &nbsp;
+                </div>
+            </div>
+            <div class="row">&nbsp;</div>
+            <div class="row">&nbsp;</div>
+
+
+
+
+            <!-- brightness timbre transfer:start-->
+            <div class="row">
+                <div class="col-4">
+                    &nbsp;
+                </div>
+                <div class="col-6 border-bottom text-center" >
+                    <b>Target Samples</b>
+                </div>
+                <div class="col-2">
+                    &nbsp;
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-2">
+                    &nbsp;
+                </div>
+                <div class="col-10">
+                    <div class="row">
+                        <div class="col-2 text-center pt-5" style="color: rgb(0, 106, 255);">
+                            <b>Transfer Brightness Example</b>
+                        </div>
+                        <div class="p-0 col-2">
+                            <img src="resources/paper_samples_timbretransfer_images/brightness_column_1_header.png" width="100%" />
+                            <audio controls="" preload="auto">
+                                <source src="resources/paper_samples_timbretransfer/brightness_column_1_header.wav" type="audio/wav" />
+                            </audio>
+                            
+                        </div>
+                        <div class="p-0 col-2">
+                            <img src="resources/paper_samples_timbretransfer_images/brightness_column_2_header.png" width="100%" />
+                            <audio controls="" preload="auto">
+                                <source src="resources/paper_samples_timbretransfer/brightness_column_2_header.wav" type="audio/wav" />
+                            </audio>
+                        </div>
+                        <div class="p-0 col-2">
+                            <img src="resources/paper_samples_timbretransfer_images/brightness_column_3_header.png" width="100%" />
+                            <audio controls="" preload="auto">
+                                <source src="resources/paper_samples_timbretransfer/brightness_column_3_header.wav" type="audio/wav" />
+                            </audio>
+                        </div>
+                        <div class="p-0 col-2">
+                            <img src="resources/paper_samples_timbretransfer_images/brightness_column_4_header.png" width="100%" />
+                            <audio controls="" preload="auto">
+                                <source src="resources/paper_samples_timbretransfer/brightness_column_4_header.wav" type="audio/wav" />
+                            </audio>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                &nbsp;
+            </div>
+            <div class="row">
+                <div class="col-2">
+                    &nbsp;
+                </div>
+                <div class="p-0 col-2 border-bottom ps-2">
+                    <span style="height: 100%;  display: flex; align-items: flex-end; justify-content: start;"><b>Brightness Reference Sample</b></span>
+                </div>
+                <div class="p-0 col-6 border-bottom">
+                    <span style="height: 100%;  display: flex; align-items: flex-end; justify-content: center;"><b>Target Sample + Brightness Transferred from Reference Sample </b></span>
+                </div>
+                <div class="p-0 col-2">
+                    &nbsp;
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-2">
+                    &nbsp;
+                </div>
+                <div class="col-10">
+                    <div class="row">
+                        <div class="p-0 col-2">
+                            <img src="resources/paper_samples_timbretransfer_images/brightness_row_header.png" width="100%" />
+                            <audio controls="" preload="auto">
+                                <source src="resources/paper_samples_timbretransfer/brightness_row_header.wav" type="audio/wav" />
+                            </audio>
+                        </div>
+                        <div class="p-0 col-2">
+                            <img src="resources/paper_samples_timbretransfer_images/brightness_column_1.png" width="100%" />
+                            <audio controls="" preload="auto">
+                                <source src="resources/paper_samples_timbretransfer/brightness_column_1.wav" type="audio/wav" />
+                            </audio>
+                        </div>
+                        <div class="p-0 col-2">
+                            <img src="resources/paper_samples_timbretransfer_images/brightness_column_2.png" width="100%" />
+                            <audio controls="" preload="auto">
+                                <source src="resources/paper_samples_timbretransfer/brightness_column_2.wav" type="audio/wav" />
+                            </audio>
+                        </div>
+                        <div class="p-0 col-2">
+                            <img src="resources/paper_samples_timbretransfer_images/brightness_column_3.png" width="100%" />
+                            <audio controls="" preload="auto">
+                                <source src="resources/paper_samples_timbretransfer/brightness_column_3.wav" type="audio/wav" />
+                            </audio>
+                        </div>
+                        <div class="p-0 col-2">
+                            <img src="resources/paper_samples_timbretransfer_images/brightness_column_4.png" width="100%" />
+                            <audio controls="" preload="auto">
+                                <source src="resources/paper_samples_timbretransfer/brightness_column_4.wav" type="audio/wav" />
+                            </audio>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- brightness timbre transfer:end-->
+
+            <div class="row">&nbsp;</div>
+            <div class="row">&nbsp;</div>
+            <div class="row">&nbsp;</div>
+
+
+            <!-- impact type timbre transfer:start-->
+            <div class="row">
+                <div class="col-4">
+                    &nbsp;
+                </div>
+                <div class="col-6 border-bottom text-center" >
+                    <b>Target Samples</b>
+                </div>
+                <div class="col-2">
+                    &nbsp;
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-2">
+                    &nbsp;
+                </div>
+                <div class="col-10">
+                    <div class="row">
+                        <div class="col-2 text-center pt-5" style="color: rgb(0, 106, 255);">
+                            <b>Transfer Impact Type Example</b>
+                        </div>
+                        <div class="p-0 col-2">
+                            <img src="resources/paper_samples_timbretransfer_images/impacttype_column_1_header.png" width="100%" />
+                            <audio controls="" preload="auto">
+                                <source src="resources/paper_samples_timbretransfer/impacttype_column_1_header.wav" type="audio/wav" />
+                            </audio>
+                            
+                        </div>
+                        <div class="p-0 col-2">
+                            <img src="resources/paper_samples_timbretransfer_images/impacttype_column_2_header.png" width="100%" />
+                            <audio controls="" preload="auto">
+                                <source src="resources/paper_samples_timbretransfer/impacttype_column_2_header.wav" type="audio/wav" />
+                            </audio>
+                        </div>
+                        <div class="p-0 col-2">
+                            <img src="resources/paper_samples_timbretransfer_images/impacttype_column_3_header.png" width="100%" />
+                            <audio controls="" preload="auto">
+                                <source src="resources/paper_samples_timbretransfer/impacttype_column_3_header.wav" type="audio/wav" />
+                            </audio>
+                        </div>
+                        <div class="p-0 col-2">
+                            <img src="resources/paper_samples_timbretransfer_images/impacttype_column_4_header.png" width="100%" />
+                            <audio controls="" preload="auto">
+                                <source src="resources/paper_samples_timbretransfer/impacttype_column_4_header.wav" type="audio/wav" />
+                            </audio>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                &nbsp;
+            </div>
+            <div class="row">
+                <div class="col-2">
+                    &nbsp;
+                </div>
+                <div class="p-0 col-2 border-bottom ps-2">
+                    <span style="height: 100%;  display: flex; align-items: flex-end; justify-content: start;"><b>Impact Type Reference Sample</b></span>
+                </div>
+                <div class="p-0 col-6 border-bottom">
+                    <span style="height: 100%;  display: flex; align-items: flex-end; justify-content: center;"><b>Target Sample + Impact Type Transferred from Reference Sample </b></span>
+                </div>
+                <div class="p-0 col-2">
+                    &nbsp;
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-2">
+                    &nbsp;
+                </div>
+                <div class="col-10">
+                    <div class="row">
+                        <div class="p-0 col-2">
+                            <img src="resources/paper_samples_timbretransfer_images/impacttype_row_header.png" width="100%" />
+                            <audio controls="" preload="auto">
+                                <source src="resources/paper_samples_timbretransfer/impacttype_row_header.wav" type="audio/wav" />
+                            </audio>
+                        </div>
+                        <div class="p-0 col-2">
+                            <img src="resources/paper_samples_timbretransfer_images/impacttype_column_1.png" width="100%" />
+                            <audio controls="" preload="auto">
+                                <source src="resources/paper_samples_timbretransfer/impacttype_column_1.wav" type="audio/wav" />
+                            </audio>
+                        </div>
+                        <div class="p-0 col-2">
+                            <img src="resources/paper_samples_timbretransfer_images/impacttype_column_2.png" width="100%" />
+                            <audio controls="" preload="auto">
+                                <source src="resources/paper_samples_timbretransfer/impacttype_column_2.wav" type="audio/wav" />
+                            </audio>
+                        </div>
+                        <div class="p-0 col-2">
+                            <img src="resources/paper_samples_timbretransfer_images/impacttype_column_3.png" width="100%" />
+                            <audio controls="" preload="auto">
+                                <source src="resources/paper_samples_timbretransfer/impacttype_column_3.wav" type="audio/wav" />
+                            </audio>
+                        </div>
+                        <div class="p-0 col-2">
+                            <img src="resources/paper_samples_timbretransfer_images/impacttype_column_4.png" width="100%" />
+                            <audio controls="" preload="auto">
+                                <source src="resources/paper_samples_timbretransfer/impacttype_column_4.wav" type="audio/wav" />
+                            </audio>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- impact type timbre transfer:end-->
+
+
+            <div class="row">&nbsp;</div>
+            <div class="row">&nbsp;</div>
+            <div class="row">&nbsp;</div>
+
+
+            <!-- rate timbre transfer:start-->
+            <div class="row">
+                <div class="col-4">
+                    &nbsp;
+                </div>
+                <div class="col-6 border-bottom text-center" >
+                    <b>Target Samples</b>
+                </div>
+                <div class="col-2">
+                    &nbsp;
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-2">
+                    &nbsp;
+                </div>
+                <div class="col-10">
+                    <div class="row">
+                        <div class="col-2 text-center pt-5" style="color: rgb(0, 106, 255);">
+                            <b>Transfer Rate Example</b>
+                        </div>
+                        <div class="p-0 col-2">
+                            <img src="resources/paper_samples_timbretransfer_images/rate_column_1_header.png" width="100%" />
+                            <audio controls="" preload="auto">
+                                <source src="resources/paper_samples_timbretransfer/rate_column_1_header.wav" type="audio/wav" />
+                            </audio>
+                            
+                        </div>
+                        <div class="p-0 col-2">
+                            <img src="resources/paper_samples_timbretransfer_images/rate_column_2_header.png" width="100%" />
+                            <audio controls="" preload="auto">
+                                <source src="resources/paper_samples_timbretransfer/rate_column_2_header.wav" type="audio/wav" />
+                            </audio>
+                        </div>
+                        <div class="p-0 col-2">
+                            <img src="resources/paper_samples_timbretransfer_images/rate_column_3_header.png" width="100%" />
+                            <audio controls="" preload="auto">
+                                <source src="resources/paper_samples_timbretransfer/rate_column_3_header.wav" type="audio/wav" />
+                            </audio>
+                        </div>
+                        <div class="p-0 col-2">
+                            <img src="resources/paper_samples_timbretransfer_images/rate_column_4_header.png" width="100%" />
+                            <audio controls="" preload="auto">
+                                <source src="resources/paper_samples_timbretransfer/rate_column_4_header.wav" type="audio/wav" />
+                            </audio>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                &nbsp;
+            </div>
+            <div class="row">
+                <div class="col-2">
+                    &nbsp;
+                </div>
+                <div class="p-0 col-2 border-bottom ps-2">
+                    <span style="height: 100%;  display: flex; align-items: flex-end; justify-content: start;"><b>Rate Reference Sample</b></span>
+                </div>
+                <div class="p-0 col-6 border-bottom">
+                    <span style="height: 100%;  display: flex; align-items: flex-end; justify-content: center;"><b>Target Sample + Rate Transferred from Reference Sample </b></span>
+                </div>
+                <div class="p-0 col-2">
+                    &nbsp;
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-2">
+                    &nbsp;
+                </div>
+                <div class="col-10">
+                    <div class="row">
+                        <div class="p-0 col-2">
+                            <img src="resources/paper_samples_timbretransfer_images/rate_row_header.png" width="100%" />
+                            <audio controls="" preload="auto">
+                                <source src="resources/paper_samples_timbretransfer/rate_row_header.wav" type="audio/wav" />
+                            </audio>
+                        </div>
+                        <div class="p-0 col-2">
+                            <img src="resources/paper_samples_timbretransfer_images/rate_column_1.png" width="100%" />
+                            <audio controls="" preload="auto">
+                                <source src="resources/paper_samples_timbretransfer/rate_column_1.wav" type="audio/wav" />
+                            </audio>
+                        </div>
+                        <div class="p-0 col-2">
+                            <img src="resources/paper_samples_timbretransfer_images/rate_column_2.png" width="100%" />
+                            <audio controls="" preload="auto">
+                                <source src="resources/paper_samples_timbretransfer/rate_column_2.wav" type="audio/wav" />
+                            </audio>
+                        </div>
+                        <div class="p-0 col-2">
+                            <img src="resources/paper_samples_timbretransfer_images/rate_column_3.png" width="100%" />
+                            <audio controls="" preload="auto">
+                                <source src="resources/paper_samples_timbretransfer/rate_column_3.wav" type="audio/wav" />
+                            </audio>
+                        </div>
+                        <div class="p-0 col-2">
+                            <img src="resources/paper_samples_timbretransfer_images/rate_column_4.png" width="100%" />
+                            <audio controls="" preload="auto">
+                                <source src="resources/paper_samples_timbretransfer/rate_column_4.wav" type="audio/wav" />
+                            </audio>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- impact type timbre transfer:end-->
+
+            <div class='row'>&nbsp;</div>
+
+            <div class='row'>
+                <div class='col-2'>
+                    &nbsp;
+                </div>
+                <div class='col-8 table-center-align dashed-boder'>
+                    <a href="javascript:scrollToTheTop()">Back to top</a>
+                </div>
+                <div class='col-2'>
+                    &nbsp;
+                </div>
+            </div>
+
+            <div class="row">&nbsp;</div>
+            <div class="row">&nbsp;</div>
+
+            <!-- SeFa Failure Mode begins -->
+            <div class="row">
+                <div class="col-2">
+                    &nbsp;
+                </div>
+                <div class="col-8 h4 text-start pt-2" id="sefa-failure-modes">
+                    <u><b>SeFa failure modes</b></u>
+                </div>
+                <div class="col-2">
+                    &nbsp;
+                </div>
+            </div>
+            <div class="row">&nbsp;</div>
+
+
+            <div class="row">
+                <div class="col-2">
+                    &nbsp;
+                </div>
+                <div class="col-8 text-start pt-2">
+                    ......
+                </div>
+                <div class="col-2">
+                    &nbsp;
+                </div>
+            </div>
+            <div class="row">&nbsp;</div>
+            <div class="row">&nbsp;</div>
+    
+    
+    
+    
+            <div class="row">
+                <div class="row">
+                    <div class="col-2">
+                        &nbsp;
+                    </div>
+                    <div class="col-8 h5 text-center">
+                        <u><b>SeFa failure mode for Greatest Hits - Brightness</b></u>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-2">
+                        &nbsp;
+                    </div>
+                    <div class="col-8 pt-2">
+                        <div class="row">
+                            <div class="col-1 pt-5 text-center example-headings">sample 1</div>
+                            <div class="p-0 col-2">
+                                <img src="resources/sefa-failure-mode_images/brightness_ref_b_1.png" width="100%" />
+                                <audio controls="" preload="auto">
+                                    <source src="resources/sefa-failure-mode/brightness_ref_b_1.wav" type="audio/wav" />
+                                </audio>
+                            </div>
+                            <div class=" p-0 col-2">
+                                <img src="resources/sefa-failure-mode_images/brightness_sefa_1_0.png" width="100%" />
+                                <audio controls="" preload="auto">
+                                    <source src="resources/sefa-failure-mode/brightness_sefa_1_0.wav" type="audio/wav" />
+                                </audio>
+                            </div>
+                            <div class=" p-0 col-2">
+                                <img src="resources/sefa-failure-mode_images/brightness_sefa_1_1.png" width="100%" />
+                                <audio controls="" preload="auto">
+                                    <source src="resources/sefa-failure-mode/brightness_sefa_1_1.wav" type="audio/wav" />
+                                </audio>
+                            </div>
+                            <div class=" p-0 col-2">
+                                <img src="resources/sefa-failure-mode_images/brightness_sefa_1_2.png" width="100%" />
+                                <audio controls="" preload="auto">
+                                    <source src="resources/sefa-failure-mode/brightness_sefa_1_2.wav" type="audio/wav" />
+                                </audio>
+                            </div>
+                            <div class=" p-0 col-2">
+                                <img src="resources/sefa-failure-mode_images/brightness_sefa_1_3.png" width="100%" />
+                                <audio controls="" preload="auto">
+                                    <source src="resources/sefa-failure-mode/brightness_sefa_1_3.wav" type="audio/wav" />
+                                </audio>
+                            </div>
+    
+                        </div>
+                    </div>
+                    <div class="col-2">
+                        &nbsp;
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-2">
+                        &nbsp;
+                    </div>
+                    <div class="col-8 pt-2">
+                        <div class="row">
+                            <div class="col-1 pt-5 text-center example-headings">sample 2</div>
+                            <div class="p-0 col-2">
+                                <img src="resources/sefa-failure-mode_images/brightness_ref_b_3.png" width="100%" />
+                                <audio controls="" preload="auto">
+                                    <source src="resources/sefa-failure-mode/brightness_ref_b_3.wav" type="audio/wav" />
+                                </audio>
+                            </div>
+                            <div class=" p-0 col-2">
+                                <img src="resources/sefa-failure-mode_images/brightness_sefa_3_0.png" width="100%" />
+                                <audio controls="" preload="auto">
+                                    <source src="resources/sefa-failure-mode/brightness_sefa_3_0.wav" type="audio/wav" />
+                                </audio>
+                            </div>
+                            <div class=" p-0 col-2">
+                                <img src="resources/sefa-failure-mode_images/brightness_sefa_3_1.png" width="100%" />
+                                <audio controls="" preload="auto">
+                                    <source src="resources/sefa-failure-mode/brightness_sefa_3_1.wav" type="audio/wav" />
+                                </audio>
+                            </div>
+                            <div class=" p-0 col-2">
+                                <img src="resources/sefa-failure-mode_images/brightness_sefa_3_2.png" width="100%" />
+                                <audio controls="" preload="auto">
+                                    <source src="resources/sefa-failure-mode/brightness_sefa_3_2.wav" type="audio/wav" />
+                                </audio>
+                            </div>
+                            <div class=" p-0 col-2">
+                                <img src="resources/sefa-failure-mode_images/brightness_sefa_3_3.png" width="100%" />
+                                <audio controls="" preload="auto">
+                                    <source src="resources/sefa-failure-mode/brightness_sefa_3_3.wav" type="audio/wav" />
+                                </audio>
+                            </div>
+    
+                        </div>
+                    </div>
+                    <div class="col-2">
+                        &nbsp;
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="row">&nbsp;</div>
+            <div class="row">&nbsp;</div>
+
+
+
+
+            <div class="row">
+                <div class="row">
+                    <div class="col-2">
+                        &nbsp;
+                    </div>
+                    <div class="col-8 h5 text-center">
+                        <u><b>SeFa failure mode for Greatest Hits - Impact Type</b></u>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-2">
+                        &nbsp;
+                    </div>
+                    <div class="col-8 pt-2">
+                        <div class="row">
+                            <div class="col-1 pt-5 text-center example-headings">sample 1</div>
+                            <div class="p-0 col-2">
+                                <img src="resources/sefa-failure-mode_images/impacttype_ref_s_1.png" width="100%" />
+                                <audio controls="" preload="auto">
+                                    <source src="resources/sefa-failure-mode/impacttype_ref_s_1.wav" type="audio/wav" />
+                                </audio>
+                            </div>
+                            <div class=" p-0 col-2">
+                                <img src="resources/sefa-failure-mode_images/impacttype_sefa_1_0.png" width="100%" />
+                                <audio controls="" preload="auto">
+                                    <source src="resources/sefa-failure-mode/impacttype_sefa_1_0.wav" type="audio/wav" />
+                                </audio>
+                            </div>
+                            <div class=" p-0 col-2">
+                                <img src="resources/sefa-failure-mode_images/impacttype_sefa_1_1.png" width="100%" />
+                                <audio controls="" preload="auto">
+                                    <source src="resources/sefa-failure-mode/impacttype_sefa_1_1.wav" type="audio/wav" />
+                                </audio>
+                            </div>
+                            <div class=" p-0 col-2">
+                                <img src="resources/sefa-failure-mode_images/impacttype_sefa_1_2.png" width="100%" />
+                                <audio controls="" preload="auto">
+                                    <source src="resources/sefa-failure-mode/impacttype_sefa_1_2.wav" type="audio/wav" />
+                                </audio>
+                            </div>
+                            <div class=" p-0 col-2">
+                                <img src="resources/sefa-failure-mode_images/impacttype_sefa_1_3.png" width="100%" />
+                                <audio controls="" preload="auto">
+                                    <source src="resources/sefa-failure-mode/impacttype_sefa_1_3.wav" type="audio/wav" />
+                                </audio>
+                            </div>
+    
+                        </div>
+                    </div>
+                    <div class="col-2">
+                        &nbsp;
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-2">
+                        &nbsp;
+                    </div>
+                    <div class="col-8 pt-2">
+                        <div class="row">
+                            <div class="col-1 pt-5 text-center example-headings">sample 2</div>
+                            <div class="p-0 col-2">
+                                <img src="resources/sefa-failure-mode_images/impacttype_ref_s_2.png" width="100%" />
+                                <audio controls="" preload="auto">
+                                    <source src="resources/sefa-failure-mode/impacttype_ref_s_2.wav" type="audio/wav" />
+                                </audio>
+                            </div>
+                            <div class=" p-0 col-2">
+                                <img src="resources/sefa-failure-mode_images/impacttype_sefa_2_0.png" width="100%" />
+                                <audio controls="" preload="auto">
+                                    <source src="resources/sefa-failure-mode/impacttype_sefa_2_0.wav" type="audio/wav" />
+                                </audio>
+                            </div>
+                            <div class=" p-0 col-2">
+                                <img src="resources/sefa-failure-mode_images/impacttype_sefa_2_1.png" width="100%" />
+                                <audio controls="" preload="auto">
+                                    <source src="resources/sefa-failure-mode/impacttype_sefa_2_1.wav" type="audio/wav" />
+                                </audio>
+                            </div>
+                            <div class=" p-0 col-2">
+                                <img src="resources/sefa-failure-mode_images/impacttype_sefa_2_2.png" width="100%" />
+                                <audio controls="" preload="auto">
+                                    <source src="resources/sefa-failure-mode/impacttype_sefa_2_2.wav" type="audio/wav" />
+                                </audio>
+                            </div>
+                            <div class=" p-0 col-2">
+                                <img src="resources/sefa-failure-mode_images/impacttype_sefa_2_3.png" width="100%" />
+                                <audio controls="" preload="auto">
+                                    <source src="resources/sefa-failure-mode/impacttype_sefa_2_3.wav" type="audio/wav" />
+                                </audio>
+                            </div>
+    
+                        </div>
+                    </div>
+                    <div class="col-2">
+                        &nbsp;
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-2">
+                        &nbsp;
+                    </div>
+                    <div class="col-8 pt-2">
+                        <div class="row">
+                            <div class="col-1 pt-5 text-center example-headings">sample 3</div>
+                            <div class="p-0 col-2">
+                                <img src="resources/sefa-failure-mode_images/impacttype_ref_s_5.png" width="100%" />
+                                <audio controls="" preload="auto">
+                                    <source src="resources/sefa-failure-mode/impacttype_ref_s_5.wav" type="audio/wav" />
+                                </audio>
+                            </div>
+                            <div class=" p-0 col-2">
+                                <img src="resources/sefa-failure-mode_images/impacttype_sefa_5_0.png" width="100%" />
+                                <audio controls="" preload="auto">
+                                    <source src="resources/sefa-failure-mode/impacttype_sefa_5_0.wav" type="audio/wav" />
+                                </audio>
+                            </div>
+                            <div class=" p-0 col-2">
+                                <img src="resources/sefa-failure-mode_images/impacttype_sefa_5_1.png" width="100%" />
+                                <audio controls="" preload="auto">
+                                    <source src="resources/sefa-failure-mode/impacttype_sefa_5_1.wav" type="audio/wav" />
+                                </audio>
+                            </div>
+                            <div class=" p-0 col-2">
+                                <img src="resources/sefa-failure-mode_images/impacttype_sefa_5_2.png" width="100%" />
+                                <audio controls="" preload="auto">
+                                    <source src="resources/sefa-failure-mode/impacttype_sefa_5_2.wav" type="audio/wav" />
+                                </audio>
+                            </div>
+                            <div class=" p-0 col-2">
+                                <img src="resources/sefa-failure-mode_images/impacttype_sefa_5_3.png" width="100%" />
+                                <audio controls="" preload="auto">
+                                    <source src="resources/sefa-failure-mode/impacttype_sefa_5_3.wav" type="audio/wav" />
+                                </audio>
+                            </div>
+    
+                        </div>
+                    </div>
+                    <div class="col-2">
+                        &nbsp;
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-2">
+                        &nbsp;
+                    </div>
+                    <div class="col-8 pt-2">
+                        <div class="row">
+                            <div class="col-1 pt-5 text-center example-headings">sample 4</div>
+                            <div class="p-0 col-2">
+                                <img src="resources/sefa-failure-mode_images/impacttype_ref_s_6.png" width="100%" />
+                                <audio controls="" preload="auto">
+                                    <source src="resources/sefa-failure-mode/impacttype_ref_s_6.wav" type="audio/wav" />
+                                </audio>
+                            </div>
+                            <div class=" p-0 col-2">
+                                <img src="resources/sefa-failure-mode_images/impacttype_sefa_6_0.png" width="100%" />
+                                <audio controls="" preload="auto">
+                                    <source src="resources/sefa-failure-mode/impacttype_sefa_6_0.wav" type="audio/wav" />
+                                </audio>
+                            </div>
+                            <div class=" p-0 col-2">
+                                <img src="resources/sefa-failure-mode_images/impacttype_sefa_6_1.png" width="100%" />
+                                <audio controls="" preload="auto">
+                                    <source src="resources/sefa-failure-mode/impacttype_sefa_6_1.wav" type="audio/wav" />
+                                </audio>
+                            </div>
+                            <div class=" p-0 col-2">
+                                <img src="resources/sefa-failure-mode_images/impacttype_sefa_6_2.png" width="100%" />
+                                <audio controls="" preload="auto">
+                                    <source src="resources/sefa-failure-mode/impacttype_sefa_6_2.wav" type="audio/wav" />
+                                </audio>
+                            </div>
+                            <div class=" p-0 col-2">
+                                <img src="resources/sefa-failure-mode_images/impacttype_sefa_6_3.png" width="100%" />
+                                <audio controls="" preload="auto">
+                                    <source src="resources/sefa-failure-mode/impacttype_sefa_6_3.wav" type="audio/wav" />
+                                </audio>
+                            </div>
+    
+                        </div>
+                    </div>
+                    <div class="col-2">
+                        &nbsp;
+                    </div>
+                </div>
+            </div>
+
+           
+            <div class="row">&nbsp;</div>
+            <div class="row">&nbsp;</div>
+            <div class="row">&nbsp;</div>
+
+
+
+            <div class="row">
+                <div class="row">
+                    <div class="col-2">
+                        &nbsp;
+                    </div>
+                    <div class="col-8 h5 text-center">
+                        <u><b>SeFa failure mode for Water - fill-level</b></u>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 pt-2">
+                        <div class="row">
+                            <div class="col-1 pt-5 text-center example-headings">sample 1 <br/>(Dim0. Perpetually filling. <br/>No ending.)</div>
+                            <div class="p-0 col-1">
+                                <img src="resources/sefa-failure-mode_images/water_sefa_1_0.png" width="100%" />
+                                <audio controls="" preload="auto">
+                                    <source src="resources/sefa-failure-mode/water_sefa_1_0.wav" type="audio/wav" />
+                                </audio>
+                            </div>
+                            <div class=" p-0 col-1">
+                                <img src="resources/sefa-failure-mode_images/water_sefa_1_1.png" width="100%" />
+                                <audio controls="" preload="auto">
+                                    <source src="resources/sefa-failure-mode/water_sefa_1_1.wav" type="audio/wav" />
+                                </audio>
+                            </div>
+                            <div class=" p-0 col-1">
+                                <img src="resources/sefa-failure-mode_images/water_sefa_1_2.png" width="100%" />
+                                <audio controls="" preload="auto">
+                                    <source src="resources/sefa-failure-mode/water_sefa_1_2.wav" type="audio/wav" />
+                                </audio>
+                            </div>
+                            <div class=" p-0 col-1">
+                                <img src="resources/sefa-failure-mode_images/water_sefa_1_3.png" width="100%" />
+                                <audio controls="" preload="auto">
+                                    <source src="resources/sefa-failure-mode/water_sefa_1_3.wav" type="audio/wav" />
+                                </audio>
+                            </div>
+                            <div class=" p-0 col-1">
+                                <img src="resources/sefa-failure-mode_images/water_sefa_1_4.png" width="100%" />
+                                <audio controls="" preload="auto">
+                                    <source src="resources/sefa-failure-mode/water_sefa_1_4.wav" type="audio/wav" />
+                                </audio>
+                            </div>
+                            <div class=" p-0 col-1">
+                                <img src="resources/sefa-failure-mode_images/water_sefa_1_5.png" width="100%" />
+                                <audio controls="" preload="auto">
+                                    <source src="resources/sefa-failure-mode/water_sefa_1_5.wav" type="audio/wav" />
+                                </audio>
+                            </div>
+                            <div class=" p-0 col-1">
+                                <img src="resources/sefa-failure-mode_images/water_sefa_1_6.png" width="100%" />
+                                <audio controls="" preload="auto">
+                                    <source src="resources/sefa-failure-mode/water_sefa_1_6.wav" type="audio/wav" />
+                                </audio>
+                            </div>
+                            <div class=" p-0 col-1">
+                                <img src="resources/sefa-failure-mode_images/water_sefa_1_7.png" width="100%" />
+                                <audio controls="" preload="auto">
+                                    <source src="resources/sefa-failure-mode/water_sefa_1_7.wav" type="audio/wav" />
+                                </audio>
+                            </div>
+                            <div class=" p-0 col-1">
+                                <img src="resources/sefa-failure-mode_images/water_sefa_1_8.png" width="100%" />
+                                <audio controls="" preload="auto">
+                                    <source src="resources/sefa-failure-mode/water_sefa_1_8.wav" type="audio/wav" />
+                                </audio>
+                            </div>
+                            <div class=" p-0 col-1">
+                                <img src="resources/sefa-failure-mode_images/water_sefa_1_9.png" width="100%" />
+                                <audio controls="" preload="auto">
+                                    <source src="resources/sefa-failure-mode/water_sefa_1_9.wav" type="audio/wav" />
+                                </audio>
+                            </div>
+                            <div class=" p-0 col-1">
+                                <img src="resources/sefa-failure-mode_images/water_sefa_1_10.png" width="100%" />
+                                <audio controls="" preload="auto">
+                                    <source src="resources/sefa-failure-mode/water_sefa_1_10.wav" type="audio/wav" />
+                                </audio>
+                            </div>
+    
+                        </div>
+                    </div>
+
+
+                    <div class="col-12 pt-2">
+                        <div class="row">
+                            <div class="col-1 pt-5 text-center example-headings">sample 2 <br/>(Dim2. Perpetually Unfilling. <br/>No starting.)</div>
+                            <div class="p-0 col-1">
+                                <img src="resources/sefa-failure-mode_images/water_sefa_2_0.png" width="100%" />
+                                <audio controls="" preload="auto">
+                                    <source src="resources/sefa-failure-mode/water_sefa_2_0.wav" type="audio/wav" />
+                                </audio>
+                            </div>
+                            <div class=" p-0 col-1">
+                                <img src="resources/sefa-failure-mode_images/water_sefa_2_1.png" width="100%" />
+                                <audio controls="" preload="auto">
+                                    <source src="resources/sefa-failure-mode/water_sefa_2_1.wav" type="audio/wav" />
+                                </audio>
+                            </div>
+                            <div class=" p-0 col-1">
+                                <img src="resources/sefa-failure-mode_images/water_sefa_2_2.png" width="100%" />
+                                <audio controls="" preload="auto">
+                                    <source src="resources/sefa-failure-mode/water_sefa_2_2.wav" type="audio/wav" />
+                                </audio>
+                            </div>
+                            <div class=" p-0 col-1">
+                                <img src="resources/sefa-failure-mode_images/water_sefa_2_3.png" width="100%" />
+                                <audio controls="" preload="auto">
+                                    <source src="resources/sefa-failure-mode/water_sefa_2_3.wav" type="audio/wav" />
+                                </audio>
+                            </div>
+                            <div class=" p-0 col-1">
+                                <img src="resources/sefa-failure-mode_images/water_sefa_2_4.png" width="100%" />
+                                <audio controls="" preload="auto">
+                                    <source src="resources/sefa-failure-mode/water_sefa_2_4.wav" type="audio/wav" />
+                                </audio>
+                            </div>
+                            <div class=" p-0 col-1">
+                                <img src="resources/sefa-failure-mode_images/water_sefa_2_5.png" width="100%" />
+                                <audio controls="" preload="auto">
+                                    <source src="resources/sefa-failure-mode/water_sefa_2_5.wav" type="audio/wav" />
+                                </audio>
+                            </div>
+                            <div class=" p-0 col-1">
+                                <img src="resources/sefa-failure-mode_images/water_sefa_2_6.png" width="100%" />
+                                <audio controls="" preload="auto">
+                                    <source src="resources/sefa-failure-mode/water_sefa_2_6.wav" type="audio/wav" />
+                                </audio>
+                            </div>
+                            <div class=" p-0 col-1">
+                                <img src="resources/sefa-failure-mode_images/water_sefa_2_7.png" width="100%" />
+                                <audio controls="" preload="auto">
+                                    <source src="resources/sefa-failure-mode/water_sefa_2_7.wav" type="audio/wav" />
+                                </audio>
+                            </div>
+                            <div class=" p-0 col-1">
+                                <img src="resources/sefa-failure-mode_images/water_sefa_2_8.png" width="100%" />
+                                <audio controls="" preload="auto">
+                                    <source src="resources/sefa-failure-mode/water_sefa_2_8.wav" type="audio/wav" />
+                                </audio>
+                            </div>
+                            <div class=" p-0 col-1">
+                                <img src="resources/sefa-failure-mode_images/water_sefa_2_9.png" width="100%" />
+                                <audio controls="" preload="auto">
+                                    <source src="resources/sefa-failure-mode/water_sefa_2_9.wav" type="audio/wav" />
+                                </audio>
+                            </div>
+                            <div class=" p-0 col-1">
+                                <img src="resources/sefa-failure-mode_images/water_sefa_2_10.png" width="100%" />
+                                <audio controls="" preload="auto">
+                                    <source src="resources/sefa-failure-mode/water_sefa_2_10.wav" type="audio/wav" />
+                                </audio>
+                            </div>
+    
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class='row'>
+                    <div class='col-2'>
+                        &nbsp;
+                    </div>
+                    <div class='col-8 table-center-align dashed-boder'>
+                        <a href="javascript:scrollToTheTop()">Back to top</a>
+                    </div>
+                    <div class='col-2'>
+                        &nbsp;
+                    </div>
+                </div>
+
+
+                <div class="row">&nbsp;</div>
+                <div class="row">&nbsp;</div>
+                <div class="row">&nbsp;</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </div>
+
+
+</body>
+
+</html>
