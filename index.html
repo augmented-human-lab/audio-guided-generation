@@ -1175,6 +1175,16 @@
 
             
 
+
+
+
+
+
+
+            <!--Listening test interfaces start-->
+            <div class="row">&nbsp;</div>
+            <div class="row">&nbsp;</div>
+            <div class="row">&nbsp;</div>
             <div class="row">&nbsp;</div>
             <div class="row">
                 <div class="col-2">
@@ -1214,12 +1224,10 @@
                     &nbsp;
                 </div>
             </div>
-
-
-
-
-
-
+            <div class="row">&nbsp;</div>
+            <div class="row">&nbsp;</div>
+            <div class="row">&nbsp;</div>
+            <div class="row">&nbsp;</div>
             <div class='row'>
                 <div class='col-2'>
                     &nbsp;
@@ -1231,7 +1239,15 @@
                     &nbsp;
                 </div>
             </div>
+            
             <!--Listening test interfaces complete-->
+
+
+
+
+
+
+
 
 
 
@@ -1270,8 +1286,8 @@
                     This idea is inspired from applications such as photoshop, where a user can
                     select an object and use a brush tool to pick the color of the object
                     and transfer the color to another object. With selective semantic attribute transfer, 
-                    we would like to select a semantic attribute on a <b>reference sample</b>
-                    and transfer that semantic attribute value to another <b>target sample</b>.
+                    we would like to select a semantic attribute (such as say <b>brightness</b>) from a <b>reference sample</b>
+                    and transfer it to the <b>target sample</b>.
                 </div>
                 <div class="col-2">
                     &nbsp;
@@ -1284,6 +1300,22 @@
 
 
             <!-- brightness timbre transfer:start-->
+            <div class="row">
+                <div class="col-2">
+                    &nbsp;
+                </div>
+                <div class="col-8 text-start pt-2">
+                    <u><b>Example 1</b></u>: <span style="color: rgb(0, 106, 255); font-weight: bold;">Transfer Brightness</span> from <b>Brightness Reference Sample</b> 
+                    (row 2, column 1) to <b>Target Sample</b> (all top row samples). <br/>
+
+                    Note that only <b>brightness</b> is transferred/changed in the resulting samples. Other attributes such as <b>location of impacts (time axis)</b>,<b> rate</b> and <b>impact type</b>
+                    remain the same as in Target Sample.
+                </div>
+                <div class="col-2">
+                    &nbsp;
+                </div>
+            </div>
+            <div class="row">&nbsp;</div>
             <div class="row">
                 <div class="col-4">
                     &nbsp;
@@ -1344,7 +1376,7 @@
                     <span style="height: 100%;  display: flex; align-items: flex-end; justify-content: start;"><b>Brightness Reference Sample</b></span>
                 </div>
                 <div class="p-0 col-6 border-bottom">
-                    <span style="height: 100%;  display: flex; align-items: flex-end; justify-content: center;"><b>Target Sample + Brightness Transferred from Reference Sample </b></span>
+                    <span style="height: 100%;  display: flex; align-items: flex-end; justify-content: center;"><b>Result: Target Sample + Brightness Transferred from Reference Sample </b></span>
                 </div>
                 <div class="p-0 col-2">
                     &nbsp;
@@ -1394,9 +1426,27 @@
             <div class="row">&nbsp;</div>
             <div class="row">&nbsp;</div>
             <div class="row">&nbsp;</div>
+            <div class="row">&nbsp;</div>
+            <div class="row">&nbsp;</div>
+            <div class="row">&nbsp;</div>
 
 
             <!-- impact type timbre transfer:start-->
+            <div class="row">
+                <div class="col-2">
+                    &nbsp;
+                </div>
+                <div class="col-8 text-start pt-2">
+                    <u><b>Example 2</b></u>: <span style="color: rgb(0, 106, 255); font-weight: bold;">Transfer Impact Type</span> from <b>Impact Type Reference Sample</b> 
+                    (row 2, column 1) to <b>Target Sample</b> (all top row samples). <br/>
+
+                    Note that only <b>impact type</b> is transferred/changed in the resulting samples. Other attributes such as <b>location of impacts (time axis)</b>,<b> rate</b> and <b>brightness</b>
+                    remain the same as in Target Sample.
+                </div>
+                <div class="col-2">
+                    &nbsp;
+                </div>
+            </div>
             <div class="row">
                 <div class="col-4">
                     &nbsp;
@@ -1457,7 +1507,7 @@
                     <span style="height: 100%;  display: flex; align-items: flex-end; justify-content: start;"><b>Impact Type Reference Sample</b></span>
                 </div>
                 <div class="p-0 col-6 border-bottom">
-                    <span style="height: 100%;  display: flex; align-items: flex-end; justify-content: center;"><b>Target Sample + Impact Type Transferred from Reference Sample </b></span>
+                    <span style="height: 100%;  display: flex; align-items: flex-end; justify-content: center;"><b>Result: Target Sample + Impact Type Transferred from Reference Sample </b></span>
                 </div>
                 <div class="p-0 col-2">
                     &nbsp;
@@ -1508,9 +1558,27 @@
             <div class="row">&nbsp;</div>
             <div class="row">&nbsp;</div>
             <div class="row">&nbsp;</div>
+            <div class="row">&nbsp;</div>
+            <div class="row">&nbsp;</div>
 
 
             <!-- rate timbre transfer:start-->
+            <div class="row">
+                <div class="col-2">
+                    &nbsp;
+                </div>
+                <div class="col-8 text-start pt-2">
+                    <u><b>Example 3</b></u>: <span style="color: rgb(0, 106, 255); font-weight: bold;">Transfer Rate</span> from <b>Rate Reference Sample</b> 
+                    (row 2, column 1) to <b>Target Sample</b> (all top row samples). <br/>
+
+                    Note that only <b>rate</b> is transferred/changed in the resulting samples. Other attributes such as <b>location of the first impact (along time axis)</b>,<b> brightness</b> 
+                    and <b>impact type</b>
+                    remain the same as in Target Sample.
+                </div>
+                <div class="col-2">
+                    &nbsp;
+                </div>
+            </div>
             <div class="row">
                 <div class="col-4">
                     &nbsp;
@@ -1571,7 +1639,7 @@
                     <span style="height: 100%;  display: flex; align-items: flex-end; justify-content: start;"><b>Rate Reference Sample</b></span>
                 </div>
                 <div class="p-0 col-6 border-bottom">
-                    <span style="height: 100%;  display: flex; align-items: flex-end; justify-content: center;"><b>Target Sample + Rate Transferred from Reference Sample </b></span>
+                    <span style="height: 100%;  display: flex; align-items: flex-end; justify-content: center;"><b>Result: Target Sample + Rate Transferred from Reference Sample </b></span>
                 </div>
                 <div class="p-0 col-2">
                     &nbsp;
