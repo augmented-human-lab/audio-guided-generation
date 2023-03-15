@@ -1,0 +1,940 @@
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link
+    href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap"
+    rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+
+<script src="https://assets.crowd.aws/crowd-html-elements.js"></script>
+
+
+<!--
+    Developed based on this amazing CodePen by Ana Tudor - https://codepen.io/thebabydino/pen/NWWerZG 
+-->
+<style>
+    /* fix too small font-size in both Chrome & Firefox */
+    * {
+        font: inherit;
+    }
+
+    :root {
+        --num_thumbs: 5;
+    }
+
+    audio {
+        width: 100%;
+    }
+
+    .clipbox-border {
+        border: solid black 1px;
+        width: 60%;
+    }
+
+    .animatedsound-container {
+        padding-left: 2%;
+    }
+
+    .heading {
+        width: 100%;
+        font-weight: bold;
+        font-size: 120%;
+    }
+
+    .notebox {
+        border: solid black 1px;
+        width: 90%;
+        padding: 5px;
+    }
+
+    .step-content {
+        display: grid;
+        grid-template-columns: 1% 1% 95%;
+        /* margin-left: 1%; */
+    }
+
+    #all-refs {
+        display: grid;
+        grid-template-columns: 20% 60% 20%;
+        width: 100%;
+        padding-top: 1%;
+        padding-left: 5%;
+    }
+
+    #all-inputs {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, 13% 1%);
+        width: 100%;
+    }
+
+    #relative-lines-section-container {
+        display: grid;
+        grid-template-columns: 3% 78% 17%;
+        padding-left: 3%;
+    }
+
+    #relative-lines-section {
+        display: grid;
+        /* grid-template-columns: 25% 25% 25% 25%; */
+        grid-template-columns: var(--remleftlinewidth) var(--leftlinewidth) var(--rightlinewidth) var(--remrightlinewidth);
+        width: 100%;
+        max-height: 5px;
+    }
+
+    .relative-lines-section-1 {
+        max-height: 0px;
+        border: solid var(--leftrelcolor) 2px;
+    }
+
+    .relative-lines-section-2 {
+        max-height: 0px;
+        border: solid var(--rightrelcolor) 2px;
+    }
+
+    #samples-container {
+        display: grid;
+        grid-template-columns: 2% 40%;
+        width: 100%;
+        padding-left: 1%;
+        padding-top: 1%;
+    }
+
+    #samples-container-lower {
+        display: grid;
+        grid-template-columns: 2.7% 36% 2% 58%;
+        width: 100%;
+        padding-left: 1%;
+    }
+
+    .wrap {
+        display: grid;
+        grid-template: repeat(2, -webkit-max-content) 4em/1fr 1fr;
+        grid-template: repeat(2, max-content) 4em/1fr 1fr;
+        overflow: hidden;
+        position: relative;
+        margin: 0.3em auto;
+        width: 100%;
+        background-color: rgb(196, 196, 196);
+    }
+
+    input[type="range"] {
+        grid-column: 1/span var(--num_thumbs);
+        grid-row: 3;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        margin: 0;
+        background: none;
+        /* get rid of white Chrome background */
+        --col: #000;
+        pointer-events: none;
+    }
+
+    input[type="range"]::-webkit-slider-runnable-track,
+    input[type="range"]::-webkit-slider-thumb,
+    input[type="range"] {
+        -webkit-appearance: none;
+    }
+
+    input[type="range"]::-webkit-slider-runnable-track {
+        padding-bottom: 5em;
+        width: 100%;
+        height: 100%;
+        background: none;
+    }
+
+    input[type="range"]::-moz-range-track {
+        padding-bottom: 5em;
+        width: 100%;
+        height: 100%;
+        background: none;
+    }
+
+    input[type="range"]::-webkit-slider-thumb {
+        border: none;
+        /* get rid of Firefox thumb border */
+        width: 2.3em;
+        height: 5em;
+        border-radius: 0;
+        /* get rid of Firefox corner rounding */
+        background: linear-gradient(90deg, #fff 2px, transparent 0) calc(1.2em - 1px),
+            radial-gradient(circle, var(--thumbcolor) calc(1em - 1px), transparent 1em),
+            radial-gradient(circle,
+                transparent 0.7em,
+                var(--thumbborder) 0.7em 1.1em,
+                transparent 1.2em);
+        pointer-events: auto;
+    }
+
+    input[type="range"]::-moz-range-thumb {
+        border: none;
+        /* get rid of Firefox thumb border */
+        width: 2.3em;
+        height: 5em;
+        border-radius: 0;
+        /* get rid of Firefox corner rounding */
+        background: linear-gradient(90deg, #fff 2px, transparent 0) calc(1.2em - 1px),
+            radial-gradient(circle, var(--thumbcolor) calc(1em - 1px), transparent 1em),
+            radial-gradient(circle,
+                transparent 0.7em,
+                var(--thumbborder) 0.7em 1.1em,
+                transparent 1.2em);
+        pointer-events: auto;
+    }
+
+    .range-active {
+        border: solid black 1px;
+    }
+
+    input[type="range"]:focus {
+        z-index: 2;
+        outline: dotted 1px currentcolor;
+    }
+
+    /* The Modal (background) */
+    .modal {
+        display: none;
+        /* Hidden by default */
+        position: fixed;
+        /* Stay in place */
+        z-index: 10;
+        /* Sit on top */
+        left: 0;
+        top: 0;
+        width: 100%;
+        /* Full width */
+        height: 100%;
+        /* Full height */
+        overflow: auto;
+        /* Enable scroll if needed */
+        background-color: rgb(0, 0, 0);
+        /* Fallback color */
+        background-color: rgba(0, 0, 0, 0.4);
+        /* Black w/ opacity */
+    }
+
+    /* Modal Content/Box */
+    .modal-content {
+        background-color: #fefefe;
+        margin: 15% auto;
+        /* 15% from the top and centered */
+        padding: 20px;
+        border: 1px solid #888;
+        width: 33%;
+        /* Could be more or less, depending on screen size */
+    }
+
+    /* The Close Button */
+    .close {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+    .close:hover,
+    .close:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    #overlay-disabled {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 10;
+        visibility: hidden;
+        background-color: rgba(0, 0, 0, 0.3);
+    }
+
+    .dotted-border {
+        padding: 5px;
+        border: dashed solid white 2px;
+    }
+
+    .tiny-height {
+        max-height: 10px;
+    }
+</style>
+
+<crowd-form>
+    <div class='animatedsound-container'>
+        <crowd-instructions link-text="View instructions" link-type="button" id='viewinstructions'>
+            <short-summary>
+                <p>
+                    Please see an example video of a fully completed task below. <br/><br/>
+                    Note that your task might have <b>different number of samples</b> to arrange and different audio samples associated with <b>different colored thumbs</b>.
+                </p>
+
+                <video width="100%" controls>
+                    <source src="https://animatedsound-listening-test.s3.us-east-2.amazonaws.com/acmmm2023-listening-samples/examples/water-linearity-example-mp4.mp4" type="video/mp4">
+                </video>
+
+            </short-summary>
+
+            <detailed-instructions>
+
+            </detailed-instructions>
+
+
+        </crowd-instructions>
+
+        <crowd-modal link-text="View Consent Details" link-type="button" id='viewconsent'>
+            <div id="" class="consent-container">
+                <div>
+                    <table>
+                        <tr>
+                            <td style="padding-left: 1%; width: 10%">
+                                <img src="resources/UniLogo.png"
+                                    width="100" alt="University Logo"/>
+                            </td>
+                            <td>
+                                <span style="font-size: larger; font-weight: bold">Welcome to 'Qualitative evaluation of
+                                    artificially synthesized audio'</span>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div>
+                    <p>
+                        <span style="font-family: Tahoma, Geneva, sans-serif">Thank you for your interest in this audio
+                            evaluation task on
+                            Mechanical Turk. This page outlines the details with respect to your
+                            consent to participate in our study.</span>
+                    </p>
+                    <p>
+                        <br />
+                        <span style="font-family: Tahoma, Geneva, sans-serif"><u><strong>Protocol
+                                    Title:</strong></u><br />
+                            Qualitative evaluation of artificially synthesized audio</span>
+                    </p>
+
+                    <p>
+                        <br />
+                        <span style="font-family: Tahoma, Geneva, sans-serif"><u><strong>Purpose of this
+                                    research:</strong></u><br />
+                            The purpose of this research is to evaluate the quality of synthetic audio clips generated
+                            using an artificial neural network. The audio clips under test belong to the domain of audio
+                            textures (for e.g. a series of popping sounds, the ticking sound made by a Geiger counter or
+                            the sound made by water filling a container) or pitches made by musical instruments. The
+                            specific goal of this project is to ensure that the synthetic outputs generated by these
+                            deep learning models are validated by human beings to test for certain sound qualities like
+                            smoothness, naturalness or absence of noise etc.</span>
+                    </p>
+
+                    <p>
+                        <br />
+                        <span style="font-family: Tahoma, Geneva, sans-serif"><u><strong>Contacting
+                                    Us:</strong></u><br />
+                            Please use the "Contact this requester" link on the Mechanical Turk's
+                            HIT details section if you need further details or clarifications on
+                            the task. The Principal Investigator (the person in charge of this
+                            research) or his/her representative will answer all of your questions.
+                            Note: On using this feature, your e-mail address and your name will
+                            automatically be visible to our research team so that we can reply to
+                            you.</span>
+                    </p>
+
+                    <p>
+                        <br />
+                        <span style="font-family: Tahoma, Geneva, sans-serif"><u><strong>Your personal
+                                    data:</strong></u><br />
+                            Only the principal investigator and his/her representative has your
+                            worker ID and this will not be released to any other person. We will
+                            <u><strong>NOT</strong></u> request Amazon Mechanical Turk for your
+                            person identifying details. Also, this worker ID data will not be used
+                            in a publication or presentation. We will use this worker ID only for
+                            the purposes of correlating consent to HIT responses and distributing
+                            compensation via Mechanical Turk.</span>
+                    </p>
+
+                    <p>
+                        <span style="font-family: Tahoma, Geneva, sans-serif">All data collected will be kept in
+                            accordance to the University's
+                            Research Data Management Policy. Research data used in any publication
+                            will be kept for a minimum of 10 years before being discarded.</span>
+                    </p>
+                </div>
+
+                <div>
+                    <br />
+                    <span style="font-family: Tahoma, Geneva, sans-serif">By accepting the HIT on Amazon's Mechanical
+                        Turk, you acknowledge that
+                        -
+                    </span>
+                </div>
+
+                <ol>
+                    <li>
+                        <span style="font-family: Tahoma, Geneva, sans-serif">You have agreed to take part in
+                            this&nbsp;research.</span>
+                    </li>
+                    <li>
+                        <span style="font-family: Tahoma, Geneva, sans-serif">You have read the instructions on the
+                            mechanical turk website and
+                            details on this form which explains the use of the data you submit for
+                            this research.</span>
+                    </li>
+                    <li>
+                        <span style="font-family: Tahoma, Geneva, sans-serif">You can withdraw from this research at any
+                            point of time. If you want
+                            the data you already submitted to be deleted you will&nbsp;inform the
+                            Principal Investigator and all your data will be discarded.</span>
+                    </li>
+                    <li>
+                        <span style="font-family: Tahoma, Geneva, sans-serif">You will not have any financial benefits
+                            that result from the
+                            commercial development of this research.</span>
+                    </li>
+                    <li>
+                        <span style="font-family: Tahoma, Geneva, sans-serif">You agree to be re-contacted for future
+                            related studies
+                            via&nbsp;Amazon's Mechanical Turk website. &nbsp;<span lang="EN-US">
+                            </span></span>
+                    </li>
+                </ol>
+            </div>
+        </crowd-modal>
+
+        <div class="row ps-2">
+            <div id="errorModal" class="modal">
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <p>Please listen to <span style="font-weight: bolder;">all</span> sound clips and the <span
+                            style="font-weight: bolder;">arrangement fully</span> and adjust/move/re-position <span
+                            style="font-weight: bolder;">all the
+                            sliders</span> for each audio clip. Also, answer all questions in this task before
+                        submitting the task.</p>
+                </div>
+            </div>
+
+            <div id="oneAudioOnlyModal" class="modal">
+                <div class="modal-content">
+                    <span class="oneAudioOnlyClose">&times;</span>
+                    <p>Your opinion on this HIT is of <b>great importance</b> to us.
+                    </p>
+                    <p>Please listen very closely to <b>one audio clip</b> at a time.
+                    </p>
+                </div>
+            </div>
+
+            <div>&nbsp;</div>
+            <div class="clipbox-border margin-top">
+                <p style="padding-left: 10px;">
+                    <u>Note:</u>
+                    Please accept this HIT only if you are on a laptop/desktop with the most recent Chrome/Firefox
+                    browsers
+                </p>
+            </div>
+
+
+            <div>&nbsp;</div>
+            <div class="heading row">
+                <div class="col-3">Audio Ordering Task</div>
+                <div class="col-9">&nbsp;</div>
+            </div>
+            <div>&nbsp;</div>
+
+
+            <div class="row">
+                <div class="col-12">
+                    In this task, you will listen to some sounds made by water filling a container. Please complete
+                    <u><b>ALL</b></u> steps below.
+                </div>
+            </div>
+
+
+            <div>&nbsp;</div>
+            <div class="row">
+                <div class="col-12">
+                    The aim of this task is to drag/arrange few audio samples between 2 reference
+                    samples, in the <b>ascending order</b> of the <b>container's fill-level</b>.
+                </div>
+                <div class="col-12">
+                    That is, the leftmost sample should have a lower fill-level than the rightmost sample.
+                </div>
+                <div class="col-12">
+                    The rest should be arranged in an <b>ascending order</b> between the two.
+                </div>
+
+            </div>
+            <div>&nbsp;</div>
+            <div class="row">
+                <div class="col-12">
+                    Please click on 'View Instructions' to see a completed example.
+                </div>
+
+            </div>
+            <div>&nbsp;</div>
+
+
+
+            <input id="task_id" name="task_id" type="hidden" value="${task_id}" />
+            <input id="algo_type" name="algo_type" type="hidden" value="${algo_type}" />
+            <input id="texture_type" name="texture_type" type="hidden" value="${texture_type}" />
+            <!--water or hits-->
+            <!--Rate, Impacttype, Brightness-->
+
+            <input id="ref_1_id" name="ref_1_id" type="hidden" value="${ref_1_id}" />
+            <input id="ref_2_id" name="ref_2_id" type="hidden" value="${ref_2_id}" />
+
+            <input id="clip_1_id" name="clip_1_id" type="hidden" value="${clip_1_id}" />
+            <input id="clip_2_id" name="clip_2_id" type="hidden" value="${clip_2_id}" />
+            <input id="clip_3_id" name="clip_3_id" type="hidden" value="${clip_3_id}" />
+
+            <input id="ref_1_listened" name="ref_1_listened" type="hidden" value="No" />
+            <input id="ref_2_listened" name="ref_2_listened" type="hidden" value="No" />
+            <input id="clip_1_listened" name="clip_1_listened" type="hidden" value="No" />
+            <input id="clip_2_listened" name="clip_2_listened" type="hidden" value="No" />
+            <input id="clip_3_listened" name="clip_3_listened" type="hidden" value="No" />
+            <input id="full_arrangement_listened" name="full_arrangement_listened" type="hidden" value="No" />
+
+            <input id="clip_1_slider_changed" name="clip_1_slider_changed" type="hidden" value="No" />
+            <input id="clip_2_slider_changed" name="clip_2_slider_changed" type="hidden" value="No" />
+            <input id="clip_3_slider_changed" name="clip_3_slider_changed" type="hidden" value="No" />
+
+            <input type="hidden" name="view_instructions_clicked" id="view_instructions_clicked" value="No" />
+            <input type="hidden" name="view_consent_clicked" id="view_consent_clicked" value="No" />
+
+
+
+            <div id="all-inputs" class="invisible" style="max-height: 10px">
+                <!-- <div id="all-inputs"> -->
+                <div id="ref-1-surrounding" class="dotted-border">
+                    <div style="
+                      --colorbg: grey;
+                      padding: 5px;
+                      border: solid black 1px;
+                      background-color: var(--colorbg);
+                    ">
+                        <audio id="ref_1_audio" controls controlsList="nodownload noplaybackrate"
+                            onended="removeSpotlight(event, 'ref-1-surrounding')" onplay="
+                        listenedCheck('ref_1_listened');
+                        playCheck(event);
+                        addSpotlight('ref-1-surrounding', 'ref_1_value');
+                      " onpause="removeSpotlight(event, 'ref-1-surrounding', 'ref_1_value')">
+                            <!-- <source src="${ref_1_url}" type="audio/wav" /> -->
+                            <source src="resources/paper_samples/water_sample1_0.wav"
+                            type="audio/wav" />
+                        </audio>
+                    </div>
+                </div>
+                <div>&nbsp;</div>
+                <div id="clip-1-surrounding" class="dotted-border">
+                    <div style="
+                      --colorbg: #cd2026;
+                      padding: 5px;
+                      border: solid black 1px;
+                      background-color: var(--colorbg);
+                    ">
+                        <audio id="clip_1_audio" controls controlsList="nodownload noplaybackrate" onended="
+                        removeSpotlight(event, 'clip-1-surrounding', 'clip_1_value')
+                      " onplay="
+                        listenedCheck('clip_1_listened');
+                        playCheck(event);
+                        addSpotlight('clip-1-surrounding', 'clip_1_value');
+                      " onpause="
+                        removeSpotlight(event, 'clip-1-surrounding', 'clip_1_value')
+                      ">
+                            <!-- <source src="${audio_1_url}" type="audio/wav" /> -->
+                            <source src="resources/paper_samples/water_sample1_6.wav"
+                            type="audio/wav" />
+                        </audio>
+                    </div>
+                </div>
+
+                <div>&nbsp;</div>
+                <div id="clip-2-surrounding" class="dotted-border">
+                    <div style="
+                      --colorbg: #4aa564;
+                      padding: 5px;
+                      border: solid black 1px;
+                      background-color: var(--colorbg);
+                    ">
+                        <audio id="clip_2_audio" controls controlsList="nodownload noplaybackrate" onended="
+                        removeSpotlight(event, 'clip-2-surrounding', 'clip_2_value')
+                      " onplay="
+                        listenedCheck('clip_2_listened');
+                        playCheck(event);
+                        addSpotlight('clip-2-surrounding', 'clip_2_value');
+                      " onpause="
+                        removeSpotlight(event, 'clip-2-surrounding', 'clip_2_value')
+                      ">
+                            <!-- <source src="${audio_2_url}" type="audio/wav" /> -->
+                            <source src="resources/paper_samples/water_sample1_9.wav"
+                            type="audio/wav" />
+                        </audio>
+                    </div>
+                </div>
+
+                <div>&nbsp;</div>
+                <div id="clip-3-surrounding" class="dotted-border">
+                    <div style="
+                      --colorbg: #f9c642;
+                      padding: 5px;
+                      border: solid black 1px;
+                      background-color: var(--colorbg);
+                    ">
+                        <audio id="clip_3_audio" controls controlsList="nodownload noplaybackrate" onended="
+                        removeSpotlight(event, 'clip-3-surrounding', 'clip_3_value')
+                      " onplay="
+                        listenedCheck('clip_3_listened');
+                        playCheck(event);
+                        addSpotlight('clip-3-surrounding', 'clip_3_value');
+                      " onpause="
+                        removeSpotlight(event, 'clip-3-surrounding', 'clip_3_value')
+                      ">
+                            <!-- <source src="${audio_3_url}" type="audio/wav" /> -->
+                            <source src="resources/paper_samples/water_sample1_3.wav"
+                            type="audio/wav" />
+                        </audio>
+                    </div>
+                </div>
+                <div>&nbsp;</div>
+
+                <div id="ref-2-surrounding" class="dotted-border">
+                    <div style="
+                      --colorbg: grey;
+                      padding: 5px;
+                      border: solid black 1px;
+                      background-color: var(--colorbg);
+                    ">
+                        <audio id="ref_2_audio" controls controlsList="nodownload noplaybackrate"
+                            onended="removeSpotlight(event, 'ref-2-surrounding')" onplay="
+                        listenedCheck('ref_2_listened');
+                        playCheck(event);
+                        addSpotlight('ref-2-surrounding', 'ref_2_value');
+                      " onpause="removeSpotlight(event, 'ref-2-surrounding', 'ref_2_value')">
+                            <!-- <source src="${ref_2_url}" type="audio/wav" /> -->
+                            <source src="resources/paper_samples/water_sample1_12.wav"
+                            type="audio/wav" />
+                        </audio>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="step-content row">
+                <div>1.</div>
+                <div>&nbsp;</div>
+                <div>
+                    Mouse over/hover over the colored thumbs below to listen to each audio sample. Please listen to
+                    <span style="font-weight: bold"><u>ALL</u></span> of them.
+                    <br /><br />
+                    The thumbs in
+                    <span style="background-color: #3b3a39; color: white; padding: 2px">black</span> (ordered and
+                    numbered as 1 and 5)
+                    are reference audio samples.<br /><br />
+                    Please drag/arrange the remaining thumbs in
+                    <span style="background-color: #cd2026; color: black; padding: 2px">red</span>,
+                    <span style="background-color: #f9c642; color: black; padding: 2px">yellow</span>,
+                    <span style="background-color: #0071bc; color: black; padding: 2px">blue</span>,
+                    in between the two references in the <b>ascending order</b> described above.
+                </div>
+            </div>
+
+
+
+            <div id="samples-container">
+                <div>&nbsp;</div>
+
+                <div class="wrap" role="group">
+                    <input id="ref_1_value" name="ref_1_value" type="range" min="0" value="0" max="0"
+                        style="--thumbcolor: #3b3a39; --thumbborder: transparent" onmouseover="
+                      mouseoverPlay('ref_1_audio');
+                      updateClickAnalytics('task_ref_1_sound');
+                    " onmouseout="mouseoutPause('ref_1_audio')" />
+
+                    <input id="clip_1_value" name="clip_1_value" type="range" min="0" max="100"
+                        style="--thumbcolor: #cd2026; --thumbborder: transparent" onchange="
+                      sliderChanged('clip_1_slider_changed');
+                      updateClickAnalytics('task_clip_1_slider');
+                    " onmouseover="
+                      mouseoverPlay('clip_1_audio');
+                      updateClickAnalytics('task_clip_1_sound');
+                    " onmouseout="mouseoutPause('clip_1_audio')" value="50" />
+
+                    <input id="clip_2_value" name="clip_2_value" type="range" min="0" max="100"
+                        style="--thumbcolor: #f9c642; --thumbborder: transparent" onchange="
+                      sliderChanged('clip_2_slider_changed');
+                      updateClickAnalytics('task_clip_2_slider');
+                    " onmouseover="
+                      mouseoverPlay('clip_2_audio');
+                      updateClickAnalytics('task_clip_2_sound');
+                    " onmouseout="mouseoutPause('clip_2_audio')" value="52" />
+                    <input id="clip_3_value" name="clip_3_value" type="range" min="0" max="100"
+                        style="--thumbcolor: #0071bc; --thumbborder: transparent" onchange="
+                      sliderChanged('clip_3_slider_changed');
+                      updateClickAnalytics('task_clip_3_slider');
+                    " onmouseover="
+                      mouseoverPlay('clip_3_audio');
+                      updateClickAnalytics('task_clip_3_sound');
+                    " onmouseout="mouseoutPause('clip_3_audio')" value="54" />
+
+                    <input id="ref_2_value" name="ref_2_value" type="range" min="99" value="100" max="100"
+                        style="--thumbcolor: #3b3a39; --thumbborder: transparent" onmouseover="
+                      mouseoverPlay('ref_2_audio');
+                      updateClickAnalytics('task_ref_2_sound');
+                    " onmouseout="mouseoutPause('ref_2_audio')" />
+                </div>
+            </div>
+            <div id="samples-container-lower">
+                <div>&nbsp;</div>
+                <div class="">1</div>
+                <div class="">&nbsp;</div>
+                <div class="">5</div>
+            </div>
+            <div>&nbsp;</div>
+
+            <div class="step-content row">
+                <div>2.</div>
+                <div>&nbsp;</div>
+                <div>
+                    <span style="font-weight: bold">Adjust Ordering Step</span>: Please
+                    click the button below to listen to the arrangement you created. <br />Does the
+                    arrangement sound like the water is filling the container? If not, please
+                    redo from
+                    Step 1.
+                </div>
+            </div>
+            <div>&nbsp;</div>
+            <div class="step-content row">
+                <div>&nbsp;</div>
+                <div>&nbsp;</div>
+                <div>
+                    <crowd-button form-action="none" id="arrangementBtn_ordering" onClick="
+                    listenArrangement(event, 'ordering_arrangement_listened');
+                    updateClickAnalytics('task_ordering_arrangement_button');
+                  ">
+                        Click Here To Listen to the Arrangement To Verify Ordering
+                    </crowd-button>
+                </div>
+            </div>
+            <div>&nbsp;</div>
+            <div class="step-content">
+                <div>&nbsp;</div>
+                <div>&nbsp;</div>
+                <div>
+                    <input type="checkbox" id="ordering_checkbox" name="ordering_checkbox" value="ordered"
+                        onchange="update_checkbox(event)" disabled />
+                    <label for="ordering_checkbox">
+                        &nbsp;I have listened to the arrangement and verified that it is in
+                        the correct order.</label><br />
+                </div>
+            </div>
+
+            <div>&nbsp;</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </div>
+
+
+
+        <div id="overlay-disabled">
+            <div style="padding-top: 15%; font-size:xx-large; font-weight: bolder; transform: rotate(-45deg);">
+                Please attempt this task only if you are on Firefox or Chrome.
+            </div>
+        </div>
+        <div>&nbsp; </div>
+        <br />
+
+</crowd-form>
+
+<script>
+    isChromeOrFirefox = navigator.userAgent.indexOf('Chrome') > -1 || navigator.userAgent.indexOf('Firefox') > -1
+    if (!isChromeOrFirefox)
+        document.getElementById('overlay-disabled').style.visibility = 'visible'
+    else
+        document.getElementById('overlay-disabled').style.visibility = 'hidden'
+
+    const arrangementBtn = document.getElementById('arrangementBtn_ordering')
+    const disableArrangementBtn = new CustomEvent('arrangement-button-disable');
+    const enableArrangementBtn = new CustomEvent('arrangement-button-enable');
+    arrangementBtn.addEventListener('arrangement-button-disable', (e) => { arrangementBtn.disabled = true; });
+    arrangementBtn.addEventListener('arrangement-button-enable', (e) => {
+        arrangementBtn.removeAttribute('disabled');
+        document.getElementById('ordering_checkbox').removeAttribute('disabled');
+    });
+
+    let sounds_in_sequence = []
+    let sound_index = 0
+
+    function playSequence() {
+        if (sound_index == sounds_in_sequence.length) {
+            arrangementBtn.dispatchEvent(enableArrangementBtn);
+            return;
+        }
+        sounds_in_sequence[sound_index].addEventListener('ended', playSequence);
+        if (sound_index != 0)
+            sounds_in_sequence[sound_index - 1].removeEventListener('ended', playSequence);
+        sounds_in_sequence[sound_index].play();
+        sound_index++;
+    }
+
+    function listenArrangement(e) {
+        e.target.dispatchEvent(disableArrangementBtn);
+        sounds_in_sequence = []
+        sound_index = 0
+        let arrangement = {
+            "ref_1": -1,
+            "clip_1": parseInt(document.getElementById('clip_1_value').value),
+            "clip_2": parseInt(document.getElementById('clip_2_value').value),
+            "clip_3": parseInt(document.getElementById('clip_3_value').value),
+            "ref_2": 10000
+        }
+
+        arrangement = Object.entries(arrangement)
+            .sort(([, a], [, b]) => a - b)
+            .reduce((r, [k, v]) => ({ ...r, [k]: v }), {});
+
+        ind = 0
+        for (const key in arrangement) {
+            sounds_in_sequence[ind] = document.getElementById(key + '_audio')
+            ind++
+        }
+        listenedCheck('full_arrangement_listened');
+        playSequence();
+
+    }
+
+    function listenedCheck(elementName) {
+        var x = document.getElementById(elementName);
+        x.value = 'Yes'
+    }
+
+    function mouseoverPlay(audio_id) {
+        document.getElementById(audio_id).play();
+    }
+
+    function mouseoutPause(audio_id) {
+        document.getElementById(audio_id).pause();
+    }
+
+    function playCheck(e) {
+        var allAudios = document.getElementsByTagName('audio');
+        for (var i = 0; i < allAudios.length; i++) {
+            if (allAudios[i].paused == false && allAudios[i] != e.target) {
+                e.target.pause();
+                oneAudioOnlyModal.style.display = "block";
+            }
+        }
+    }
+
+    function sliderChanged(elementName) {
+        var x = document.getElementById(elementName);
+        x.value = 'Yes'
+    }
+
+    function radioChanged(elementName) {
+        var x = document.getElementById(elementName);
+        x.value = 'Yes'
+    }
+
+    function addSpotlight(contId, thumbId) {
+        if (thumbId !== undefined)
+            document.getElementById(thumbId).style.setProperty('--thumbborder', 'black')
+        document.getElementById(contId).style.border = 'dashed black 2px';
+    }
+
+    function removeSpotlight(e, contId, thumbId) {
+        e.target.currentTime = 0;
+
+        if (thumbId !== undefined)
+            document.getElementById(thumbId).style.setProperty('--thumbborder', 'transparent')
+        document.getElementById(contId).style.border = 'none';
+    }
+
+    var viewinstructions = document.getElementById('viewinstructions')
+    viewinstructions.onclick = function () {
+        document.getElementById('view_instructions_clicked').value = 'Yes'
+    }
+    var viewconsent = document.getElementById('viewconsent')
+    viewconsent.onclick = function () {
+        document.getElementById('view_consent_clicked').value = 'Yes'
+    }
+
+    function dblclicked(audio_id) {
+        document.getElementById(audio_id).play();
+    }
+
+    function updateClickAnalytics() {
+
+    }
+
+    function validateForm() {
+        ref_1_listened = document.getElementById('ref_1_listened').value;
+        ref_2_listened = document.getElementById('ref_2_listened').value;
+        clip_1_listened = document.getElementById('clip_1_listened').value;
+        clip_2_listened = document.getElementById('clip_2_listened').value;
+        clip_3_listened = document.getElementById('clip_3_listened').value;
+        full_arrangement_listened = document.getElementById('full_arrangement_listened').value;
+
+        listened = false
+        if (ref_1_listened == 'Yes' && ref_2_listened == 'Yes'
+            && clip_1_listened == 'Yes' && clip_2_listened == 'Yes' && clip_3_listened == 'Yes' && full_arrangement_listened == 'Yes') {
+            listened = true;
+        }
+
+        clip_1_slider_changed = document.getElementById('clip_1_slider_changed').value;
+        clip_2_slider_changed = document.getElementById('clip_2_slider_changed').value;
+        clip_3_slider_changed = document.getElementById('clip_3_slider_changed').value;
+
+        sliderChangedTest = false
+        if (clip_1_slider_changed == 'Yes' && clip_2_slider_changed == 'Yes' && clip_3_slider_changed == 'Yes') {
+            sliderChangedTest = true;
+        }
+
+        return listened && sliderChangedTest
+    }
+
+    var modal = document.getElementById("errorModal");
+    var span = document.getElementsByClassName("close")[0];
+    span.onclick = function () {
+        modal.style.display = "none";
+    }
+
+    var oneAudioOnlyModal = document.getElementById("oneAudioOnlyModal");
+    var oneAudioOnlyCloseSpan = document.getElementsByClassName("oneAudioOnlyClose")[0];
+    oneAudioOnlyCloseSpan.onclick = function () {
+        oneAudioOnlyModal.style.display = "none";
+    }
+
+
+    document.querySelector('crowd-form').onsubmit = function (e) {
+        if (!validateForm()) {
+            e.preventDefault();
+            modal.style.display = "block";
+        }
+    }
+    window.onclick = function (event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+        if (event.target == oneAudioOnlyModal) {
+            oneAudioOnlyModal.style.display = "none";
+        }
+    }
+
+</script>

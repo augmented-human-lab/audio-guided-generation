@@ -1,0 +1,869 @@
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link
+    href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap"
+    rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+
+<script src="https://assets.crowd.aws/crowd-html-elements.js"></script>
+
+<style>
+    /* fix too small font-size in both Chrome & Firefox */
+    * {
+        font: inherit;
+    }
+
+    :root {
+        --num_thumbs: 5;
+    }
+
+    audio {
+        width: 100%;
+    }
+
+    .clipbox-border {
+        border: solid black 1px;
+        width: 60%;
+    }
+
+    .animatedsound-container {
+        padding-left: 2%;
+    }
+
+    .heading {
+        width: 100%;
+        font-weight: bold;
+        font-size: 120%;
+    }
+
+    .notebox {
+        border: solid black 1px;
+        width: 90%;
+        padding: 5px;
+    }
+
+    .step-content {
+        display: grid;
+        grid-template-columns: 1% 1% 95%;
+        /* margin-left: 1%; */
+    }
+
+    #all-refs {
+        display: grid;
+        grid-template-columns: 20% 60% 20%;
+        width: 100%;
+        padding-top: 1%;
+        padding-left: 5%;
+    }
+
+    #all-inputs {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, 13% 1%);
+        width: 100%;
+    }
+
+    #relative-lines-section-container {
+        display: grid;
+        grid-template-columns: 3% 78% 17%;
+        padding-left: 3%;
+    }
+
+    #relative-lines-section {
+        display: grid;
+        /* grid-template-columns: 25% 25% 25% 25%; */
+        grid-template-columns: var(--remleftlinewidth) var(--leftlinewidth) var(--rightlinewidth) var(--remrightlinewidth);
+        width: 100%;
+        max-height: 5px;
+    }
+
+    .relative-lines-section-1 {
+        max-height: 0px;
+        border: solid var(--leftrelcolor) 2px;
+    }
+
+    .relative-lines-section-2 {
+        max-height: 0px;
+        border: solid var(--rightrelcolor) 2px;
+    }
+
+    #samples-container {
+        display: grid;
+        grid-template-columns: 2% 40%;
+        width: 100%;
+        padding-left: 1%;
+        padding-top: 1%;
+    }
+
+    #samples-container-lower {
+        display: grid;
+        grid-template-columns: 2.7% 36% 2% 58%;
+        width: 100%;
+        padding-left: 1%;
+    }
+
+    .wrap {
+        display: grid;
+        grid-template: repeat(2, -webkit-max-content) 4em/1fr 1fr;
+        grid-template: repeat(2, max-content) 4em/1fr 1fr;
+        overflow: hidden;
+        position: relative;
+        margin: 0.3em auto;
+        width: 100%;
+        background-color: rgb(196, 196, 196);
+    }
+
+    input[type="range"] {
+        grid-column: 1/span var(--num_thumbs);
+        grid-row: 3;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        margin: 0;
+        background: none;
+        /* get rid of white Chrome background */
+        --col: #000;
+        pointer-events: none;
+    }
+
+    input[type="range"]::-webkit-slider-runnable-track,
+    input[type="range"]::-webkit-slider-thumb,
+    input[type="range"] {
+        -webkit-appearance: none;
+    }
+
+    input[type="range"]::-webkit-slider-runnable-track {
+        padding-bottom: 5em;
+        width: 100%;
+        height: 100%;
+        background: none;
+    }
+
+    input[type="range"]::-moz-range-track {
+        padding-bottom: 5em;
+        width: 100%;
+        height: 100%;
+        background: none;
+    }
+
+    input[type="range"]::-webkit-slider-thumb {
+        border: none;
+        /* get rid of Firefox thumb border */
+        width: 2.3em;
+        height: 5em;
+        border-radius: 0;
+        /* get rid of Firefox corner rounding */
+        background: linear-gradient(90deg, #fff 2px, transparent 0) calc(1.2em - 1px),
+            radial-gradient(circle, var(--thumbcolor) calc(1em - 1px), transparent 1em),
+            radial-gradient(circle,
+                transparent 0.7em,
+                var(--thumbborder) 0.7em 1.1em,
+                transparent 1.2em);
+        pointer-events: auto;
+    }
+
+    input[type="range"]::-moz-range-thumb {
+        border: none;
+        /* get rid of Firefox thumb border */
+        width: 2.3em;
+        height: 5em;
+        border-radius: 0;
+        /* get rid of Firefox corner rounding */
+        background: linear-gradient(90deg, #fff 2px, transparent 0) calc(1.2em - 1px),
+            radial-gradient(circle, var(--thumbcolor) calc(1em - 1px), transparent 1em),
+            radial-gradient(circle,
+                transparent 0.7em,
+                var(--thumbborder) 0.7em 1.1em,
+                transparent 1.2em);
+        pointer-events: auto;
+    }
+
+    .range-active {
+        border: solid black 1px;
+    }
+
+    input[type="range"]:focus {
+        z-index: 2;
+        outline: dotted 1px currentcolor;
+    }
+
+    /* The Modal (background) */
+    .modal {
+        display: none;
+        /* Hidden by default */
+        position: fixed;
+        /* Stay in place */
+        z-index: 10;
+        /* Sit on top */
+        left: 0;
+        top: 0;
+        width: 100%;
+        /* Full width */
+        height: 100%;
+        /* Full height */
+        overflow: auto;
+        /* Enable scroll if needed */
+        background-color: rgb(0, 0, 0);
+        /* Fallback color */
+        background-color: rgba(0, 0, 0, 0.4);
+        /* Black w/ opacity */
+    }
+
+    /* Modal Content/Box */
+    .modal-content {
+        background-color: #fefefe;
+        margin: 15% auto;
+        /* 15% from the top and centered */
+        padding: 20px;
+        border: 1px solid #888;
+        width: 33%;
+        /* Could be more or less, depending on screen size */
+    }
+
+    /* The Close Button */
+    .close {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+    .close:hover,
+    .close:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    #overlay-disabled {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 10;
+        visibility: hidden;
+        background-color: rgba(0, 0, 0, 0.3);
+    }
+
+    .dotted-border {
+        padding: 5px;
+        border: dashed solid white 2px;
+    }
+
+    .tiny-height {
+        max-height: 2px;
+    }
+</style>
+
+<crowd-form>
+    <div class='animatedsound-container'>
+        <crowd-instructions link-text="View instructions" link-type="button" id='viewinstructions'>
+            <short-summary>
+
+                In this section you will find some examples for the sounds in this task and some attributes associated
+                with them.
+                <br />
+                <br />
+                1. What do we mean by a <b>"bright"</b> sound? <br />
+                By <b>bright</b> we mean the sound sample is vibrant or has many high frequencies (high pitched sounds).
+                Think of sounds made by a wooden stick hitting or scratching a metallic surface. <br />
+                Example :
+                <audio id='bright_example' controls controlsList="nodownload noplaybackrate">
+                    <source
+                        src="https://animatedsound-listening-test.s3.us-east-2.amazonaws.com/acmmm2023-listening-samples/examples/ceramic_hit_file5_sample3.wav"
+                        type="audio/wav" />
+                </audio>
+
+                <br />
+                <br />
+
+                2. What do we mean by a <b>"dull"</b> sound? <br />
+                We think of <b>dull</b> sounds as being opposite to <b>bright</b>. Such sounds will have more lower
+                frequecies. Think of sounds made by a wooden stick hitting or scratching a soft cushion or a soft
+                mattress. <br />
+                Example :
+                <audio id='dull_example' controls controlsList="nodownload noplaybackrate">
+                    <source
+                        src="https://animatedsound-listening-test.s3.us-east-2.amazonaws.com/acmmm2023-listening-samples/examples/carpet_hit_file1_sample2.wav"
+                        type="audio/wav" />
+                </audio>
+
+                <br />
+                <hr />
+                <br />
+
+                3. What do we mean by a <b>"sharp hits"</b> or <b>"sharp impact"</b> sounds? <br />
+                By <b>sharp hits</b> we mean sounds which are created when a wooden stick strikes a surface sharply.
+                Without scraping or scratching the surface.
+                Sharp hits can be both <b>bright</b> or <b>dull</b>.<br />
+                Example :
+                <audio id='hit_example' controls controlsList="nodownload noplaybackrate">
+                    <source
+                        src="https://animatedsound-listening-test.s3.us-east-2.amazonaws.com/acmmm2023-listening-samples/examples/carpet_hit_file1_sample2.wav"
+                        type="audio/wav" />
+                </audio>
+
+                <br />
+                <br />
+
+                4. What do we mean by <b>"scratches"</b> or <b>"scratchy"</b> sounds? <br />
+                We think of <b>scratchy</b> sounds as being opposite to <b>sharp hits</b>. By this we mean sounds which
+                are created when a wooden stick scratches or scrapes a surface.
+                Scratches can be both <b>bright</b> or <b>dull</b>.<br />
+                Example :
+                <audio id='scratch_example' controls controlsList="nodownload noplaybackrate">
+                    <source
+                        src="https://animatedsound-listening-test.s3.us-east-2.amazonaws.com/acmmm2023-listening-samples/examples/metal_scratch_file2_sample2.wav"
+                        type="audio/wav" />
+                </audio>
+
+                <br />
+                <hr />
+                <br />
+
+                5. What do we mean by <b>"high rate"</b> sounds? <br />
+                By <b>Rate</b> we mean the number of <b>hits</b> or <b>scratches</b> in a sound sample. By <b>high
+                    rate</b> we mean sound samples which have more than 2-3 <b>hits</b> or <b>scratches</b>.
+                <br />
+                High Rate Example :
+                <audio id='highrate_example' controls controlsList="nodownload noplaybackrate">
+                    <source
+                        src="https://animatedsound-listening-test.s3.us-east-2.amazonaws.com/acmmm2023-listening-samples/examples/carpet_hit_3_rate3.wav"
+                        type="audio/wav" />
+                </audio>
+
+                <br />
+                <br />
+
+                6. What do we mean by <b>"low rate"</b> sounds? <br />
+                By <b>Rate</b> we mean the number of <b>hits</b> or <b>scratches</b> in a sound sample. By <b>low
+                    rate</b> we mean sound samples which have less than or equal to 2-3 <b>hits</b> or
+                <b>scratches</b>.
+                <br />
+                Low Rate Example :
+                <audio id='lowrate_example' controls controlsList="nodownload noplaybackrate">
+                    <source
+                        src="https://animatedsound-listening-test.s3.us-east-2.amazonaws.com/acmmm2023-listening-samples/examples/carpet_hit_3_rate0.wav"
+                        type="audio/wav" />
+                </audio>
+
+            </short-summary>
+
+            <detailed-instructions>
+
+            </detailed-instructions>
+
+
+        </crowd-instructions>
+
+        <crowd-modal link-text="View Consent Details" link-type="button" id='viewconsent'>
+            <div id="" class="consent-container">
+                <div>
+                    <table>
+                        <tr>
+                            <td style="padding-left: 1%; width: 10%">
+                                <img src="resources/UniLogo.png"
+                                    width="100" />
+                            </td>
+                            <td>
+                                <span style="font-size: larger; font-weight: bold">Welcome to 'Qualitative evaluation of
+                                    artificially synthesized audio'</span>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div>
+                    <p>
+                        <span style="font-family: Tahoma, Geneva, sans-serif">Thank you for your interest in this audio
+                            evaluation task on
+                            Mechanical Turk. This page outlines the details with respect to your
+                            consent to participate in our study.</span>
+                    </p>
+                    <p>
+                        <br />
+                        <span style="font-family: Tahoma, Geneva, sans-serif"><u><strong>Protocol
+                                    Title:</strong></u><br />
+                            Qualitative evaluation of artificially synthesized audio</span>
+                    </p>
+
+                    <p>
+                        <br />
+                        <span style="font-family: Tahoma, Geneva, sans-serif"><u><strong>Purpose of this
+                                    research:</strong></u><br />
+                            The purpose of this research is to evaluate the quality of synthetic audio clips generated
+                            using an artificial neural network. The audio clips under test belong to the domain of audio
+                            textures (for e.g. a series of popping sounds, the ticking sound made by a Geiger counter or
+                            the sound made by water filling a container) or pitches made by musical instruments. The
+                            specific goal of this project is to ensure that the synthetic outputs generated by these
+                            deep learning models are validated by human beings to test for certain sound qualities like
+                            smoothness, naturalness or absence of noise etc.</span>
+                    </p>
+
+                    <p>
+                        <br />
+                        <span style="font-family: Tahoma, Geneva, sans-serif"><u><strong>Contacting
+                                    Us:</strong></u><br />
+                            Please use the "Contact this requester" link on the Mechanical Turk's
+                            HIT details section if you need further details or clarifications on
+                            the task. The Principal Investigator (the person in charge of this
+                            research) or his/her representative will answer all of your questions.
+                            Note: On using this feature, your e-mail address and your name will
+                            automatically be visible to our research team so that we can reply to
+                            you.</span>
+                    </p>
+
+                    <p>
+                        <br />
+                        <span style="font-family: Tahoma, Geneva, sans-serif"><u><strong>Your personal
+                                    data:</strong></u><br />
+                            Only the principal investigator and his/her representative has your
+                            worker ID and this will not be released to any other person. We will
+                            <u><strong>NOT</strong></u> request Amazon Mechanical Turk for your
+                            person identifying details. Also, this worker ID data will not be used
+                            in a publication or presentation. We will use this worker ID only for
+                            the purposes of correlating consent to HIT responses and distributing
+                            compensation via Mechanical Turk.</span>
+                    </p>
+
+                    <p>
+                        <span style="font-family: Tahoma, Geneva, sans-serif">All data collected will be kept in
+                            accordance to the University's
+                            Research Data Management Policy. Research data used in any publication
+                            will be kept for a minimum of 10 years before being discarded.</span>
+                    </p>
+                </div>
+
+                <div>
+                    <br />
+                    <span style="font-family: Tahoma, Geneva, sans-serif">By accepting the HIT on Amazon's Mechanical
+                        Turk, you acknowledge that
+                        -
+                    </span>
+                </div>
+
+                <ol>
+                    <li>
+                        <span style="font-family: Tahoma, Geneva, sans-serif">You have agreed to take part in
+                            this&nbsp;research.</span>
+                    </li>
+                    <li>
+                        <span style="font-family: Tahoma, Geneva, sans-serif">You have read the instructions on the
+                            mechanical turk website and
+                            details on this form which explains the use of the data you submit for
+                            this research.</span>
+                    </li>
+                    <li>
+                        <span style="font-family: Tahoma, Geneva, sans-serif">You can withdraw from this research at any
+                            point of time. If you want
+                            the data you already submitted to be deleted you will&nbsp;inform the
+                            Principal Investigator and all your data will be discarded.</span>
+                    </li>
+                    <li>
+                        <span style="font-family: Tahoma, Geneva, sans-serif">You will not have any financial benefits
+                            that result from the
+                            commercial development of this research.</span>
+                    </li>
+                    <li>
+                        <span style="font-family: Tahoma, Geneva, sans-serif">You agree to be re-contacted for future
+                            related studies
+                            via&nbsp;Amazon's Mechanical Turk website. &nbsp;<span lang="EN-US">
+                            </span></span>
+                    </li>
+                </ol>
+            </div>
+        </crowd-modal>
+
+        <div class="row ps-2">
+            <div id="errorModal" class="modal">
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <p>Please listen to <span style="font-weight: bolder;">all</span> sound clips and answer all
+                        questions.</p>
+                </div>
+            </div>
+
+            <div id="oneAudioOnlyModal" class="modal">
+                <div class="modal-content">
+                    <span class="oneAudioOnlyClose">&times;</span>
+                    <p>Your opinion on this HIT is of <b>great importance</b> to us.
+                    </p>
+                    <p>Please listen very closely to <b>one audio clip</b> at a time.
+                    </p>
+                </div>
+            </div>
+
+            <div>&nbsp;</div>
+            <div class="clipbox-border margin-top">
+                <p style="padding-left: 10px;">
+                    <u>Note:</u>
+                    Please use headphones to listen to the audio samples. Some samples may not be audible over
+                    laptop/desktop speakers.
+                </p>
+            </div>
+
+
+
+            <input id="task_id" name="task_id" type="hidden" value="${task_id}" />
+
+            <input id="attribute_type" name="attribute_type" type="hidden" value="${attribute_type}" />
+            <input id="sample_1_type" name="sample_1_type" type="hidden" value="${sample_1_type}" />
+            <input id="sample_2_type" name="sample_2_type" type="hidden" value="${sample_2_type}" />
+
+            <input id="sample_1_listened" name="sample_1_listened" type="hidden" value="No" />
+            <input id="sample_2_listened" name="sample_2_listened" type="hidden" value="No" />
+
+            <input id="brightness_radio_updated" name="brightness_radio_updated" type="hidden" value="No" />
+            <input id="rate_radio_updated" name="rate_radio_updated" type="hidden" value="No" />
+            <input id="impacttype_radio_updated" name="impacttype_radio_updated" type="hidden" value="No" />
+
+            <input type="hidden" name="view_instructions_clicked" id="view_instructions_clicked" value="No" />
+            <input type="hidden" name="view_consent_clicked" id="view_consent_clicked" value="No" />
+
+
+            <div>&nbsp;</div>
+            <div class="heading row">
+                <div class="col-3">Audio Evaluation Task</div>
+                <div class="col-9">&nbsp;</div>
+            </div>
+            <div>&nbsp;</div>
+
+
+            <div class="row">
+                <div class="col-12">
+                    In this task, you will listen to some sounds made by a wooden stick hitting various different hard
+                    and soft surfaces and compare them to each other.
+                </div>
+                <div>&nbsp;</div>
+                <div class="col-12">
+                    See some examples sounds and attributes associated with them, please see the <b>'View
+                        Instructions'</b> section.
+                </div>
+            </div>
+            <div>&nbsp;</div>
+
+            <div class="row">
+                <div class="row">
+                    <div class="col-12">Please listen to the two audio samples and answer the questions below.
+                    </div>
+                </div>
+                <div class="row d-flex align-items-center">
+                    <div class="col-1 text-end ">
+                        <b>Sample 1</b>:
+                    </div>
+                    <div class="col-2">
+                        <audio controls controlsList="nodownload noplaybackrate"
+                            onended="listenedCheck('sample_1_listened')" onplay="playCheck(event);">
+                            <!-- <source src="${sample_1_url}" type="audio/wav" /> -->
+                            <source src="resources/paper_samples/rate_sample2_0.wav" type="audio/wav" />
+                        </audio>
+                    </div>
+                    <div class="col-1">
+                        &nbsp;
+                    </div>
+                    <div class="col-1 text-end">
+                        <b>Sample 2</b>:
+                    </div>
+                    <div class="col-2">
+                        <audio controls controlsList="nodownload noplaybackrate"
+                            onended="listenedCheck('sample_2_listened')" onplay="playCheck(event);">
+                            <!-- <source src="${sample_2_url}" type="audio/wav" /> -->
+                            <source src="resources/paper_samples/rate_sample2_4.wav" type="audio/wav" />
+                        </audio>
+                    </div>
+                </div>
+            </div>
+            <div>&nbsp;</div>
+
+            <div class="row">
+                <div class="row pt-2">
+                    <div class="col-2 text-center pt-3 border" style="background-color: rgb(224, 237, 239);">
+                        1. How does <b>Sample 1</b> differ from the <b>Sample 2</b> in terms of brightness?
+                        <br/><br/>
+                        <p class="text-start ps-2" >By <span style="font-weight: bold; color: blue;"><b>bright</b></span> we mean the sound sample is vibrant or has many high frequencies
+                            (As compared to <span style="font-weight: bold; color: blue;"><b>dull</b></span> sounds).
+                        </p>
+                        <br/>
+                        See 'View Instructions' for examples.
+                        <br/><br/>
+                        <!-- <p class="text-start ps-2" >By <span style="font-weight: bold; color: blue;"><b>dull</b></span> we mean the sound sample has many lower frequencies. We think of <u>dull sounds as being opposite to bright</u>. 
+                            <br /><br />See 'View Instructions' for examples.</p> -->
+                    </div>
+                    <div class="col-2 text-center pt-5 border">
+                        <input type="radio" name="brightness_radio" id="brightness_radio1" value="sample1_brighter_sample2_selected" onchange="radioChanged('brightness_radio_updated')" />&nbsp;<br />
+                        <label for="brightness_radio">Sample 1 is <span style="font-weight: bold; color: blue;"><b>brighter</b></span> than Sample 2</label><br /><br />
+                    </div>
+                    <div class="col-2 text-center pt-5 border">
+                        <input type="radio" name="brightness_radio" id="brightness_radio2" value="sample2_brighter_sample1_selected" onchange="radioChanged('brightness_radio_updated')" />&nbsp;<br />
+                        <label for="brightness_radio">Sample 2 is <span style="font-weight: bold; color: blue;"><b>brighter</b></span> than Sample 1</label><br />
+                    </div>
+                    <div class="col-2 text-center pt-5 border">
+                        <input type="radio" name="brightness_radio" id="brightness_radio3" value="sample1_brightnessnodiff_sample2_selected" onchange="radioChanged('brightness_radio_updated')" />&nbsp;<br />
+                        <label for="brightness_radio">No difference in brightness. Both Sample 1 and Sample 2 sound the same.</label><br />
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="row">
+                <div class="row pt-2">
+                    <div class="col-2 text-center pt-3 border" style="background-color: rgb(224, 237, 239);">
+                        2. How does <b>Sample 1</b> differ from the <b>Sample 2</b> in terms of rate?
+                        <br/><br/>
+                        <!-- <p class="text-start ps-2" >By <span style="font-weight: bold; color: blue;"><b>low rate</b></span> we mean sound samples which have less than 2-3 hits or scratches.</p>
+                        <br/> -->
+                        <p class="text-start ps-2" >By <span style="font-weight: bold; color: blue;"><b>high rate</b></span> we mean the sound samples have more than 2-3 hits or scratches
+                            (As compared to <span style="font-weight: bold; color: blue;"><b>low rate</b></span>).
+                        <br /><br />See 'View Instructions' for examples.</p>
+                        
+                    </div>
+                    <div class="col-2 text-center pt-5 border">
+                        <input type="radio" name="rate_radio" id="rate_radio1" value="sample1_higherrate_sample2_selected" onchange="radioChanged('rate_radio_updated')" />&nbsp;<br />
+                        <label for="rate_radio">Sample 1 is <span style="font-weight: bold; color: blue;"><b>higher rate</b></span> than Sample 2</label><br /><br />
+                    </div>
+                    <div class="col-2 text-center pt-5 border">
+                        <input type="radio" name="rate_radio" id="rate_radio2" value="sample2_higherrate_sample1_selected" onchange="radioChanged('rate_radio_updated')" />&nbsp;<br />
+                        <label for="rate_radio">Sample 2 is <span style="font-weight: bold; color: blue;"><b>higher rate</b></span> than Sample 1</label><br />
+                    </div>
+                    <div class="col-2 text-center pt-5 border">
+                        <input type="radio" name="rate_radio" id="rate_radio3" value="sample1_ratenodiff_sample2_selected" onchange="radioChanged('rate_radio_updated')" />&nbsp;<br />
+                        <label for="rate_radio">No difference in rate. Both Sample 1 and Sample 2 sound the same.</label><br />
+                    </div>
+                </div>
+            </div>
+
+
+
+
+            <div class="row">
+                <div class="row pt-2">
+                    <div class="col-2 text-center pt-3 border" style="background-color: rgb(224, 237, 239);">
+                        3. How does <b>Sample 1</b> differ from the <b>Sample 2</b> in terms of impact type (hit or a scratch)?
+                        <br/><br/>
+                        <!-- <p class="text-start ps-2" >By <span style="font-weight: bold; color: blue;"><b>sharp hit</b></span> we mean sounds which are created when a wooden stick strikes a surface sharply.</p>
+                        <br/> -->
+                        <p class="text-start ps-2" >By <span style="font-weight: bold; color: blue;"><b>scratches</b></span> we mean sounds which are created when a wooden stick scratches or scrapes a surface
+                             (As compared to <span style="font-weight: bold; color: blue;"><b>sharp hits</b></span>).
+                        <br /><br />See 'View Instructions' for examples.</p>
+                    </div>
+                    <div class="col-2 text-center pt-5 border">
+                        <input type="radio" name="impacttype_radio" id="impacttype_radio1" value="sample1_scratchier_sample2_selected" onchange="radioChanged('impacttype_radio_updated')" />&nbsp;<br />
+                        <label for="impacttype_radio">Sample 1 is <span style="font-weight: bold; color: blue;"><b>scratchier</b></span> than Sample 2</label><br /><br />
+                    </div>
+                    <div class="col-2 text-center pt-5 border">
+                        <input type="radio" name="impacttype_radio" id="impacttype_radio2" value="sample2_scratchier_sample1_selected" onchange="radioChanged('impacttype_radio_updated')" />&nbsp;<br />
+                        <label for="impacttype_radio">Sample 2 is <span style="font-weight: bold; color: blue;"><b>scratchier</b></span> than Sample 1</label><br />
+                    </div>
+                    <div class="col-2 text-center pt-5 border">
+                        <input type="radio" name="impacttype_radio" id="impacttype_radio3" value="sample1_impacttypenodiff_sample2_selected" onchange="radioChanged('impacttype_radio_updated')" />&nbsp;<br />
+                        <label for="impacttype_radio">No difference in impact type. Both Sample 1 and Sample 2 sound the same.</label><br />
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+
+
+
+
+            
+
+
+
+
+                <!-- <div class=" ps-5 pt-2">Check <b>all</b> those that apply. (For examples
+                    on
+                    what we mean by <span style="font-weight: bold; color: blue;"><b>brighter</b></span>, <span style="font-weight: bold; color: blue;"><b>dull</b></span>,
+                     <span style="font-weight: bold; color: blue;"><b>rate</b></span> etc., please see 'View Instructions' tab.)</div>
+                <div class="row ps-5 pt-2">
+                    <div class="col-12">
+                        <input type="checkbox" name="sample1_brighter_ref_selected" id="sample1_brighter_ref_selected"
+                            value="sample1_brighter_ref_selected" onchange="radioChanged('q4_answered')" />&nbsp;
+                        <label for="sample1_brighter_ref_selected">Sample 1 is <span style="font-weight: bold; color: blue;"><b>brighter</b></span> than Sample 2</label><br />
+                    </div>
+                    <div class="col-12">
+                        <input type="checkbox" name="sample1_duller_ref_selected" id="sample1_duller_ref_selected"
+                            value="sample1_duller_ref_selected" onchange="radioChanged('q4_answered')" />&nbsp;
+                        <label for="sample1_duller_ref_selected">Sample 1 is <span style="font-weight: bold; color: blue;"><b>duller</b></span> than Sample 2</label><br />
+                    </div>
+                    <div class="col-12">
+                        <input type="checkbox" name="sample1_lowerrate_ref_selected" id="sample1_lowerrate_ref_selected"
+                            value="sample1_lowerrate_ref_selected" onchange="radioChanged('q4_answered')" />&nbsp;
+                        <label for="sample1_lowerrate_ref_selected">Sample 1 has <span style="font-weight: bold; color: blue;"><b>lower rate</b></span> than Sample 2</label><br />
+                    </div>
+                    <div class="col-12">
+                        <input type="checkbox" name="sample1_higherrate_ref_selected"
+                            id="sample1_higherrate_ref_selected" value="sample1_higherrate_ref_selected"
+                            onchange="radioChanged('q4_answered')" />&nbsp;
+                        <label for="sample1_higherrate_ref_selected">Sample 1 has <span style="font-weight: bold; color: blue;"><b>higher rate</b></span> than Sample 2</label><br />
+                    </div>
+                    <div class="col-12">
+                        <input type="checkbox" name="sample1_sharperhits_ref_selected"
+                            id="sample1_sharperhits_ref_selected" value="sample1_sharperhits_ref_selected"
+                            onchange="radioChanged('q4_answered')" />&nbsp;
+                        <label for="sample1_sharperhits_ref_selected">Sample 1 has <span style="font-weight: bold; color: blue;"><b>sharper hits</b></span>
+                            than Sample 2</label><br />
+                    </div>
+                    <div class="col-12">
+                        <input type="checkbox" name="sample1_scratchier_ref_selected"
+                            id="sample1_scratchier_ref_selected" value="sample1_scratchier_ref_selected"
+                            onchange="radioChanged('q4_answered')" />&nbsp;
+                        <label for="sample1_scratchier_ref_selected">Sample 1 is <span style="font-weight: bold; color: blue;"><b>scratchier</b></span> than Sample 2</label><br />
+                    </div>
+                    <div class="col-12">
+                        <input type="checkbox" name="sample1_and_ref_same_selected"
+                            id="sample1_and_ref_same_selected" value="sample1_and_ref_same_selected"
+                            onchange="radioChanged('q4_answered')" />&nbsp;
+                        <label for="sample1_and_ref_same_selected">No difference. Sample 1 and the Sample 2 sound the same</label><br />
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+
+
+
+
+            <div>&nbsp;</div>
+            <div class="row ps-4">
+                <div class="row  ps-5 pt-2">
+                    <div class="col-12">How does <b>Sample 1</b> differ from the <b>Sample 2</b>?
+                    </div>
+                </div>
+                <div class=" ps-5 pt-2">Check <b>all</b> those that apply. (For examples
+                    on
+                    what we mean by <span style="font-weight: bold; color: blue;"><b>brighter</b></span>, <span style="font-weight: bold; color: blue;"><b>dull</b></span>,
+                     <span style="font-weight: bold; color: blue;"><b>rate</b></span> etc., please see 'View Instructions' tab.)</div>
+                <div class="row ps-5 pt-2">
+                    <div class="col-12">
+                        <input type="checkbox" name="sample1_brighter_ref_selected" id="sample1_brighter_ref_selected"
+                            value="sample1_brighter_ref_selected" onchange="radioChanged('q4_answered')" />&nbsp;
+                        <label for="sample1_brighter_ref_selected">Sample 1 is <span style="font-weight: bold; color: blue;"><b>brighter</b></span> than Sample 2</label><br />
+                    </div>
+                    <div class="col-12">
+                        <input type="checkbox" name="sample1_duller_ref_selected" id="sample1_duller_ref_selected"
+                            value="sample1_duller_ref_selected" onchange="radioChanged('q4_answered')" />&nbsp;
+                        <label for="sample1_duller_ref_selected">Sample 1 is <span style="font-weight: bold; color: blue;"><b>duller</b></span> than Sample 2</label><br />
+                    </div>
+                    <div class="col-12">
+                        <input type="checkbox" name="sample1_lowerrate_ref_selected" id="sample1_lowerrate_ref_selected"
+                            value="sample1_lowerrate_ref_selected" onchange="radioChanged('q4_answered')" />&nbsp;
+                        <label for="sample1_lowerrate_ref_selected">Sample 1 has <span style="font-weight: bold; color: blue;"><b>lower rate</b></span> than Sample 2</label><br />
+                    </div>
+                    <div class="col-12">
+                        <input type="checkbox" name="sample1_higherrate_ref_selected"
+                            id="sample1_higherrate_ref_selected" value="sample1_higherrate_ref_selected"
+                            onchange="radioChanged('q4_answered')" />&nbsp;
+                        <label for="sample1_higherrate_ref_selected">Sample 1 has <span style="font-weight: bold; color: blue;"><b>higher rate</b></span> than Sample 2</label><br />
+                    </div>
+                    <div class="col-12">
+                        <input type="checkbox" name="sample1_sharperhits_ref_selected"
+                            id="sample1_sharperhits_ref_selected" value="sample1_sharperhits_ref_selected"
+                            onchange="radioChanged('q4_answered')" />&nbsp;
+                        <label for="sample1_sharperhits_ref_selected">Sample 1 has <span style="font-weight: bold; color: blue;"><b>sharper hits</b></span>
+                            than Sample 2</label><br />
+                    </div>
+                    <div class="col-12">
+                        <input type="checkbox" name="sample1_scratchier_ref_selected"
+                            id="sample1_scratchier_ref_selected" value="sample1_scratchier_ref_selected"
+                            onchange="radioChanged('q4_answered')" />&nbsp;
+                        <label for="sample1_scratchier_ref_selected">Sample 1 is <span style="font-weight: bold; color: blue;"><b>scratchier</b></span> than Sample 2</label><br />
+                    </div>
+                    <div class="col-12">
+                        <input type="checkbox" name="sample1_and_ref_same_selected"
+                            id="sample1_and_ref_same_selected" value="sample1_and_ref_same_selected"
+                            onchange="radioChanged('q4_answered')" />&nbsp;
+                        <label for="sample1_and_ref_same_selected">No difference. Sample 1 and the Sample 2 sound the same</label><br />
+                    </div>
+                </div>
+            </div> -->
+                <div>&nbsp;</div>
+                <div>&nbsp;</div>
+            </div>
+            <br />
+
+</crowd-form>
+
+<script>
+
+    function listenedCheck(elementName) {
+        var x = document.getElementById(elementName);
+        x.value = 'Yes'
+    }
+
+    function playCheck(e) {
+
+    }
+
+    function radioChanged(elementName) {
+        var x = document.getElementById(elementName);
+        x.value = 'Yes'
+    }
+
+    var viewinstructions = document.getElementById('viewinstructions')
+    viewinstructions.onclick = function () {
+        document.getElementById('view_instructions_clicked').value = 'Yes'
+    }
+    var viewconsent = document.getElementById('viewconsent')
+    viewconsent.onclick = function () {
+        document.getElementById('view_consent_clicked').value = 'Yes'
+    }
+
+    function validateForm() {
+        sample_1_listened = document.getElementById('sample_1_listened').value;
+        sample_2_listened = document.getElementById('sample_2_listened').value;
+
+        listened = false
+        if (sample_1_listened == 'Yes' && sample_2_listened == 'Yes') {
+            listened = true;
+        }
+
+
+        brightness_q_answered = document.getElementById('brightness_radio_updated').value;
+        rate_q_answered = document.getElementById('rate_radio_updated').value;
+        impacttype_q_answered = document.getElementById('impacttype_radio_updated').value;
+
+        allQsAnsweredTest = false
+        if (brightness_q_answered == 'Yes' && rate_q_answered == 'Yes' && impacttype_q_answered == 'Yes') {
+            allQsAnsweredTest = true;
+        }
+
+        return listened && allQsAnsweredTest
+    }
+
+    var modal = document.getElementById("errorModal");
+    var span = document.getElementsByClassName("close")[0];
+    span.onclick = function () {
+        modal.style.display = "none";
+    }
+
+    var oneAudioOnlyModal = document.getElementById("oneAudioOnlyModal");
+    var oneAudioOnlyCloseSpan = document.getElementsByClassName("oneAudioOnlyClose")[0];
+    oneAudioOnlyCloseSpan.onclick = function () {
+        oneAudioOnlyModal.style.display = "none";
+    }
+
+
+    document.querySelector('crowd-form').onsubmit = function (e) {
+        if (!validateForm()) {
+            e.preventDefault();
+            modal.style.display = "block";
+        }
+    }
+    window.onclick = function (event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+        if (event.target == oneAudioOnlyModal) {
+            oneAudioOnlyModal.style.display = "none";
+        }
+    }
+
+</script>
