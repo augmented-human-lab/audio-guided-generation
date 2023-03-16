@@ -116,6 +116,31 @@
         </div>
         <div class="row">&nbsp;</div>
 
+        <div class="row">
+            <div class="col-2">
+                &nbsp;
+            </div>
+            <div class="col-8 pt-2">
+                See below a demonstration of the notion of Analysis-by-Synthesis in the latent space of a StyleGAN2. <br/>
+                <ul>
+                    <li>The leftbar shows the options to generate a synthetic <b>Gaver Sound</b>. The column called <b>Synthetic Reference</b> shows the spectrogram of 
+                        the synthesized Gaver Sound.</li>
+                    <li>We use this Gaver Sound to query the latent space of a StyleGAN2 to retrieve (or reconstruct) an audio sample closely resembling 
+                        the Gaver Sound. </li>
+                    <li>The column called <b>Reconstructed Audio</b> is the audio generated from StyleGAN2 (using GAN Inversion).</li>
+                </ul>
+                 
+                <br/>
+
+                We use few such <b>Gaver Sounds</b> and their <b>Reconstructions</b> to generate prototypes and eventually the vectors for controlling brightness, rate etc. 
+                
+                
+            </div>
+            <div class="col-2">
+                &nbsp;
+            </div>
+        </div>
+        <div class="row">&nbsp;</div>
 
         <div class="row">
             <div class="col-2">
@@ -126,6 +151,7 @@
                     <source src="https://guided-control-by-prototypes.s3.ap-southeast-1.amazonaws.com/resources/videos/demo_video.mp4" type="video/mp4">
                   Your browser does not support the video tag.
                   </video>
+                  <span style="font-size:small"><i>(This demo video has been sped up 2X for brevity. Please see video settings to lower speed.)</i></span>
                 
             </div>
             <div class="col-2">
@@ -180,11 +206,17 @@
             </div>
             <div class="col-8 text-start pt-2" id="greatesthits-examples">
                 For the GreatestHits dataset, we develop semantic concept clusters and directions
-                for concepts of <b>perceived brightness</b> (whether the
-                sound contains mostly high frequency components or is dark or dull
-                containing low frequency components), <b>rate</b> (whether the number
-                of impact sounds in a sample is high or low), and <b>impact type</b>
-                (whether the impact sounds are sharp hits or scratchy sounds).
+                for concepts of -
+                <ul>
+                    <li><b>Perceived Brightness</b> (whether the
+                        sound contains mostly high frequency components or is dark or dull
+                        containing low frequency components),</li>
+                    <li><b>Rate</b> (whether the number
+                        of impact sounds in a sample is high or low), and </li>
+                    <li><b>Impact Type</b>
+                            (whether the impact sounds are sharp hits or scratchy sounds).</li>
+                </ul>
+                 
             </div>
             <div class="col-2">
                 &nbsp;
@@ -203,6 +235,19 @@
                 </div>
                 <div class="col-8 h5 text-center">
                     <u><b>Guiding Perceived Brightness</b></u>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-2">
+                    &nbsp;
+                </div>
+                <div class="col-8">
+                    See samples below. The leftmost sounds are randomly generated from the latent space and are edited using the direction vector for <b>brightness</b>.
+                    <br/>
+                    <br/>
+                    
+                    The leftmost sounds are <b>brighter</b> than the rightmost sounds. <br/>
+                    As you move to the right, the sounds become progressively <b>dark</b> or <b>dull</b>.
                 </div>
             </div>
             <div class="row">
@@ -456,6 +501,19 @@
                 <div class="col-2">
                     &nbsp;
                 </div>
+                <div class="col-8">
+                    See samples below. The leftmost sounds are randomly generated from the latent space and are edited using the direction vector for <b>impact type</b>.
+                    <br/>
+                    <br/>
+                    
+                    The leftmost sounds are <b>sharper hits</b> as compared to the rightmost sounds. <br/>
+                    As you move to the right, the sounds become progressively <b>scratchier</b>.
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-2">
+                    &nbsp;
+                </div>
                 <div class="col-8 pt-2">
                     <div class="row">
                         <div class="col-1 pt-5 text-center example-headings">sample 1</div>
@@ -688,6 +746,19 @@
                 </div>
                 <div class="col-8 h5 text-center">
                     <u><b>Guiding Rate</b></u>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-2">
+                    &nbsp;
+                </div>
+                <div class="col-8">
+                    See samples below. The leftmost sounds are randomly generated from the latent space and are edited using the direction vector for <b>rate</b>.
+                    <br/>
+                    <br/>
+                    
+                    The leftmost sounds are <b>lower rate</b> as compared to the rightmost sounds. <br/>
+                    As you move to the right, the sounds become progressively of <b>higher rate</b> (i.e. more number of impacts in the sample).
                 </div>
             </div>
             <div class="row">
@@ -958,7 +1029,7 @@
             <div class="col-2">
                 &nbsp;
             </div>
-            <div class="col-8 text-start pt-2" id="greatesthits-examples">
+            <div class="col-8 text-start pt-2">
                 For this dataset, we develop semantic concept clusters and directions for the continuously valued
                 concept of <b>fill-level</b> of the container.
             </div>
@@ -966,6 +1037,20 @@
                 &nbsp;
             </div>
         </div>
+        <div class="row">
+            <div class="col-2">
+                &nbsp;
+            </div>
+            <div class="col-8">
+                The leftmost sounds are that of water filling an empty container (i.e. <b>fill-level=0</b>). <br/>
+                As you move to the right, the the fill-level progressively increases to finally <b>fill-level=1</b>.
+            </div>
+            <div class="col-2">
+                &nbsp;
+            </div>
+        </div>
+
+        
         <div class="row">&nbsp;</div>
         <div class="row">&nbsp;</div>
 
@@ -2248,5 +2333,10 @@
 
 
 </body>
+<script>
+    window.onload = (e) =>{
+        document.querySelector('video').playbackRate = 2.0;
+    }
+</script>
 
 </html>
