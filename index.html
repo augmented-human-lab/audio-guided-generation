@@ -1823,7 +1823,9 @@
                     &nbsp;
                 </div>
                 <div class="col-8 text-start pt-2">
-                    ......
+                    Semantic Factorization algorithm or SeFa (see references in paper) scores lower in terms of re-scoring accuracy. This can be attributed to 
+                    the tendency of the algorithm to generate out-of-distribution sounds or have required effect on only few samples. 
+                    <br/>
                 </div>
                 <div class="col-2">
                     &nbsp;
@@ -1833,114 +1835,6 @@
             <div class="row">&nbsp;</div>
     
     
-    
-    
-            <div class="row">
-                <div class="row">
-                    <div class="col-2">
-                        &nbsp;
-                    </div>
-                    <div class="col-8 h5 text-center">
-                        <u><b>SeFa failure mode for Greatest Hits - Brightness</b></u>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-2">
-                        &nbsp;
-                    </div>
-                    <div class="col-8 pt-2">
-                        <div class="row">
-                            <div class="col-1 pt-5 text-center example-headings">sample 1</div>
-                            <div class="p-0 col-2">
-                                <img src="resources/sefa-failure-mode_images/brightness_ref_b_1.png" width="100%" />
-                                <audio controls="" preload="auto">
-                                    <source src="resources/sefa-failure-mode/brightness_ref_b_1.wav" type="audio/wav" />
-                                </audio>
-                            </div>
-                            <div class=" p-0 col-2">
-                                <img src="resources/sefa-failure-mode_images/brightness_sefa_1_0.png" width="100%" />
-                                <audio controls="" preload="auto">
-                                    <source src="resources/sefa-failure-mode/brightness_sefa_1_0.wav" type="audio/wav" />
-                                </audio>
-                            </div>
-                            <div class=" p-0 col-2">
-                                <img src="resources/sefa-failure-mode_images/brightness_sefa_1_1.png" width="100%" />
-                                <audio controls="" preload="auto">
-                                    <source src="resources/sefa-failure-mode/brightness_sefa_1_1.wav" type="audio/wav" />
-                                </audio>
-                            </div>
-                            <div class=" p-0 col-2">
-                                <img src="resources/sefa-failure-mode_images/brightness_sefa_1_2.png" width="100%" />
-                                <audio controls="" preload="auto">
-                                    <source src="resources/sefa-failure-mode/brightness_sefa_1_2.wav" type="audio/wav" />
-                                </audio>
-                            </div>
-                            <div class=" p-0 col-2">
-                                <img src="resources/sefa-failure-mode_images/brightness_sefa_1_3.png" width="100%" />
-                                <audio controls="" preload="auto">
-                                    <source src="resources/sefa-failure-mode/brightness_sefa_1_3.wav" type="audio/wav" />
-                                </audio>
-                            </div>
-    
-                        </div>
-                    </div>
-                    <div class="col-2">
-                        &nbsp;
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-2">
-                        &nbsp;
-                    </div>
-                    <div class="col-8 pt-2">
-                        <div class="row">
-                            <div class="col-1 pt-5 text-center example-headings">sample 2</div>
-                            <div class="p-0 col-2">
-                                <img src="resources/sefa-failure-mode_images/brightness_ref_b_3.png" width="100%" />
-                                <audio controls="" preload="auto">
-                                    <source src="resources/sefa-failure-mode/brightness_ref_b_3.wav" type="audio/wav" />
-                                </audio>
-                            </div>
-                            <div class=" p-0 col-2">
-                                <img src="resources/sefa-failure-mode_images/brightness_sefa_3_0.png" width="100%" />
-                                <audio controls="" preload="auto">
-                                    <source src="resources/sefa-failure-mode/brightness_sefa_3_0.wav" type="audio/wav" />
-                                </audio>
-                            </div>
-                            <div class=" p-0 col-2">
-                                <img src="resources/sefa-failure-mode_images/brightness_sefa_3_1.png" width="100%" />
-                                <audio controls="" preload="auto">
-                                    <source src="resources/sefa-failure-mode/brightness_sefa_3_1.wav" type="audio/wav" />
-                                </audio>
-                            </div>
-                            <div class=" p-0 col-2">
-                                <img src="resources/sefa-failure-mode_images/brightness_sefa_3_2.png" width="100%" />
-                                <audio controls="" preload="auto">
-                                    <source src="resources/sefa-failure-mode/brightness_sefa_3_2.wav" type="audio/wav" />
-                                </audio>
-                            </div>
-                            <div class=" p-0 col-2">
-                                <img src="resources/sefa-failure-mode_images/brightness_sefa_3_3.png" width="100%" />
-                                <audio controls="" preload="auto">
-                                    <source src="resources/sefa-failure-mode/brightness_sefa_3_3.wav" type="audio/wav" />
-                                </audio>
-                            </div>
-    
-                        </div>
-                    </div>
-                    <div class="col-2">
-                        &nbsp;
-                    </div>
-                </div>
-            </div>
-
-
-            <div class="row">&nbsp;</div>
-            <div class="row">&nbsp;</div>
-
-
-
-
             <div class="row">
                 <div class="row">
                     <div class="col-2">
@@ -1948,6 +1842,22 @@
                     </div>
                     <div class="col-8 h5 text-center">
                         <u><b>SeFa failure mode for Greatest Hits - Impact Type</b></u>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-2">
+                        &nbsp;
+                    </div>
+                    <div class="col-8 text-start pt-2">
+                        Though SeFa Dimension 2 (See Table 3 in paper) records the highest rescoring accuracy for the change in impact type in sounds, we can qualitatively
+                        see that this dimension can change only scratches to sharp hits. Sharp hits, on the other hand, either do not change or go out-of-distribution (OOD)
+                        instead of changing to scratches. 
+                        <br/>
+                        <br/>
+                        The leftmost samples below are sharp hits. As we go progressively towards the right the samples either do not change or go OOD.
+                    </div>
+                    <div class="col-2">
+                        &nbsp;
                     </div>
                 </div>
                 <div class="row">
@@ -2127,6 +2037,130 @@
                     </div>
                 </div>
             </div>
+    
+            
+
+
+            <div class="row">&nbsp;</div>
+            <div class="row">&nbsp;</div>
+
+            <div class="row">
+                <div class="row">
+                    <div class="col-2">
+                        &nbsp;
+                    </div>
+                    <div class="col-8 h5 text-center">
+                        <u><b>SeFa failure mode for Greatest Hits - Perceived Brightness</b></u>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-2">
+                        &nbsp;
+                    </div>
+                    <div class="col-8 text-start pt-2">
+                        Though SeFa Dimension 3 (See Table 2 in paper) records the highest rescoring accuracy for the change in brightness in sounds, we can qualitatively
+                        see that this dimension does not change all randomly generated samples. Furthermore, for some samples change in brightness is associated with lowering
+                        rate. 
+                        <br/>
+                        <br/>
+                        The leftmost samples below are sharp hits. As we go progressively towards the right the samples either do not change or predominantly lower rate.
+                    </div>
+                    <div class="col-2">
+                        &nbsp;
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-2">
+                        &nbsp;
+                    </div>
+                    <div class="col-8 pt-2">
+                        <div class="row">
+                            <div class="col-1 pt-5 text-center example-headings">sample 1</div>
+                            <div class="p-0 col-2">
+                                <img src="resources/sefa-failure-mode_images/brightness_ref_b_1.png" width="100%" />
+                                <audio controls="" preload="auto">
+                                    <source src="resources/sefa-failure-mode/brightness_ref_b_1.wav" type="audio/wav" />
+                                </audio>
+                            </div>
+                            <div class=" p-0 col-2">
+                                <img src="resources/sefa-failure-mode_images/brightness_sefa_1_0.png" width="100%" />
+                                <audio controls="" preload="auto">
+                                    <source src="resources/sefa-failure-mode/brightness_sefa_1_0.wav" type="audio/wav" />
+                                </audio>
+                            </div>
+                            <div class=" p-0 col-2">
+                                <img src="resources/sefa-failure-mode_images/brightness_sefa_1_1.png" width="100%" />
+                                <audio controls="" preload="auto">
+                                    <source src="resources/sefa-failure-mode/brightness_sefa_1_1.wav" type="audio/wav" />
+                                </audio>
+                            </div>
+                            <div class=" p-0 col-2">
+                                <img src="resources/sefa-failure-mode_images/brightness_sefa_1_2.png" width="100%" />
+                                <audio controls="" preload="auto">
+                                    <source src="resources/sefa-failure-mode/brightness_sefa_1_2.wav" type="audio/wav" />
+                                </audio>
+                            </div>
+                            <div class=" p-0 col-2">
+                                <img src="resources/sefa-failure-mode_images/brightness_sefa_1_3.png" width="100%" />
+                                <audio controls="" preload="auto">
+                                    <source src="resources/sefa-failure-mode/brightness_sefa_1_3.wav" type="audio/wav" />
+                                </audio>
+                            </div>
+    
+                        </div>
+                    </div>
+                    <div class="col-2">
+                        &nbsp;
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-2">
+                        &nbsp;
+                    </div>
+                    <div class="col-8 pt-2">
+                        <div class="row">
+                            <div class="col-1 pt-5 text-center example-headings">sample 2</div>
+                            <div class="p-0 col-2">
+                                <img src="resources/sefa-failure-mode_images/brightness_ref_b_3.png" width="100%" />
+                                <audio controls="" preload="auto">
+                                    <source src="resources/sefa-failure-mode/brightness_ref_b_3.wav" type="audio/wav" />
+                                </audio>
+                            </div>
+                            <div class=" p-0 col-2">
+                                <img src="resources/sefa-failure-mode_images/brightness_sefa_3_0.png" width="100%" />
+                                <audio controls="" preload="auto">
+                                    <source src="resources/sefa-failure-mode/brightness_sefa_3_0.wav" type="audio/wav" />
+                                </audio>
+                            </div>
+                            <div class=" p-0 col-2">
+                                <img src="resources/sefa-failure-mode_images/brightness_sefa_3_1.png" width="100%" />
+                                <audio controls="" preload="auto">
+                                    <source src="resources/sefa-failure-mode/brightness_sefa_3_1.wav" type="audio/wav" />
+                                </audio>
+                            </div>
+                            <div class=" p-0 col-2">
+                                <img src="resources/sefa-failure-mode_images/brightness_sefa_3_2.png" width="100%" />
+                                <audio controls="" preload="auto">
+                                    <source src="resources/sefa-failure-mode/brightness_sefa_3_2.wav" type="audio/wav" />
+                                </audio>
+                            </div>
+                            <div class=" p-0 col-2">
+                                <img src="resources/sefa-failure-mode_images/brightness_sefa_3_3.png" width="100%" />
+                                <audio controls="" preload="auto">
+                                    <source src="resources/sefa-failure-mode/brightness_sefa_3_3.wav" type="audio/wav" />
+                                </audio>
+                            </div>
+    
+                        </div>
+                    </div>
+                    <div class="col-2">
+                        &nbsp;
+                    </div>
+                </div>
+            </div>
+
+
+            
 
            
             <div class="row">&nbsp;</div>
@@ -2142,6 +2176,27 @@
                     </div>
                     <div class="col-8 h5 text-center">
                         <u><b>SeFa failure mode for Water - fill-level</b></u>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-2">
+                        &nbsp;
+                    </div>
+                    <div class="col-8 text-start pt-2">
+                        For the Water dataset, SeFa finds the second dimension (see Table 3 in paper) to be associated with fill-level. 
+                        <br/>
+                        <br/>
+                        The most prominent dimension (dimension 0) is associated with perpetually filling of the water container, while never reaching fill-level=1. 
+                        The other dimension (dimension 2) is associated with perpertually unfilling of the water container, while never leaving fill-level=1 or never 
+                        reaching fill-level=0. 
+                        <br/>
+                        <br/>
+                        Whimsicial, sure, but not controllable. Makes you wonder, especially for dimension 0 which has the highest Singular Value 
+                        (from the eigendecomposition of weights), if not fill-level then what
+                        other factor of variation did SeFa find?
+                    </div>
+                    <div class="col-2">
+                        &nbsp;
                     </div>
                 </div>
                 <div class="row">
