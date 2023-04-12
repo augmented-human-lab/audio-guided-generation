@@ -99,7 +99,7 @@
                 <i>A Companion Webpage For</i>
                 <h2><b>An Analysis-Synthesis <br />Approach To Perceptually Guided Audio Texture Generation</b>
                 </h2>
-                <br/>
+                <br />
             </div>
             <div class="col-3">
                 &nbsp;
@@ -107,13 +107,14 @@
         </div>
         <div class='row p-0 m-0'>
             <div class='col-2'>&nbsp;</div>
-            <div class='col-8 text-center' style="font-size:smaller"><i>(Webpage best viewed on Chrome or Firefox. For screens smaller than 1200px please use Firefox only.)</i></div>
+            <div class='col-8 text-center' style="font-size:smaller"><i>(Webpage best viewed on Chrome or Firefox. For
+                    screens smaller than 1200px please use Firefox only.)</i></div>
             <div class='col-2'>&nbsp;</div>
         </div>
     </div>
 
     <div class="container-fluid" style="width: 100%">
-        
+
         <div class="row">&nbsp;</div>
 
         <div class="row">
@@ -122,11 +123,14 @@
             </div>
             <div class="col-8 h4 text-center pt-2">
                 <video width="100%" controls>
-                    <source src="https://guided-control-by-prototypes.s3.ap-southeast-1.amazonaws.com/resources/videos/demo_video.mp4" type="video/mp4">
-                  Your browser does not support the video tag.
-                  </video>
-                  <span style="font-size:medium"><i>(This demo video has been sped up 2X for brevity. Please see video settings to lower speed.)</i></span>
-                
+                    <source
+                        src="https://guided-control-by-prototypes.s3.ap-southeast-1.amazonaws.com/resources/videos/demo_video.mp4"
+                        type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <span style="font-size:medium"><i>(This demo video has been sped up 2X for brevity. Please see video
+                        settings to lower speed.)</i></span>
+
             </div>
             <div class="col-2">
                 &nbsp;
@@ -143,12 +147,17 @@
                 <u class="h4"><b>Index</b></u>
 
                 <ul>
-                    <li class="pt-2"><a href="#greatesthits-examples">1. Perceptually Guided Examples for Greatest Hits Dataset</a></li>
+                    <li class="pt-2"><a href="#greatesthits-examples">1. Perceptually Guided Examples for Greatest Hits
+                            Dataset</a></li>
                     <li class="pt-2"><a href="#water-examples">2. Perceptually Guided Examples for Water</a></li>
                     <li class="pt-2"><a href="#listening-test-interface">3. Listening Test Interfaces</a></li>
-                    <li class="pt-2"><a href="#selective-attr-transfer-examples">4. Examples for Selective Semantic Attribute Transfer</a></li>
+                    <li class="pt-2"><a href="#selective-attr-transfer-examples">4. Examples for Selective Semantic
+                            Attribute Transfer</a></li>
                     <li class="pt-2"><a href="#sefa-failure-modes">5. SeFa Failure Modes</a></li>
-                    <li class="pt-2"><a href="#ablation-studies-numsamples">6. Ablation studies for number of exemplars</a></li>
+                    <li class="pt-2"><a href="#ablation-studies-numsamples">6. Ablation studies for number of
+                            exemplars</a></li>
+                    <li class="pt-2"><a href="#training-details">7. StyleGAN2 and Encoder training details</a></li>
+                    <li class="pt-2"><a href="#rescoring-classifier-details">8. Re-scoring Classifier Details</a></li>
                 </ul>
             </div>
             <div class="col-2">
@@ -190,9 +199,9 @@
                     <li><b>Rate</b> (whether the number
                         of impact sounds in a sample is high or low), and </li>
                     <li><b>Impact Type</b>
-                            (whether the impact sounds are sharp hits or scratchy sounds).</li>
+                        (whether the impact sounds are sharp hits or scratchy sounds).</li>
                 </ul>
-                 
+
             </div>
             <div class="col-2">
                 &nbsp;
@@ -218,11 +227,12 @@
                     &nbsp;
                 </div>
                 <div class="col-8">
-                    See samples below. The leftmost sounds are randomly generated from the latent space and are edited using the direction vector for <b>brightness</b>.
-                    <br/>
-                    <br/>
-                    
-                    The leftmost sounds are <b>brighter</b> than the rightmost sounds. <br/>
+                    See samples below. The leftmost sounds are randomly generated from the latent space and are edited
+                    using the direction vector for <b>brightness</b>.
+                    <br />
+                    <br />
+
+                    The leftmost sounds are <b>brighter</b> than the rightmost sounds. <br />
                     As you move to the right, the sounds become progressively <b>dark</b> or <b>dull</b>.
                 </div>
             </div>
@@ -478,11 +488,12 @@
                     &nbsp;
                 </div>
                 <div class="col-8">
-                    See samples below. The leftmost sounds are randomly generated from the latent space and are edited using the direction vector for <b>impact type</b>.
-                    <br/>
-                    <br/>
-                    
-                    The leftmost sounds are <b>sharper hits</b> as compared to the rightmost sounds. <br/>
+                    See samples below. The leftmost sounds are randomly generated from the latent space and are edited
+                    using the direction vector for <b>impact type</b>.
+                    <br />
+                    <br />
+
+                    The leftmost sounds are <b>sharper hits</b> as compared to the rightmost sounds. <br />
                     As you move to the right, the sounds become progressively <b>scratchier</b>.
                 </div>
             </div>
@@ -729,12 +740,14 @@
                     &nbsp;
                 </div>
                 <div class="col-8">
-                    See samples below. The leftmost sounds are randomly generated from the latent space and are edited using the direction vector for <b>rate</b>.
-                    <br/>
-                    <br/>
-                    
-                    The leftmost sounds are <b>lower rate</b> as compared to the rightmost sounds. <br/>
-                    As you move to the right, the sounds become progressively of <b>higher rate</b> (i.e. more number of impacts in the sample).
+                    See samples below. The leftmost sounds are randomly generated from the latent space and are edited
+                    using the direction vector for <b>rate</b>.
+                    <br />
+                    <br />
+
+                    The leftmost sounds are <b>lower rate</b> as compared to the rightmost sounds. <br />
+                    As you move to the right, the sounds become progressively of <b>higher rate</b> (i.e. more number of
+                    impacts in the sample).
                 </div>
             </div>
             <div class="row">
@@ -1018,7 +1031,7 @@
                 &nbsp;
             </div>
             <div class="col-8">
-                The leftmost sounds are that of water filling an empty container (i.e. <b>fill-level=0</b>). <br/>
+                The leftmost sounds are that of water filling an empty container (i.e. <b>fill-level=0</b>). <br />
                 As you move to the right, the the fill-level progressively increases to finally <b>fill-level=1</b>.
             </div>
             <div class="col-2">
@@ -1026,7 +1039,7 @@
             </div>
         </div>
 
-        
+
         <div class="row">&nbsp;</div>
         <div class="row">&nbsp;</div>
 
@@ -1234,7 +1247,7 @@
 
 
 
-            
+
 
 
 
@@ -1268,16 +1281,22 @@
                     <table class="table table-bordered text-center">
                         <thead>
                             <tr>
-                                <th scope="col">Interface to measure perceptual linearity for Water Dataset<br/>(Please click on the image)</th>
-                                <th scope="col">Interface to measure attribute change for Greatest Hits Dataset<br/>(Please click on the image)</th>
+                                <th scope="col">Interface to measure perceptual linearity for Water Dataset<br />(Please
+                                    click on the image)</th>
+                                <th scope="col">Interface to measure attribute change for Greatest Hits
+                                    Dataset<br />(Please click on the image)</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td><a href="question-linearity-water.html" target="_blank"><img src="resources/water-linearity.png" width="100%" style="border: solid black 1px;" /></a></td>
-                                <td><a href="question-greatesthits-withdata.html" target="_blank"><img src="resources/greatesthits-multiplechoice.png" width="70%" style="border: solid black 1px;" /></a></td>
+                                <td><a href="question-linearity-water.html" target="_blank"><img
+                                            src="resources/water-linearity.png" width="100%"
+                                            style="border: solid black 1px;" /></a></td>
+                                <td><a href="question-greatesthits-withdata.html" target="_blank"><img
+                                            src="resources/greatesthits-multiplechoice.png" width="70%"
+                                            style="border: solid black 1px;" /></a></td>
                             </tr>
-                            
+
                         </tbody>
                     </table>
                 </div>
@@ -1300,7 +1319,7 @@
                     &nbsp;
                 </div>
             </div>
-            
+
             <!--Listening test interfaces complete-->
 
 
@@ -1346,8 +1365,9 @@
                 <div class="col-8 text-start pt-2">
                     This idea is inspired from applications such as photoshop, where a user can
                     select an object and use a brush tool to pick the color of the object
-                    and transfer the color to another object. With selective semantic attribute transfer, 
-                    we would like to select a semantic attribute (such as say <b>brightness</b>) from a <b>reference sample</b>
+                    and transfer the color to another object. With selective semantic attribute transfer,
+                    we would like to select a semantic attribute (such as say <b>brightness</b>) from a <b>reference
+                        sample</b>
                     and transfer it to the <b>target sample</b>.
                 </div>
                 <div class="col-2">
@@ -1366,10 +1386,12 @@
                     &nbsp;
                 </div>
                 <div class="col-8 text-start pt-2">
-                    <u><b>Example 1</b></u>: <span style="color: rgb(0, 106, 255); font-weight: bold;">Transfer Brightness</span> from <b>Brightness Reference Sample</b> 
-                    (row 2, column 1) to <b>Target Sample</b> (all top row samples). <br/>
+                    <u><b>Example 1</b></u>: <span style="color: rgb(0, 106, 255); font-weight: bold;">Transfer
+                        Brightness</span> from <b>Brightness Reference Sample</b>
+                    (row 2, column 1) to <b>Target Sample</b> (all top row samples). <br />
 
-                    Note that only <b>brightness</b> is transferred/changed in the resulting samples. Other attributes such as <b>location of impacts (time axis)</b>,<b> rate</b> and <b>impact type</b>
+                    Note that only <b>brightness</b> is transferred/changed in the resulting samples. Other attributes
+                    such as <b>location of impacts (time axis)</b>,<b> rate</b> and <b>impact type</b>
                     remain the same as in Target Sample.
                 </div>
                 <div class="col-2">
@@ -1381,14 +1403,14 @@
                 <div class="col-4">
                     &nbsp;
                 </div>
-                <div class="col-6 border-bottom text-center" >
+                <div class="col-6 border-bottom text-center">
                     <b>Target Samples</b>
                 </div>
                 <div class="col-2">
                     &nbsp;
                 </div>
             </div>
-            
+
             <div class="row">
                 <div class="col-2">
                     &nbsp;
@@ -1399,28 +1421,36 @@
                             <b>Transfer Brightness Example</b>
                         </div>
                         <div class="p-0 col-2">
-                            <img src="resources/paper_samples_timbretransfer_images/brightness_column_1_header.png" width="100%" />
+                            <img src="resources/paper_samples_timbretransfer_images/brightness_column_1_header.png"
+                                width="100%" />
                             <audio controls="" preload="auto">
-                                <source src="resources/paper_samples_timbretransfer/brightness_column_1_header.wav" type="audio/wav" />
+                                <source src="resources/paper_samples_timbretransfer/brightness_column_1_header.wav"
+                                    type="audio/wav" />
                             </audio>
-                            
+
                         </div>
                         <div class="p-0 col-2">
-                            <img src="resources/paper_samples_timbretransfer_images/brightness_column_2_header.png" width="100%" />
+                            <img src="resources/paper_samples_timbretransfer_images/brightness_column_2_header.png"
+                                width="100%" />
                             <audio controls="" preload="auto">
-                                <source src="resources/paper_samples_timbretransfer/brightness_column_2_header.wav" type="audio/wav" />
-                            </audio>
-                        </div>
-                        <div class="p-0 col-2">
-                            <img src="resources/paper_samples_timbretransfer_images/brightness_column_3_header.png" width="100%" />
-                            <audio controls="" preload="auto">
-                                <source src="resources/paper_samples_timbretransfer/brightness_column_3_header.wav" type="audio/wav" />
+                                <source src="resources/paper_samples_timbretransfer/brightness_column_2_header.wav"
+                                    type="audio/wav" />
                             </audio>
                         </div>
                         <div class="p-0 col-2">
-                            <img src="resources/paper_samples_timbretransfer_images/brightness_column_4_header.png" width="100%" />
+                            <img src="resources/paper_samples_timbretransfer_images/brightness_column_3_header.png"
+                                width="100%" />
                             <audio controls="" preload="auto">
-                                <source src="resources/paper_samples_timbretransfer/brightness_column_4_header.wav" type="audio/wav" />
+                                <source src="resources/paper_samples_timbretransfer/brightness_column_3_header.wav"
+                                    type="audio/wav" />
+                            </audio>
+                        </div>
+                        <div class="p-0 col-2">
+                            <img src="resources/paper_samples_timbretransfer_images/brightness_column_4_header.png"
+                                width="100%" />
+                            <audio controls="" preload="auto">
+                                <source src="resources/paper_samples_timbretransfer/brightness_column_4_header.wav"
+                                    type="audio/wav" />
                             </audio>
                         </div>
                     </div>
@@ -1434,10 +1464,12 @@
                     &nbsp;
                 </div>
                 <div class="p-0 col-2 border-bottom ps-2">
-                    <span style="height: 100%;  display: flex; align-items: flex-end; justify-content: start;"><b>Brightness Reference Sample</b></span>
+                    <span style="height: 100%;  display: flex; align-items: flex-end; justify-content: start;"><b>Brightness
+                            Reference Sample</b></span>
                 </div>
                 <div class="p-0 col-6 border-bottom">
-                    <span style="height: 100%;  display: flex; align-items: flex-end; justify-content: center;"><b>Result: Target Sample + Brightness Transferred from Reference Sample </b></span>
+                    <span style="height: 100%;  display: flex; align-items: flex-end; justify-content: center;"><b>Result:
+                            Target Sample + Brightness Transferred from Reference Sample </b></span>
                 </div>
                 <div class="p-0 col-2">
                     &nbsp;
@@ -1450,33 +1482,43 @@
                 <div class="col-10">
                     <div class="row">
                         <div class="p-0 col-2">
-                            <img src="resources/paper_samples_timbretransfer_images/brightness_row_header.png" width="100%" />
+                            <img src="resources/paper_samples_timbretransfer_images/brightness_row_header.png"
+                                width="100%" />
                             <audio controls="" preload="auto">
-                                <source src="resources/paper_samples_timbretransfer/brightness_row_header.wav" type="audio/wav" />
+                                <source src="resources/paper_samples_timbretransfer/brightness_row_header.wav"
+                                    type="audio/wav" />
                             </audio>
                         </div>
                         <div class="p-0 col-2">
-                            <img src="resources/paper_samples_timbretransfer_images/brightness_column_1.png" width="100%" />
+                            <img src="resources/paper_samples_timbretransfer_images/brightness_column_1.png"
+                                width="100%" />
                             <audio controls="" preload="auto">
-                                <source src="resources/paper_samples_timbretransfer/brightness_column_1.wav" type="audio/wav" />
+                                <source src="resources/paper_samples_timbretransfer/brightness_column_1.wav"
+                                    type="audio/wav" />
                             </audio>
                         </div>
                         <div class="p-0 col-2">
-                            <img src="resources/paper_samples_timbretransfer_images/brightness_column_2.png" width="100%" />
+                            <img src="resources/paper_samples_timbretransfer_images/brightness_column_2.png"
+                                width="100%" />
                             <audio controls="" preload="auto">
-                                <source src="resources/paper_samples_timbretransfer/brightness_column_2.wav" type="audio/wav" />
+                                <source src="resources/paper_samples_timbretransfer/brightness_column_2.wav"
+                                    type="audio/wav" />
                             </audio>
                         </div>
                         <div class="p-0 col-2">
-                            <img src="resources/paper_samples_timbretransfer_images/brightness_column_3.png" width="100%" />
+                            <img src="resources/paper_samples_timbretransfer_images/brightness_column_3.png"
+                                width="100%" />
                             <audio controls="" preload="auto">
-                                <source src="resources/paper_samples_timbretransfer/brightness_column_3.wav" type="audio/wav" />
+                                <source src="resources/paper_samples_timbretransfer/brightness_column_3.wav"
+                                    type="audio/wav" />
                             </audio>
                         </div>
                         <div class="p-0 col-2">
-                            <img src="resources/paper_samples_timbretransfer_images/brightness_column_4.png" width="100%" />
+                            <img src="resources/paper_samples_timbretransfer_images/brightness_column_4.png"
+                                width="100%" />
                             <audio controls="" preload="auto">
-                                <source src="resources/paper_samples_timbretransfer/brightness_column_4.wav" type="audio/wav" />
+                                <source src="resources/paper_samples_timbretransfer/brightness_column_4.wav"
+                                    type="audio/wav" />
                             </audio>
                         </div>
                     </div>
@@ -1498,10 +1540,12 @@
                     &nbsp;
                 </div>
                 <div class="col-8 text-start pt-2">
-                    <u><b>Example 2</b></u>: <span style="color: rgb(0, 106, 255); font-weight: bold;">Transfer Impact Type</span> from <b>Impact Type Reference Sample</b> 
-                    (row 2, column 1) to <b>Target Sample</b> (all top row samples). <br/>
+                    <u><b>Example 2</b></u>: <span style="color: rgb(0, 106, 255); font-weight: bold;">Transfer Impact
+                        Type</span> from <b>Impact Type Reference Sample</b>
+                    (row 2, column 1) to <b>Target Sample</b> (all top row samples). <br />
 
-                    Note that only <b>impact type</b> is transferred/changed in the resulting samples. Other attributes such as <b>location of impacts (time axis)</b>,<b> rate</b> and <b>brightness</b>
+                    Note that only <b>impact type</b> is transferred/changed in the resulting samples. Other attributes
+                    such as <b>location of impacts (time axis)</b>,<b> rate</b> and <b>brightness</b>
                     remain the same as in Target Sample.
                 </div>
                 <div class="col-2">
@@ -1512,14 +1556,14 @@
                 <div class="col-4">
                     &nbsp;
                 </div>
-                <div class="col-6 border-bottom text-center" >
+                <div class="col-6 border-bottom text-center">
                     <b>Target Samples</b>
                 </div>
                 <div class="col-2">
                     &nbsp;
                 </div>
             </div>
-            
+
             <div class="row">
                 <div class="col-2">
                     &nbsp;
@@ -1530,28 +1574,36 @@
                             <b>Transfer Impact Type Example</b>
                         </div>
                         <div class="p-0 col-2">
-                            <img src="resources/paper_samples_timbretransfer_images/impacttype_column_1_header.png" width="100%" />
+                            <img src="resources/paper_samples_timbretransfer_images/impacttype_column_1_header.png"
+                                width="100%" />
                             <audio controls="" preload="auto">
-                                <source src="resources/paper_samples_timbretransfer/impacttype_column_1_header.wav" type="audio/wav" />
+                                <source src="resources/paper_samples_timbretransfer/impacttype_column_1_header.wav"
+                                    type="audio/wav" />
                             </audio>
-                            
+
                         </div>
                         <div class="p-0 col-2">
-                            <img src="resources/paper_samples_timbretransfer_images/impacttype_column_2_header.png" width="100%" />
+                            <img src="resources/paper_samples_timbretransfer_images/impacttype_column_2_header.png"
+                                width="100%" />
                             <audio controls="" preload="auto">
-                                <source src="resources/paper_samples_timbretransfer/impacttype_column_2_header.wav" type="audio/wav" />
-                            </audio>
-                        </div>
-                        <div class="p-0 col-2">
-                            <img src="resources/paper_samples_timbretransfer_images/impacttype_column_3_header.png" width="100%" />
-                            <audio controls="" preload="auto">
-                                <source src="resources/paper_samples_timbretransfer/impacttype_column_3_header.wav" type="audio/wav" />
+                                <source src="resources/paper_samples_timbretransfer/impacttype_column_2_header.wav"
+                                    type="audio/wav" />
                             </audio>
                         </div>
                         <div class="p-0 col-2">
-                            <img src="resources/paper_samples_timbretransfer_images/impacttype_column_4_header.png" width="100%" />
+                            <img src="resources/paper_samples_timbretransfer_images/impacttype_column_3_header.png"
+                                width="100%" />
                             <audio controls="" preload="auto">
-                                <source src="resources/paper_samples_timbretransfer/impacttype_column_4_header.wav" type="audio/wav" />
+                                <source src="resources/paper_samples_timbretransfer/impacttype_column_3_header.wav"
+                                    type="audio/wav" />
+                            </audio>
+                        </div>
+                        <div class="p-0 col-2">
+                            <img src="resources/paper_samples_timbretransfer_images/impacttype_column_4_header.png"
+                                width="100%" />
+                            <audio controls="" preload="auto">
+                                <source src="resources/paper_samples_timbretransfer/impacttype_column_4_header.wav"
+                                    type="audio/wav" />
                             </audio>
                         </div>
                     </div>
@@ -1565,10 +1617,12 @@
                     &nbsp;
                 </div>
                 <div class="p-0 col-2 border-bottom ps-2">
-                    <span style="height: 100%;  display: flex; align-items: flex-end; justify-content: start;"><b>Impact Type Reference Sample</b></span>
+                    <span style="height: 100%;  display: flex; align-items: flex-end; justify-content: start;"><b>Impact
+                            Type Reference Sample</b></span>
                 </div>
                 <div class="p-0 col-6 border-bottom">
-                    <span style="height: 100%;  display: flex; align-items: flex-end; justify-content: center;"><b>Result: Target Sample + Impact Type Transferred from Reference Sample </b></span>
+                    <span style="height: 100%;  display: flex; align-items: flex-end; justify-content: center;"><b>Result:
+                            Target Sample + Impact Type Transferred from Reference Sample </b></span>
                 </div>
                 <div class="p-0 col-2">
                     &nbsp;
@@ -1581,33 +1635,43 @@
                 <div class="col-10">
                     <div class="row">
                         <div class="p-0 col-2">
-                            <img src="resources/paper_samples_timbretransfer_images/impacttype_row_header.png" width="100%" />
+                            <img src="resources/paper_samples_timbretransfer_images/impacttype_row_header.png"
+                                width="100%" />
                             <audio controls="" preload="auto">
-                                <source src="resources/paper_samples_timbretransfer/impacttype_row_header.wav" type="audio/wav" />
+                                <source src="resources/paper_samples_timbretransfer/impacttype_row_header.wav"
+                                    type="audio/wav" />
                             </audio>
                         </div>
                         <div class="p-0 col-2">
-                            <img src="resources/paper_samples_timbretransfer_images/impacttype_column_1.png" width="100%" />
+                            <img src="resources/paper_samples_timbretransfer_images/impacttype_column_1.png"
+                                width="100%" />
                             <audio controls="" preload="auto">
-                                <source src="resources/paper_samples_timbretransfer/impacttype_column_1.wav" type="audio/wav" />
+                                <source src="resources/paper_samples_timbretransfer/impacttype_column_1.wav"
+                                    type="audio/wav" />
                             </audio>
                         </div>
                         <div class="p-0 col-2">
-                            <img src="resources/paper_samples_timbretransfer_images/impacttype_column_2.png" width="100%" />
+                            <img src="resources/paper_samples_timbretransfer_images/impacttype_column_2.png"
+                                width="100%" />
                             <audio controls="" preload="auto">
-                                <source src="resources/paper_samples_timbretransfer/impacttype_column_2.wav" type="audio/wav" />
+                                <source src="resources/paper_samples_timbretransfer/impacttype_column_2.wav"
+                                    type="audio/wav" />
                             </audio>
                         </div>
                         <div class="p-0 col-2">
-                            <img src="resources/paper_samples_timbretransfer_images/impacttype_column_3.png" width="100%" />
+                            <img src="resources/paper_samples_timbretransfer_images/impacttype_column_3.png"
+                                width="100%" />
                             <audio controls="" preload="auto">
-                                <source src="resources/paper_samples_timbretransfer/impacttype_column_3.wav" type="audio/wav" />
+                                <source src="resources/paper_samples_timbretransfer/impacttype_column_3.wav"
+                                    type="audio/wav" />
                             </audio>
                         </div>
                         <div class="p-0 col-2">
-                            <img src="resources/paper_samples_timbretransfer_images/impacttype_column_4.png" width="100%" />
+                            <img src="resources/paper_samples_timbretransfer_images/impacttype_column_4.png"
+                                width="100%" />
                             <audio controls="" preload="auto">
-                                <source src="resources/paper_samples_timbretransfer/impacttype_column_4.wav" type="audio/wav" />
+                                <source src="resources/paper_samples_timbretransfer/impacttype_column_4.wav"
+                                    type="audio/wav" />
                             </audio>
                         </div>
                     </div>
@@ -1629,10 +1693,12 @@
                     &nbsp;
                 </div>
                 <div class="col-8 text-start pt-2">
-                    <u><b>Example 3</b></u>: <span style="color: rgb(0, 106, 255); font-weight: bold;">Transfer Rate</span> from <b>Rate Reference Sample</b> 
-                    (row 2, column 1) to <b>Target Sample</b> (all top row samples). <br/>
+                    <u><b>Example 3</b></u>: <span style="color: rgb(0, 106, 255); font-weight: bold;">Transfer
+                        Rate</span> from <b>Rate Reference Sample</b>
+                    (row 2, column 1) to <b>Target Sample</b> (all top row samples). <br />
 
-                    Note that only <b>rate</b> is transferred/changed in the resulting samples. Other attributes such as <b>location of the first impact (along time axis)</b>,<b> brightness</b> 
+                    Note that only <b>rate</b> is transferred/changed in the resulting samples. Other attributes such as
+                    <b>location of the first impact (along time axis)</b>,<b> brightness</b>
                     and <b>impact type</b>
                     remain the same as in Target Sample.
                 </div>
@@ -1644,14 +1710,14 @@
                 <div class="col-4">
                     &nbsp;
                 </div>
-                <div class="col-6 border-bottom text-center" >
+                <div class="col-6 border-bottom text-center">
                     <b>Target Samples</b>
                 </div>
                 <div class="col-2">
                     &nbsp;
                 </div>
             </div>
-            
+
             <div class="row">
                 <div class="col-2">
                     &nbsp;
@@ -1662,28 +1728,36 @@
                             <b>Transfer Rate Example</b>
                         </div>
                         <div class="p-0 col-2">
-                            <img src="resources/paper_samples_timbretransfer_images/rate_column_1_header.png" width="100%" />
+                            <img src="resources/paper_samples_timbretransfer_images/rate_column_1_header.png"
+                                width="100%" />
                             <audio controls="" preload="auto">
-                                <source src="resources/paper_samples_timbretransfer/rate_column_1_header.wav" type="audio/wav" />
+                                <source src="resources/paper_samples_timbretransfer/rate_column_1_header.wav"
+                                    type="audio/wav" />
                             </audio>
-                            
+
                         </div>
                         <div class="p-0 col-2">
-                            <img src="resources/paper_samples_timbretransfer_images/rate_column_2_header.png" width="100%" />
+                            <img src="resources/paper_samples_timbretransfer_images/rate_column_2_header.png"
+                                width="100%" />
                             <audio controls="" preload="auto">
-                                <source src="resources/paper_samples_timbretransfer/rate_column_2_header.wav" type="audio/wav" />
-                            </audio>
-                        </div>
-                        <div class="p-0 col-2">
-                            <img src="resources/paper_samples_timbretransfer_images/rate_column_3_header.png" width="100%" />
-                            <audio controls="" preload="auto">
-                                <source src="resources/paper_samples_timbretransfer/rate_column_3_header.wav" type="audio/wav" />
+                                <source src="resources/paper_samples_timbretransfer/rate_column_2_header.wav"
+                                    type="audio/wav" />
                             </audio>
                         </div>
                         <div class="p-0 col-2">
-                            <img src="resources/paper_samples_timbretransfer_images/rate_column_4_header.png" width="100%" />
+                            <img src="resources/paper_samples_timbretransfer_images/rate_column_3_header.png"
+                                width="100%" />
                             <audio controls="" preload="auto">
-                                <source src="resources/paper_samples_timbretransfer/rate_column_4_header.wav" type="audio/wav" />
+                                <source src="resources/paper_samples_timbretransfer/rate_column_3_header.wav"
+                                    type="audio/wav" />
+                            </audio>
+                        </div>
+                        <div class="p-0 col-2">
+                            <img src="resources/paper_samples_timbretransfer_images/rate_column_4_header.png"
+                                width="100%" />
+                            <audio controls="" preload="auto">
+                                <source src="resources/paper_samples_timbretransfer/rate_column_4_header.wav"
+                                    type="audio/wav" />
                             </audio>
                         </div>
                     </div>
@@ -1697,10 +1771,12 @@
                     &nbsp;
                 </div>
                 <div class="p-0 col-2 border-bottom ps-2">
-                    <span style="height: 100%;  display: flex; align-items: flex-end; justify-content: start;"><b>Rate Reference Sample</b></span>
+                    <span style="height: 100%;  display: flex; align-items: flex-end; justify-content: start;"><b>Rate
+                            Reference Sample</b></span>
                 </div>
                 <div class="p-0 col-6 border-bottom">
-                    <span style="height: 100%;  display: flex; align-items: flex-end; justify-content: center;"><b>Result: Target Sample + Rate Transferred from Reference Sample </b></span>
+                    <span style="height: 100%;  display: flex; align-items: flex-end; justify-content: center;"><b>Result:
+                            Target Sample + Rate Transferred from Reference Sample </b></span>
                 </div>
                 <div class="p-0 col-2">
                     &nbsp;
@@ -1715,31 +1791,36 @@
                         <div class="p-0 col-2">
                             <img src="resources/paper_samples_timbretransfer_images/rate_row_header.png" width="100%" />
                             <audio controls="" preload="auto">
-                                <source src="resources/paper_samples_timbretransfer/rate_row_header.wav" type="audio/wav" />
+                                <source src="resources/paper_samples_timbretransfer/rate_row_header.wav"
+                                    type="audio/wav" />
                             </audio>
                         </div>
                         <div class="p-0 col-2">
                             <img src="resources/paper_samples_timbretransfer_images/rate_column_1.png" width="100%" />
                             <audio controls="" preload="auto">
-                                <source src="resources/paper_samples_timbretransfer/rate_column_1.wav" type="audio/wav" />
+                                <source src="resources/paper_samples_timbretransfer/rate_column_1.wav"
+                                    type="audio/wav" />
                             </audio>
                         </div>
                         <div class="p-0 col-2">
                             <img src="resources/paper_samples_timbretransfer_images/rate_column_2.png" width="100%" />
                             <audio controls="" preload="auto">
-                                <source src="resources/paper_samples_timbretransfer/rate_column_2.wav" type="audio/wav" />
+                                <source src="resources/paper_samples_timbretransfer/rate_column_2.wav"
+                                    type="audio/wav" />
                             </audio>
                         </div>
                         <div class="p-0 col-2">
                             <img src="resources/paper_samples_timbretransfer_images/rate_column_3.png" width="100%" />
                             <audio controls="" preload="auto">
-                                <source src="resources/paper_samples_timbretransfer/rate_column_3.wav" type="audio/wav" />
+                                <source src="resources/paper_samples_timbretransfer/rate_column_3.wav"
+                                    type="audio/wav" />
                             </audio>
                         </div>
                         <div class="p-0 col-2">
                             <img src="resources/paper_samples_timbretransfer_images/rate_column_4.png" width="100%" />
                             <audio controls="" preload="auto">
-                                <source src="resources/paper_samples_timbretransfer/rate_column_4.wav" type="audio/wav" />
+                                <source src="resources/paper_samples_timbretransfer/rate_column_4.wav"
+                                    type="audio/wav" />
                             </audio>
                         </div>
                     </div>
@@ -1784,9 +1865,11 @@
                     &nbsp;
                 </div>
                 <div class="col-8 text-start pt-2">
-                    Semantic Factorization algorithm or SeFa (see references in paper) scores lower in terms of re-scoring accuracy. This can be attributed to 
-                    the tendency of the algorithm to generate out-of-distribution sounds or have required effect on only few samples. 
-                    <br/>
+                    Semantic Factorization algorithm or SeFa (see references in paper) scores lower in terms of
+                    re-scoring accuracy. This can be attributed to
+                    the tendency of the algorithm to generate out-of-distribution sounds or have required effect on only
+                    few samples.
+                    <br />
                 </div>
                 <div class="col-2">
                     &nbsp;
@@ -1794,8 +1877,8 @@
             </div>
             <div class="row">&nbsp;</div>
             <div class="row">&nbsp;</div>
-    
-    
+
+
             <div class="row">
                 <div class="row">
                     <div class="col-2">
@@ -1810,12 +1893,15 @@
                         &nbsp;
                     </div>
                     <div class="col-8 text-start pt-2">
-                        Though SeFa Dimension 2 (See Table 3 in paper) records the highest rescoring accuracy for the change in impact type in sounds, we can qualitatively
-                        see that this dimension can change only scratches to sharp hits. Sharp hits, on the other hand, either do not change or go out-of-distribution (OOD)
-                        instead of changing to scratches. 
-                        <br/>
-                        <br/>
-                        The leftmost samples below are sharp hits. As we go progressively towards the right the samples either do not change or go OOD.
+                        Though SeFa Dimension 2 (See Table 3 in paper) records the highest rescoring accuracy for the
+                        change in impact type in sounds, we can qualitatively
+                        see that this dimension can change only scratches to sharp hits. Sharp hits, on the other hand,
+                        either do not change or go out-of-distribution (OOD)
+                        instead of changing to scratches.
+                        <br />
+                        <br />
+                        The leftmost samples below are sharp hits. As we go progressively towards the right the samples
+                        either do not change or go OOD.
                     </div>
                     <div class="col-2">
                         &nbsp;
@@ -1837,28 +1923,32 @@
                             <div class=" p-0 col-2">
                                 <img src="resources/sefa-failure-mode_images/impacttype_sefa_1_0.png" width="100%" />
                                 <audio controls="" preload="auto">
-                                    <source src="resources/sefa-failure-mode/impacttype_sefa_1_0.wav" type="audio/wav" />
+                                    <source src="resources/sefa-failure-mode/impacttype_sefa_1_0.wav"
+                                        type="audio/wav" />
                                 </audio>
                             </div>
                             <div class=" p-0 col-2">
                                 <img src="resources/sefa-failure-mode_images/impacttype_sefa_1_1.png" width="100%" />
                                 <audio controls="" preload="auto">
-                                    <source src="resources/sefa-failure-mode/impacttype_sefa_1_1.wav" type="audio/wav" />
+                                    <source src="resources/sefa-failure-mode/impacttype_sefa_1_1.wav"
+                                        type="audio/wav" />
                                 </audio>
                             </div>
                             <div class=" p-0 col-2">
                                 <img src="resources/sefa-failure-mode_images/impacttype_sefa_1_2.png" width="100%" />
                                 <audio controls="" preload="auto">
-                                    <source src="resources/sefa-failure-mode/impacttype_sefa_1_2.wav" type="audio/wav" />
+                                    <source src="resources/sefa-failure-mode/impacttype_sefa_1_2.wav"
+                                        type="audio/wav" />
                                 </audio>
                             </div>
                             <div class=" p-0 col-2">
                                 <img src="resources/sefa-failure-mode_images/impacttype_sefa_1_3.png" width="100%" />
                                 <audio controls="" preload="auto">
-                                    <source src="resources/sefa-failure-mode/impacttype_sefa_1_3.wav" type="audio/wav" />
+                                    <source src="resources/sefa-failure-mode/impacttype_sefa_1_3.wav"
+                                        type="audio/wav" />
                                 </audio>
                             </div>
-    
+
                         </div>
                     </div>
                     <div class="col-2">
@@ -1881,28 +1971,32 @@
                             <div class=" p-0 col-2">
                                 <img src="resources/sefa-failure-mode_images/impacttype_sefa_2_0.png" width="100%" />
                                 <audio controls="" preload="auto">
-                                    <source src="resources/sefa-failure-mode/impacttype_sefa_2_0.wav" type="audio/wav" />
+                                    <source src="resources/sefa-failure-mode/impacttype_sefa_2_0.wav"
+                                        type="audio/wav" />
                                 </audio>
                             </div>
                             <div class=" p-0 col-2">
                                 <img src="resources/sefa-failure-mode_images/impacttype_sefa_2_1.png" width="100%" />
                                 <audio controls="" preload="auto">
-                                    <source src="resources/sefa-failure-mode/impacttype_sefa_2_1.wav" type="audio/wav" />
+                                    <source src="resources/sefa-failure-mode/impacttype_sefa_2_1.wav"
+                                        type="audio/wav" />
                                 </audio>
                             </div>
                             <div class=" p-0 col-2">
                                 <img src="resources/sefa-failure-mode_images/impacttype_sefa_2_2.png" width="100%" />
                                 <audio controls="" preload="auto">
-                                    <source src="resources/sefa-failure-mode/impacttype_sefa_2_2.wav" type="audio/wav" />
+                                    <source src="resources/sefa-failure-mode/impacttype_sefa_2_2.wav"
+                                        type="audio/wav" />
                                 </audio>
                             </div>
                             <div class=" p-0 col-2">
                                 <img src="resources/sefa-failure-mode_images/impacttype_sefa_2_3.png" width="100%" />
                                 <audio controls="" preload="auto">
-                                    <source src="resources/sefa-failure-mode/impacttype_sefa_2_3.wav" type="audio/wav" />
+                                    <source src="resources/sefa-failure-mode/impacttype_sefa_2_3.wav"
+                                        type="audio/wav" />
                                 </audio>
                             </div>
-    
+
                         </div>
                     </div>
                     <div class="col-2">
@@ -1925,28 +2019,32 @@
                             <div class=" p-0 col-2">
                                 <img src="resources/sefa-failure-mode_images/impacttype_sefa_5_0.png" width="100%" />
                                 <audio controls="" preload="auto">
-                                    <source src="resources/sefa-failure-mode/impacttype_sefa_5_0.wav" type="audio/wav" />
+                                    <source src="resources/sefa-failure-mode/impacttype_sefa_5_0.wav"
+                                        type="audio/wav" />
                                 </audio>
                             </div>
                             <div class=" p-0 col-2">
                                 <img src="resources/sefa-failure-mode_images/impacttype_sefa_5_1.png" width="100%" />
                                 <audio controls="" preload="auto">
-                                    <source src="resources/sefa-failure-mode/impacttype_sefa_5_1.wav" type="audio/wav" />
+                                    <source src="resources/sefa-failure-mode/impacttype_sefa_5_1.wav"
+                                        type="audio/wav" />
                                 </audio>
                             </div>
                             <div class=" p-0 col-2">
                                 <img src="resources/sefa-failure-mode_images/impacttype_sefa_5_2.png" width="100%" />
                                 <audio controls="" preload="auto">
-                                    <source src="resources/sefa-failure-mode/impacttype_sefa_5_2.wav" type="audio/wav" />
+                                    <source src="resources/sefa-failure-mode/impacttype_sefa_5_2.wav"
+                                        type="audio/wav" />
                                 </audio>
                             </div>
                             <div class=" p-0 col-2">
                                 <img src="resources/sefa-failure-mode_images/impacttype_sefa_5_3.png" width="100%" />
                                 <audio controls="" preload="auto">
-                                    <source src="resources/sefa-failure-mode/impacttype_sefa_5_3.wav" type="audio/wav" />
+                                    <source src="resources/sefa-failure-mode/impacttype_sefa_5_3.wav"
+                                        type="audio/wav" />
                                 </audio>
                             </div>
-    
+
                         </div>
                     </div>
                     <div class="col-2">
@@ -1969,28 +2067,32 @@
                             <div class=" p-0 col-2">
                                 <img src="resources/sefa-failure-mode_images/impacttype_sefa_6_0.png" width="100%" />
                                 <audio controls="" preload="auto">
-                                    <source src="resources/sefa-failure-mode/impacttype_sefa_6_0.wav" type="audio/wav" />
+                                    <source src="resources/sefa-failure-mode/impacttype_sefa_6_0.wav"
+                                        type="audio/wav" />
                                 </audio>
                             </div>
                             <div class=" p-0 col-2">
                                 <img src="resources/sefa-failure-mode_images/impacttype_sefa_6_1.png" width="100%" />
                                 <audio controls="" preload="auto">
-                                    <source src="resources/sefa-failure-mode/impacttype_sefa_6_1.wav" type="audio/wav" />
+                                    <source src="resources/sefa-failure-mode/impacttype_sefa_6_1.wav"
+                                        type="audio/wav" />
                                 </audio>
                             </div>
                             <div class=" p-0 col-2">
                                 <img src="resources/sefa-failure-mode_images/impacttype_sefa_6_2.png" width="100%" />
                                 <audio controls="" preload="auto">
-                                    <source src="resources/sefa-failure-mode/impacttype_sefa_6_2.wav" type="audio/wav" />
+                                    <source src="resources/sefa-failure-mode/impacttype_sefa_6_2.wav"
+                                        type="audio/wav" />
                                 </audio>
                             </div>
                             <div class=" p-0 col-2">
                                 <img src="resources/sefa-failure-mode_images/impacttype_sefa_6_3.png" width="100%" />
                                 <audio controls="" preload="auto">
-                                    <source src="resources/sefa-failure-mode/impacttype_sefa_6_3.wav" type="audio/wav" />
+                                    <source src="resources/sefa-failure-mode/impacttype_sefa_6_3.wav"
+                                        type="audio/wav" />
                                 </audio>
                             </div>
-    
+
                         </div>
                     </div>
                     <div class="col-2">
@@ -1998,8 +2100,8 @@
                     </div>
                 </div>
             </div>
-    
-            
+
+
 
 
             <div class="row">&nbsp;</div>
@@ -2019,12 +2121,15 @@
                         &nbsp;
                     </div>
                     <div class="col-8 text-start pt-2">
-                        Though SeFa Dimension 3 (See Table 2 in paper) records the highest rescoring accuracy for the change in brightness in sounds, we can qualitatively
-                        see that this dimension does not change all randomly generated samples. Furthermore, for some samples change in brightness is associated with lowering
-                        rate. 
-                        <br/>
-                        <br/>
-                        The leftmost samples below are sharp hits. As we go progressively towards the right the samples either do not change or predominantly lower rate.
+                        Though SeFa Dimension 3 (See Table 2 in paper) records the highest rescoring accuracy for the
+                        change in brightness in sounds, we can qualitatively
+                        see that this dimension does not change all randomly generated samples. Furthermore, for some
+                        samples change in brightness is associated with lowering
+                        rate.
+                        <br />
+                        <br />
+                        The leftmost samples below are sharp hits. As we go progressively towards the right the samples
+                        either do not change or predominantly lower rate.
                     </div>
                     <div class="col-2">
                         &nbsp;
@@ -2046,28 +2151,32 @@
                             <div class=" p-0 col-2">
                                 <img src="resources/sefa-failure-mode_images/brightness_sefa_1_0.png" width="100%" />
                                 <audio controls="" preload="auto">
-                                    <source src="resources/sefa-failure-mode/brightness_sefa_1_0.wav" type="audio/wav" />
+                                    <source src="resources/sefa-failure-mode/brightness_sefa_1_0.wav"
+                                        type="audio/wav" />
                                 </audio>
                             </div>
                             <div class=" p-0 col-2">
                                 <img src="resources/sefa-failure-mode_images/brightness_sefa_1_1.png" width="100%" />
                                 <audio controls="" preload="auto">
-                                    <source src="resources/sefa-failure-mode/brightness_sefa_1_1.wav" type="audio/wav" />
+                                    <source src="resources/sefa-failure-mode/brightness_sefa_1_1.wav"
+                                        type="audio/wav" />
                                 </audio>
                             </div>
                             <div class=" p-0 col-2">
                                 <img src="resources/sefa-failure-mode_images/brightness_sefa_1_2.png" width="100%" />
                                 <audio controls="" preload="auto">
-                                    <source src="resources/sefa-failure-mode/brightness_sefa_1_2.wav" type="audio/wav" />
+                                    <source src="resources/sefa-failure-mode/brightness_sefa_1_2.wav"
+                                        type="audio/wav" />
                                 </audio>
                             </div>
                             <div class=" p-0 col-2">
                                 <img src="resources/sefa-failure-mode_images/brightness_sefa_1_3.png" width="100%" />
                                 <audio controls="" preload="auto">
-                                    <source src="resources/sefa-failure-mode/brightness_sefa_1_3.wav" type="audio/wav" />
+                                    <source src="resources/sefa-failure-mode/brightness_sefa_1_3.wav"
+                                        type="audio/wav" />
                                 </audio>
                             </div>
-    
+
                         </div>
                     </div>
                     <div class="col-2">
@@ -2090,28 +2199,32 @@
                             <div class=" p-0 col-2">
                                 <img src="resources/sefa-failure-mode_images/brightness_sefa_3_0.png" width="100%" />
                                 <audio controls="" preload="auto">
-                                    <source src="resources/sefa-failure-mode/brightness_sefa_3_0.wav" type="audio/wav" />
+                                    <source src="resources/sefa-failure-mode/brightness_sefa_3_0.wav"
+                                        type="audio/wav" />
                                 </audio>
                             </div>
                             <div class=" p-0 col-2">
                                 <img src="resources/sefa-failure-mode_images/brightness_sefa_3_1.png" width="100%" />
                                 <audio controls="" preload="auto">
-                                    <source src="resources/sefa-failure-mode/brightness_sefa_3_1.wav" type="audio/wav" />
+                                    <source src="resources/sefa-failure-mode/brightness_sefa_3_1.wav"
+                                        type="audio/wav" />
                                 </audio>
                             </div>
                             <div class=" p-0 col-2">
                                 <img src="resources/sefa-failure-mode_images/brightness_sefa_3_2.png" width="100%" />
                                 <audio controls="" preload="auto">
-                                    <source src="resources/sefa-failure-mode/brightness_sefa_3_2.wav" type="audio/wav" />
+                                    <source src="resources/sefa-failure-mode/brightness_sefa_3_2.wav"
+                                        type="audio/wav" />
                                 </audio>
                             </div>
                             <div class=" p-0 col-2">
                                 <img src="resources/sefa-failure-mode_images/brightness_sefa_3_3.png" width="100%" />
                                 <audio controls="" preload="auto">
-                                    <source src="resources/sefa-failure-mode/brightness_sefa_3_3.wav" type="audio/wav" />
+                                    <source src="resources/sefa-failure-mode/brightness_sefa_3_3.wav"
+                                        type="audio/wav" />
                                 </audio>
                             </div>
-    
+
                         </div>
                     </div>
                     <div class="col-2">
@@ -2121,9 +2234,9 @@
             </div>
 
 
-            
 
-           
+
+
             <div class="row">&nbsp;</div>
             <div class="row">&nbsp;</div>
             <div class="row">&nbsp;</div>
@@ -2144,15 +2257,19 @@
                         &nbsp;
                     </div>
                     <div class="col-8 text-start pt-2">
-                        For the Water dataset, SeFa finds the second dimension (see Table 3 in paper) to be associated with fill-level. 
-                        <br/>
-                        <br/>
-                        The most prominent dimension (dimension 0) is associated with perpetually filling of the water container, while never reaching fill-level=1. 
-                        The other dimension (dimension 2) is associated with perpertually unfilling of the water container, while never leaving fill-level=1 or never 
-                        reaching fill-level=0. 
-                        <br/>
-                        <br/>
-                        Whimsicial, sure, but not controllable. Makes you wonder, especially for dimension 0 which has the highest Singular Value 
+                        For the Water dataset, SeFa finds the second dimension (see Table 3 in paper) to be associated
+                        with fill-level.
+                        <br />
+                        <br />
+                        The most prominent dimension (dimension 0) is associated with perpetually filling of the water
+                        container, while never reaching fill-level=1.
+                        The other dimension (dimension 2) is associated with perpertually unfilling of the water
+                        container, while never leaving fill-level=1 or never
+                        reaching fill-level=0.
+                        <br />
+                        <br />
+                        Whimsicial, sure, but not controllable. Makes you wonder, especially for dimension 0 which has
+                        the highest Singular Value
                         (from the eigendecomposition of weights), if not fill-level then what
                         other factor of variation did SeFa find?
                     </div>
@@ -2163,7 +2280,8 @@
                 <div class="row">
                     <div class="col-12 pt-2">
                         <div class="row">
-                            <div class="col-1 pt-5 text-center example-headings">sample 1 <br/>(Dim0. Perpetually filling. <br/>No ending.)</div>
+                            <div class="col-1 pt-5 text-center example-headings">sample 1 <br />(Dim0. Perpetually
+                                filling. <br />No ending.)</div>
                             <div class="p-0 col-1">
                                 <img src="resources/sefa-failure-mode_images/water_sefa_1_0.png" width="100%" />
                                 <audio controls="" preload="auto">
@@ -2230,14 +2348,15 @@
                                     <source src="resources/sefa-failure-mode/water_sefa_1_10.wav" type="audio/wav" />
                                 </audio>
                             </div>
-    
+
                         </div>
                     </div>
 
 
                     <div class="col-12 pt-2">
                         <div class="row">
-                            <div class="col-1 pt-5 text-center example-headings">sample 2 <br/>(Dim2. Perpetually Unfilling. <br/>No starting.)</div>
+                            <div class="col-1 pt-5 text-center example-headings">sample 2 <br />(Dim2. Perpetually
+                                Unfilling. <br />No starting.)</div>
                             <div class="p-0 col-1">
                                 <img src="resources/sefa-failure-mode_images/water_sefa_2_0.png" width="100%" />
                                 <audio controls="" preload="auto">
@@ -2304,7 +2423,7 @@
                                     <source src="resources/sefa-failure-mode/water_sefa_2_10.wav" type="audio/wav" />
                                 </audio>
                             </div>
-    
+
                         </div>
                     </div>
                 </div>
@@ -2343,21 +2462,23 @@
                     </div>
                 </div>
                 <div class="row">&nbsp;</div>
-    
-    
+
+
                 <div class="row">
                     <div class="col-2">
                         &nbsp;
                     </div>
                     <div class="col-8 text-start pt-2">
-                        In this section, we evaluate the effect of the number Gaver samples used to find the directional vectors for edits for the attributes of Brightness and Impact Type.  
-                        <br/>
-                        The first column shows the number of samples used across clusters. 
+                        In this section, we evaluate the effect of the number Gaver samples used to find the directional
+                        vectors for edits for the attributes of Brightness and Impact Type.
+                        <br />
+                        The first column shows the number of samples used across clusters.
 
-                        <br/>
-                        <br/>
-                        <br/>
-                        The Brightness or Impact Type changes from left to right. As observed, as the N increases, the effectiveness of the directional vectors edits increases. 
+                        <br />
+                        <br />
+                        <br />
+                        The Brightness or Impact Type changes from left to right. As observed, as the N increases, the
+                        effectiveness of the directional vectors edits increases.
                         Also, the edits preserve other un-edited attributes better with higher N.
                     </div>
                     <div class="col-2">
@@ -2366,8 +2487,8 @@
                 </div>
                 <div class="row">&nbsp;</div>
                 <div class="row">&nbsp;</div>
-        
-        
+
+
                 <div class="row">
                     <div class="col-1">
                         &nbsp;
@@ -2383,7 +2504,7 @@
                                         &nbsp;
                                     </div>
                                     <div class="col-6 fw-bold">
-                                        Brightness
+                                        Brightness (reduces from left to right)
                                     </div>
                                     <div class="col-3">
                                         &nbsp;
@@ -2394,21 +2515,27 @@
                                         N=2
                                     </div>
                                     <div class="col-3 border">
-                                        <img src="resources/ablation_studies_images/brightness_sample_1_0.png" width="100%" />
+                                        <img src="resources/ablation_studies_images/brightness_sample_1_0.png"
+                                            width="100%" />
                                         <audio controls="" preload="auto">
-                                            <source src="resources/ablation_studies/brightness_sample_1_0.wav" type="audio/wav" />
+                                            <source src="resources/ablation_studies/brightness_sample_1_0.wav"
+                                                type="audio/wav" />
                                         </audio>
                                     </div>
                                     <div class="col-3 border">
-                                        <img src="resources/ablation_studies_images/brightness_sample_1_1.png" width="100%" />
+                                        <img src="resources/ablation_studies_images/brightness_sample_1_1.png"
+                                            width="100%" />
                                         <audio controls="" preload="auto">
-                                            <source src="resources/ablation_studies/brightness_sample_1_1.wav" type="audio/wav" />
+                                            <source src="resources/ablation_studies/brightness_sample_1_1.wav"
+                                                type="audio/wav" />
                                         </audio>
                                     </div>
                                     <div class="col-3 border">
-                                        <img src="resources/ablation_studies_images/brightness_sample_1_2.png" width="100%" />
+                                        <img src="resources/ablation_studies_images/brightness_sample_1_2.png"
+                                            width="100%" />
                                         <audio controls="" preload="auto">
-                                            <source src="resources/ablation_studies/brightness_sample_1_2.wav" type="audio/wav" />
+                                            <source src="resources/ablation_studies/brightness_sample_1_2.wav"
+                                                type="audio/wav" />
                                         </audio>
                                     </div>
                                 </div>
@@ -2417,21 +2544,27 @@
                                         N=4
                                     </div>
                                     <div class="col-3 border">
-                                        <img src="resources/ablation_studies_images/brightness_sample_2_0.png" width="100%" />
+                                        <img src="resources/ablation_studies_images/brightness_sample_2_0.png"
+                                            width="100%" />
                                         <audio controls="" preload="auto">
-                                            <source src="resources/ablation_studies/brightness_sample_2_0.wav" type="audio/wav" />
+                                            <source src="resources/ablation_studies/brightness_sample_2_0.wav"
+                                                type="audio/wav" />
                                         </audio>
                                     </div>
                                     <div class="col-3 border">
-                                        <img src="resources/ablation_studies_images/brightness_sample_2_1.png" width="100%" />
+                                        <img src="resources/ablation_studies_images/brightness_sample_2_1.png"
+                                            width="100%" />
                                         <audio controls="" preload="auto">
-                                            <source src="resources/ablation_studies/brightness_sample_2_1.wav" type="audio/wav" />
+                                            <source src="resources/ablation_studies/brightness_sample_2_1.wav"
+                                                type="audio/wav" />
                                         </audio>
                                     </div>
                                     <div class="col-3 border">
-                                        <img src="resources/ablation_studies_images/brightness_sample_2_2.png" width="100%" />
+                                        <img src="resources/ablation_studies_images/brightness_sample_2_2.png"
+                                            width="100%" />
                                         <audio controls="" preload="auto">
-                                            <source src="resources/ablation_studies/brightness_sample_2_2.wav" type="audio/wav" />
+                                            <source src="resources/ablation_studies/brightness_sample_2_2.wav"
+                                                type="audio/wav" />
                                         </audio>
                                     </div>
                                 </div>
@@ -2440,21 +2573,27 @@
                                         N=6
                                     </div>
                                     <div class="col-3 border">
-                                        <img src="resources/ablation_studies_images/brightness_sample_3_0.png" width="100%" />
+                                        <img src="resources/ablation_studies_images/brightness_sample_3_0.png"
+                                            width="100%" />
                                         <audio controls="" preload="auto">
-                                            <source src="resources/ablation_studies/brightness_sample_3_0.wav" type="audio/wav" />
+                                            <source src="resources/ablation_studies/brightness_sample_3_0.wav"
+                                                type="audio/wav" />
                                         </audio>
                                     </div>
                                     <div class="col-3 border">
-                                        <img src="resources/ablation_studies_images/brightness_sample_3_1.png" width="100%" />
+                                        <img src="resources/ablation_studies_images/brightness_sample_3_1.png"
+                                            width="100%" />
                                         <audio controls="" preload="auto">
-                                            <source src="resources/ablation_studies/brightness_sample_3_1.wav" type="audio/wav" />
+                                            <source src="resources/ablation_studies/brightness_sample_3_1.wav"
+                                                type="audio/wav" />
                                         </audio>
                                     </div>
                                     <div class="col-3 border">
-                                        <img src="resources/ablation_studies_images/brightness_sample_3_2.png" width="100%" />
+                                        <img src="resources/ablation_studies_images/brightness_sample_3_2.png"
+                                            width="100%" />
                                         <audio controls="" preload="auto">
-                                            <source src="resources/ablation_studies/brightness_sample_3_2.wav" type="audio/wav" />
+                                            <source src="resources/ablation_studies/brightness_sample_3_2.wav"
+                                                type="audio/wav" />
                                         </audio>
                                     </div>
                                 </div>
@@ -2463,21 +2602,27 @@
                                         N=8
                                     </div>
                                     <div class="col-3 border">
-                                        <img src="resources/ablation_studies_images/brightness_sample_4_0.png" width="100%" />
+                                        <img src="resources/ablation_studies_images/brightness_sample_4_0.png"
+                                            width="100%" />
                                         <audio controls="" preload="auto">
-                                            <source src="resources/ablation_studies/brightness_sample_4_0.wav" type="audio/wav" />
+                                            <source src="resources/ablation_studies/brightness_sample_4_0.wav"
+                                                type="audio/wav" />
                                         </audio>
                                     </div>
                                     <div class="col-3 border">
-                                        <img src="resources/ablation_studies_images/brightness_sample_4_1.png" width="100%" />
+                                        <img src="resources/ablation_studies_images/brightness_sample_4_1.png"
+                                            width="100%" />
                                         <audio controls="" preload="auto">
-                                            <source src="resources/ablation_studies/brightness_sample_4_1.wav" type="audio/wav" />
+                                            <source src="resources/ablation_studies/brightness_sample_4_1.wav"
+                                                type="audio/wav" />
                                         </audio>
                                     </div>
                                     <div class="col-3 border">
-                                        <img src="resources/ablation_studies_images/brightness_sample_4_2.png" width="100%" />
+                                        <img src="resources/ablation_studies_images/brightness_sample_4_2.png"
+                                            width="100%" />
                                         <audio controls="" preload="auto">
-                                            <source src="resources/ablation_studies/brightness_sample_4_2.wav" type="audio/wav" />
+                                            <source src="resources/ablation_studies/brightness_sample_4_2.wav"
+                                                type="audio/wav" />
                                         </audio>
                                     </div>
                                 </div>
@@ -2486,21 +2631,27 @@
                                         N=10
                                     </div>
                                     <div class="col-3 border">
-                                        <img src="resources/ablation_studies_images/brightness_sample_5_0.png" width="100%" />
+                                        <img src="resources/ablation_studies_images/brightness_sample_5_0.png"
+                                            width="100%" />
                                         <audio controls="" preload="auto">
-                                            <source src="resources/ablation_studies/brightness_sample_5_0.wav" type="audio/wav" />
+                                            <source src="resources/ablation_studies/brightness_sample_5_0.wav"
+                                                type="audio/wav" />
                                         </audio>
                                     </div>
                                     <div class="col-3 border">
-                                        <img src="resources/ablation_studies_images/brightness_sample_5_1.png" width="100%" />
+                                        <img src="resources/ablation_studies_images/brightness_sample_5_1.png"
+                                            width="100%" />
                                         <audio controls="" preload="auto">
-                                            <source src="resources/ablation_studies/brightness_sample_5_1.wav" type="audio/wav" />
+                                            <source src="resources/ablation_studies/brightness_sample_5_1.wav"
+                                                type="audio/wav" />
                                         </audio>
                                     </div>
                                     <div class="col-3 border">
-                                        <img src="resources/ablation_studies_images/brightness_sample_5_2.png" width="100%" />
+                                        <img src="resources/ablation_studies_images/brightness_sample_5_2.png"
+                                            width="100%" />
                                         <audio controls="" preload="auto">
-                                            <source src="resources/ablation_studies/brightness_sample_5_2.wav" type="audio/wav" />
+                                            <source src="resources/ablation_studies/brightness_sample_5_2.wav"
+                                                type="audio/wav" />
                                         </audio>
                                     </div>
                                 </div>
@@ -2514,7 +2665,7 @@
                                         &nbsp;
                                     </div>
                                     <div class="col-6 fw-bold">
-                                        Impact Type
+                                        Impact Type (sounds become scratchier from left to right)
                                     </div>
                                     <div class="col-3">
                                         &nbsp;
@@ -2525,21 +2676,27 @@
                                         N=2
                                     </div>
                                     <div class="col-3 border">
-                                        <img src="resources/ablation_studies_images/impacttype_sample_1_0.png" width="100%" />
+                                        <img src="resources/ablation_studies_images/impacttype_sample_1_0.png"
+                                            width="100%" />
                                         <audio controls="" preload="auto">
-                                            <source src="resources/ablation_studies/impacttype_sample_1_0.wav" type="audio/wav" />
+                                            <source src="resources/ablation_studies/impacttype_sample_1_0.wav"
+                                                type="audio/wav" />
                                         </audio>
                                     </div>
                                     <div class="col-3 border">
-                                        <img src="resources/ablation_studies_images/impacttype_sample_1_1.png" width="100%" />
+                                        <img src="resources/ablation_studies_images/impacttype_sample_1_1.png"
+                                            width="100%" />
                                         <audio controls="" preload="auto">
-                                            <source src="resources/ablation_studies/impacttype_sample_1_1.wav" type="audio/wav" />
+                                            <source src="resources/ablation_studies/impacttype_sample_1_1.wav"
+                                                type="audio/wav" />
                                         </audio>
                                     </div>
                                     <div class="col-3 border">
-                                        <img src="resources/ablation_studies_images/impacttype_sample_1_2.png" width="100%" />
+                                        <img src="resources/ablation_studies_images/impacttype_sample_1_2.png"
+                                            width="100%" />
                                         <audio controls="" preload="auto">
-                                            <source src="resources/ablation_studies/impacttype_sample_1_2.wav" type="audio/wav" />
+                                            <source src="resources/ablation_studies/impacttype_sample_1_2.wav"
+                                                type="audio/wav" />
                                         </audio>
                                     </div>
                                 </div>
@@ -2548,21 +2705,27 @@
                                         N=6
                                     </div>
                                     <div class="col-3 border">
-                                        <img src="resources/ablation_studies_images/impacttype_sample_3_0.png" width="100%" />
+                                        <img src="resources/ablation_studies_images/impacttype_sample_3_0.png"
+                                            width="100%" />
                                         <audio controls="" preload="auto">
-                                            <source src="resources/ablation_studies/impacttype_sample_3_0.wav" type="audio/wav" />
+                                            <source src="resources/ablation_studies/impacttype_sample_3_0.wav"
+                                                type="audio/wav" />
                                         </audio>
                                     </div>
                                     <div class="col-3 border">
-                                        <img src="resources/ablation_studies_images/impacttype_sample_3_1.png" width="100%" />
+                                        <img src="resources/ablation_studies_images/impacttype_sample_3_1.png"
+                                            width="100%" />
                                         <audio controls="" preload="auto">
-                                            <source src="resources/ablation_studies/impacttype_sample_3_1.wav" type="audio/wav" />
+                                            <source src="resources/ablation_studies/impacttype_sample_3_1.wav"
+                                                type="audio/wav" />
                                         </audio>
                                     </div>
                                     <div class="col-3 border">
-                                        <img src="resources/ablation_studies_images/impacttype_sample_3_2.png" width="100%" />
+                                        <img src="resources/ablation_studies_images/impacttype_sample_3_2.png"
+                                            width="100%" />
                                         <audio controls="" preload="auto">
-                                            <source src="resources/ablation_studies/impacttype_sample_3_2.wav" type="audio/wav" />
+                                            <source src="resources/ablation_studies/impacttype_sample_3_2.wav"
+                                                type="audio/wav" />
                                         </audio>
                                     </div>
                                 </div>
@@ -2572,45 +2735,57 @@
                                         N=4
                                     </div>
                                     <div class="col-3 border">
-                                        <img src="resources/ablation_studies_images/impacttype_sample_2_0.png" width="100%" />
+                                        <img src="resources/ablation_studies_images/impacttype_sample_2_0.png"
+                                            width="100%" />
                                         <audio controls="" preload="auto">
-                                            <source src="resources/ablation_studies/impacttype_sample_2_0.wav" type="audio/wav" />
+                                            <source src="resources/ablation_studies/impacttype_sample_2_0.wav"
+                                                type="audio/wav" />
                                         </audio>
                                     </div>
                                     <div class="col-3 border">
-                                        <img src="resources/ablation_studies_images/impacttype_sample_2_1.png" width="100%" />
+                                        <img src="resources/ablation_studies_images/impacttype_sample_2_1.png"
+                                            width="100%" />
                                         <audio controls="" preload="auto">
-                                            <source src="resources/ablation_studies/impacttype_sample_2_1.wav" type="audio/wav" />
+                                            <source src="resources/ablation_studies/impacttype_sample_2_1.wav"
+                                                type="audio/wav" />
                                         </audio>
                                     </div>
                                     <div class="col-3 border">
-                                        <img src="resources/ablation_studies_images/impacttype_sample_2_2.png" width="100%" />
+                                        <img src="resources/ablation_studies_images/impacttype_sample_2_2.png"
+                                            width="100%" />
                                         <audio controls="" preload="auto">
-                                            <source src="resources/ablation_studies/impacttype_sample_2_2.wav" type="audio/wav" />
+                                            <source src="resources/ablation_studies/impacttype_sample_2_2.wav"
+                                                type="audio/wav" />
                                         </audio>
                                     </div>
                                 </div>
-                                
+
                                 <div class="row">
                                     <div class="col-3 border">
                                         N=8
                                     </div>
                                     <div class="col-3 border">
-                                        <img src="resources/ablation_studies_images/impacttype_sample_4_0.png" width="100%" />
+                                        <img src="resources/ablation_studies_images/impacttype_sample_4_0.png"
+                                            width="100%" />
                                         <audio controls="" preload="auto">
-                                            <source src="resources/ablation_studies/impacttype_sample_4_0.wav" type="audio/wav" />
+                                            <source src="resources/ablation_studies/impacttype_sample_4_0.wav"
+                                                type="audio/wav" />
                                         </audio>
                                     </div>
                                     <div class="col-3 border">
-                                        <img src="resources/ablation_studies_images/impacttype_sample_4_1.png" width="100%" />
+                                        <img src="resources/ablation_studies_images/impacttype_sample_4_1.png"
+                                            width="100%" />
                                         <audio controls="" preload="auto">
-                                            <source src="resources/ablation_studies/impacttype_sample_4_1.wav" type="audio/wav" />
+                                            <source src="resources/ablation_studies/impacttype_sample_4_1.wav"
+                                                type="audio/wav" />
                                         </audio>
                                     </div>
                                     <div class="col-3 border">
-                                        <img src="resources/ablation_studies_images/impacttype_sample_4_2.png" width="100%" />
+                                        <img src="resources/ablation_studies_images/impacttype_sample_4_2.png"
+                                            width="100%" />
                                         <audio controls="" preload="auto">
-                                            <source src="resources/ablation_studies/impacttype_sample_4_2.wav" type="audio/wav" />
+                                            <source src="resources/ablation_studies/impacttype_sample_4_2.wav"
+                                                type="audio/wav" />
                                         </audio>
                                     </div>
                                 </div>
@@ -2619,21 +2794,27 @@
                                         N=10
                                     </div>
                                     <div class="col-3 border">
-                                        <img src="resources/ablation_studies_images/impacttype_sample_5_0.png" width="100%" />
+                                        <img src="resources/ablation_studies_images/impacttype_sample_5_0.png"
+                                            width="100%" />
                                         <audio controls="" preload="auto">
-                                            <source src="resources/ablation_studies/impacttype_sample_5_0.wav" type="audio/wav" />
+                                            <source src="resources/ablation_studies/impacttype_sample_5_0.wav"
+                                                type="audio/wav" />
                                         </audio>
                                     </div>
                                     <div class="col-3 border">
-                                        <img src="resources/ablation_studies_images/impacttype_sample_5_1.png" width="100%" />
+                                        <img src="resources/ablation_studies_images/impacttype_sample_5_1.png"
+                                            width="100%" />
                                         <audio controls="" preload="auto">
-                                            <source src="resources/ablation_studies/impacttype_sample_5_1.wav" type="audio/wav" />
+                                            <source src="resources/ablation_studies/impacttype_sample_5_1.wav"
+                                                type="audio/wav" />
                                         </audio>
                                     </div>
                                     <div class="col-3 border">
-                                        <img src="resources/ablation_studies_images/impacttype_sample_5_2.png" width="100%" />
+                                        <img src="resources/ablation_studies_images/impacttype_sample_5_2.png"
+                                            width="100%" />
                                         <audio controls="" preload="auto">
-                                            <source src="resources/ablation_studies/impacttype_sample_5_2.wav" type="audio/wav" />
+                                            <source src="resources/ablation_studies/impacttype_sample_5_2.wav"
+                                                type="audio/wav" />
                                         </audio>
                                     </div>
                                 </div>
@@ -2641,6 +2822,185 @@
                         </div>
                     </div>
                     <div class="col-1">
+                        &nbsp;
+                    </div>
+                </div>
+
+
+                <div class='row'>
+                    <div class='col-2'>
+                        &nbsp;
+                    </div>
+                    <div class='col-8 table-center-align dashed-boder'>
+                        <a href="javascript:scrollToTheTop()">Back to top</a>
+                    </div>
+                    <div class='col-2'>
+                        &nbsp;
+                    </div>
+                </div>
+
+
+
+                <div class="row">&nbsp;</div>
+                <div class="row">&nbsp;</div>
+                <div class="row">&nbsp;</div>
+
+                <div class="row">
+                    <div class="col-2">
+                        &nbsp;
+                    </div>
+                    <div class="col-8 h4 text-start pt-2" id="training-details">
+                        <u><b>StyleGAN2 and Encoder training details</b></u>
+                    </div>
+                    <div class="col-2">
+                        &nbsp;
+                    </div>
+                </div>
+                <div class="row">&nbsp;</div>
+
+
+                <div class="row">
+                    <div class="col-2">
+                        &nbsp;
+                    </div>
+                    <div class="col-8 text-start pt-2">
+                        We report FAD scores and training details for StyleGAN2 and the GAN Inversion networks
+
+                        <br />
+                    </div>
+                    <div class="col-2">
+                        &nbsp;
+                    </div>
+                </div>
+                <div class="row">&nbsp;</div>
+                <div class="row">
+                    <div class="col-2">
+                        &nbsp;
+                    </div>
+                    <div class="col-5 text-start pt-2">
+                        Table: StyleGAN2 Frechet Audio Distance (FAD)
+
+                        <br />
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Dataset</th>
+                                    <th scope="col">w-dim &amp; z-dim</th>
+                                    <th scope="col">Number kimgs (iterations)</th>
+                                    <th scope="col">FAD Score</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">Greatest Hits Dataset</th>
+                                    <td>128</td>
+                                    <td>2800</td>
+                                    <td>0.51</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Water Filling Dataset</th>
+                                    <td>128</td>
+                                    <td>1400</td>
+                                    <td>1.87</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="col-2">
+                        &nbsp;
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-2">
+                        &nbsp;
+                    </div>
+                    <div class="col-5 text-start pt-2">
+                        Table: GAN Inversion/Encoder (netE) Frechet Audio Distance (FAD)
+
+                        <br />
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Dataset</th>
+                                    <th scope="col">Number kimgs (iterations)</th>
+                                    <th scope="col">Gaver Sounds FAD Score</th>
+                                    <th scope="col">Real-World Sounds FAD Score</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">Greatest Hits Dataset</th>
+                                    <td>1500</td>
+                                    <td>4.73</td>
+                                    <td>0.586</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Water Filling Dataset</th>
+                                    <td>1500</td>
+                                    <td>7.5</td>
+                                    <td>3.35</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="col-2">
+                        &nbsp;
+                    </div>
+                </div>
+
+                <div class='row'>
+                    <div class='col-2'>
+                        &nbsp;
+                    </div>
+                    <div class='col-8 table-center-align dashed-boder'>
+                        <a href="javascript:scrollToTheTop()">Back to top</a>
+                    </div>
+                    <div class='col-2'>
+                        &nbsp;
+                    </div>
+                </div>
+
+
+
+
+
+
+                <div class="row">&nbsp;</div>
+                <div class="row">&nbsp;</div>
+                <div class="row">&nbsp;</div>
+
+                <div class="row">
+                    <div class="col-2">
+                        &nbsp;
+                    </div>
+                    <div class="col-8 h4 text-start pt-2" id="rescoring-classifier-details">
+                        <u><b>Re-scoring Classifier Details</b></u>
+                    </div>
+                    <div class="col-2">
+                        &nbsp;
+                    </div>
+                </div>
+                <div class="row">&nbsp;</div>
+                <div class="row">
+                    <div class="col-2">
+                        &nbsp;
+                    </div>
+                    <div class="col-8 text-start pt-2">
+                        We use a classifier based on <a href="https://arxiv.org/pdf/2007.11154.pdf">this paper</a>. 
+                        For the classifier we use a DenseNet (with pre-training) based network with 3 channels as input to capture information at 3 different time scales, i.e. we
+                        compute mel-spectrogram of a signal using different window sizes and hop-lengths of [25ms,
+                        10ms], [50ms, 25ms], and [100ms, 50ms] for each channel respectively. The different window sizes
+                        and hop-lengths ensure the network has different levels of information from the frequency and
+                        time domain on each channel. Using these classifiers we can check if the samples modified using
+                        the requisite direction vectors faithfully represent the change in concept. We manipulate the
+                        same curated samples using our method and SeFa and report the change in scores as shown in the paper. 
+                        To compare this with SeFa, we manipulate all the curated
+                        samples using the top-10 dimensions retrieved using SeFa and select the most prominent
+                        dimensions which modify the concept. Standard error of
+                        means are reported by bootstrapping over 100 iterations.
+                    </div>
+                    <div class="col-2">
                         &nbsp;
                     </div>
                 </div>
@@ -2676,17 +3036,12 @@
 
 
 
-
-
-
-
-
-        </div>
+            </div>
 
 
 </body>
 <script>
-    window.onload = (e) =>{
+    window.onload = (e) => {
         document.querySelector('video').playbackRate = 2.0;
     }
 </script>
