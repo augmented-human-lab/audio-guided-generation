@@ -113,47 +113,7 @@
     </div>
 
     <div class="container-fluid" style="width: 100%">
-        <!-- <div class="row">
-            <div class="col-2">
-                &nbsp;
-            </div>
-            <div class="col-8 h4 text-left pt-2">
-                <div class="row">
-                    <div class="col-5 text-end"><a href="#">Paper</a></div>
-                    <div class="col-1 text-center"> <a href="#">Code</a></div>
-                    <div class="col-4 text-start"> <a href="#index">Examples</a></div>
-                </div>
-            </div>
-            <div class="col-2">
-                &nbsp;
-            </div>
-        </div>-->
-        <div class="row">&nbsp;</div> 
-
-        <div class="row">
-            <div class="col-2">
-                &nbsp;
-            </div>
-            <div class="col-8 pt-2">
-                See below a demonstration of the notion of Analysis-by-Synthesis in the latent space of a StyleGAN2. <br/>
-                <ul>
-                    <li>The leftbar shows the options to generate a synthetic <b>Gaver Sound</b>. The column called <b>Synthetic Reference</b> shows the spectrogram of 
-                        the synthesized Gaver Sound.</li>
-                    <li>We use this Gaver Sound to query the latent space of a StyleGAN2 to retrieve (or reconstruct) an audio sample closely resembling 
-                        the Gaver Sound. </li>
-                    <li>The column called <b>Reconstructed Audio</b> is the audio generated from StyleGAN2 (using GAN Inversion).</li>
-                </ul>
-                 
-                <br/>
-
-                We use few such <b>Gaver Sounds</b> and their <b>Reconstructions</b> to generate prototypes and eventually the vectors for controlling brightness, rate etc. 
-                
-                
-            </div>
-            <div class="col-2">
-                &nbsp;
-            </div>
-        </div>
+        
         <div class="row">&nbsp;</div>
 
         <div class="row">
@@ -165,7 +125,7 @@
                     <source src="https://guided-control-by-prototypes.s3.ap-southeast-1.amazonaws.com/resources/videos/demo_video.mp4" type="video/mp4">
                   Your browser does not support the video tag.
                   </video>
-                  <span style="font-size:small"><i>(This demo video has been sped up 2X for brevity. Please see video settings to lower speed.)</i></span>
+                  <span style="font-size:medium"><i>(This demo video has been sped up 2X for brevity. Please see video settings to lower speed.)</i></span>
                 
             </div>
             <div class="col-2">
@@ -188,6 +148,7 @@
                     <li class="pt-2"><a href="#listening-test-interface">3. Listening Test Interfaces</a></li>
                     <li class="pt-2"><a href="#selective-attr-transfer-examples">4. Examples for Selective Semantic Attribute Transfer</a></li>
                     <li class="pt-2"><a href="#sefa-failure-modes">5. SeFa Failure Modes</a></li>
+                    <li class="pt-2"><a href="#ablation-studies-numsamples">6. Ablation studies for number of exemplars</a></li>
                 </ul>
             </div>
             <div class="col-2">
@@ -2370,11 +2331,332 @@
 
 
 
+                <div class="row">
+                    <div class="col-2">
+                        &nbsp;
+                    </div>
+                    <div class="col-8 h4 text-start pt-2" id="ablation-studies-numsamples">
+                        <u><b>Ablation studies for number of exemplars needed for guidance</b></u>
+                    </div>
+                    <div class="col-2">
+                        &nbsp;
+                    </div>
+                </div>
+                <div class="row">&nbsp;</div>
+    
+    
+                <div class="row">
+                    <div class="col-2">
+                        &nbsp;
+                    </div>
+                    <div class="col-8 text-start pt-2">
+                        In this section, we evaluate the effect of the number Gaver samples used to find the directional vectors for edits for the attributes of Brightness and Impact Type.  
+                        <br/>
+                        The first column shows the number of samples used across clusters. 
+
+                        <br/>
+                        <br/>
+                        <br/>
+                        The Brightness or Impact Type changes from left to right. As observed, as the N increases, the effectiveness of the directional vectors edits increases. 
+                        Also, the edits preserve other un-edited attributes better with higher N.
+                    </div>
+                    <div class="col-2">
+                        &nbsp;
+                    </div>
+                </div>
+                <div class="row">&nbsp;</div>
+                <div class="row">&nbsp;</div>
+        
+        
+                <div class="row">
+                    <div class="col-1">
+                        &nbsp;
+                    </div>
+                    <div class="col-10 text-center">
+                        <div class="row">
+                            <div class="col-1">
+                                &nbsp;
+                            </div>
+                            <div class="col-5">
+                                <div class="row">
+                                    <div class="col-3">
+                                        &nbsp;
+                                    </div>
+                                    <div class="col-6 fw-bold">
+                                        Brightness
+                                    </div>
+                                    <div class="col-3">
+                                        &nbsp;
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-3 border">
+                                        N=2
+                                    </div>
+                                    <div class="col-3 border">
+                                        <img src="resources/ablation_studies_images/brightness_sample_1_0.png" width="100%" />
+                                        <audio controls="" preload="auto">
+                                            <source src="resources/ablation_studies/brightness_sample_1_0.wav" type="audio/wav" />
+                                        </audio>
+                                    </div>
+                                    <div class="col-3 border">
+                                        <img src="resources/ablation_studies_images/brightness_sample_1_1.png" width="100%" />
+                                        <audio controls="" preload="auto">
+                                            <source src="resources/ablation_studies/brightness_sample_1_1.wav" type="audio/wav" />
+                                        </audio>
+                                    </div>
+                                    <div class="col-3 border">
+                                        <img src="resources/ablation_studies_images/brightness_sample_1_2.png" width="100%" />
+                                        <audio controls="" preload="auto">
+                                            <source src="resources/ablation_studies/brightness_sample_1_2.wav" type="audio/wav" />
+                                        </audio>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-3 border">
+                                        N=4
+                                    </div>
+                                    <div class="col-3 border">
+                                        <img src="resources/ablation_studies_images/brightness_sample_2_0.png" width="100%" />
+                                        <audio controls="" preload="auto">
+                                            <source src="resources/ablation_studies/brightness_sample_2_0.wav" type="audio/wav" />
+                                        </audio>
+                                    </div>
+                                    <div class="col-3 border">
+                                        <img src="resources/ablation_studies_images/brightness_sample_2_1.png" width="100%" />
+                                        <audio controls="" preload="auto">
+                                            <source src="resources/ablation_studies/brightness_sample_2_1.wav" type="audio/wav" />
+                                        </audio>
+                                    </div>
+                                    <div class="col-3 border">
+                                        <img src="resources/ablation_studies_images/brightness_sample_2_2.png" width="100%" />
+                                        <audio controls="" preload="auto">
+                                            <source src="resources/ablation_studies/brightness_sample_2_2.wav" type="audio/wav" />
+                                        </audio>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-3 border">
+                                        N=6
+                                    </div>
+                                    <div class="col-3 border">
+                                        <img src="resources/ablation_studies_images/brightness_sample_3_0.png" width="100%" />
+                                        <audio controls="" preload="auto">
+                                            <source src="resources/ablation_studies/brightness_sample_3_0.wav" type="audio/wav" />
+                                        </audio>
+                                    </div>
+                                    <div class="col-3 border">
+                                        <img src="resources/ablation_studies_images/brightness_sample_3_1.png" width="100%" />
+                                        <audio controls="" preload="auto">
+                                            <source src="resources/ablation_studies/brightness_sample_3_1.wav" type="audio/wav" />
+                                        </audio>
+                                    </div>
+                                    <div class="col-3 border">
+                                        <img src="resources/ablation_studies_images/brightness_sample_3_2.png" width="100%" />
+                                        <audio controls="" preload="auto">
+                                            <source src="resources/ablation_studies/brightness_sample_3_2.wav" type="audio/wav" />
+                                        </audio>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-3 border">
+                                        N=8
+                                    </div>
+                                    <div class="col-3 border">
+                                        <img src="resources/ablation_studies_images/brightness_sample_4_0.png" width="100%" />
+                                        <audio controls="" preload="auto">
+                                            <source src="resources/ablation_studies/brightness_sample_4_0.wav" type="audio/wav" />
+                                        </audio>
+                                    </div>
+                                    <div class="col-3 border">
+                                        <img src="resources/ablation_studies_images/brightness_sample_4_1.png" width="100%" />
+                                        <audio controls="" preload="auto">
+                                            <source src="resources/ablation_studies/brightness_sample_4_1.wav" type="audio/wav" />
+                                        </audio>
+                                    </div>
+                                    <div class="col-3 border">
+                                        <img src="resources/ablation_studies_images/brightness_sample_4_2.png" width="100%" />
+                                        <audio controls="" preload="auto">
+                                            <source src="resources/ablation_studies/brightness_sample_4_2.wav" type="audio/wav" />
+                                        </audio>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-3 border">
+                                        N=10
+                                    </div>
+                                    <div class="col-3 border">
+                                        <img src="resources/ablation_studies_images/brightness_sample_5_0.png" width="100%" />
+                                        <audio controls="" preload="auto">
+                                            <source src="resources/ablation_studies/brightness_sample_5_0.wav" type="audio/wav" />
+                                        </audio>
+                                    </div>
+                                    <div class="col-3 border">
+                                        <img src="resources/ablation_studies_images/brightness_sample_5_1.png" width="100%" />
+                                        <audio controls="" preload="auto">
+                                            <source src="resources/ablation_studies/brightness_sample_5_1.wav" type="audio/wav" />
+                                        </audio>
+                                    </div>
+                                    <div class="col-3 border">
+                                        <img src="resources/ablation_studies_images/brightness_sample_5_2.png" width="100%" />
+                                        <audio controls="" preload="auto">
+                                            <source src="resources/ablation_studies/brightness_sample_5_2.wav" type="audio/wav" />
+                                        </audio>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-1">
+                                &nbsp;
+                            </div>
+                            <div class="col-5">
+                                <div class="row">
+                                    <div class="col-3">
+                                        &nbsp;
+                                    </div>
+                                    <div class="col-6 fw-bold">
+                                        Impact Type
+                                    </div>
+                                    <div class="col-3">
+                                        &nbsp;
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-3 border">
+                                        N=2
+                                    </div>
+                                    <div class="col-3 border">
+                                        <img src="resources/ablation_studies_images/impacttype_sample_1_0.png" width="100%" />
+                                        <audio controls="" preload="auto">
+                                            <source src="resources/ablation_studies/impacttype_sample_1_0.wav" type="audio/wav" />
+                                        </audio>
+                                    </div>
+                                    <div class="col-3 border">
+                                        <img src="resources/ablation_studies_images/impacttype_sample_1_1.png" width="100%" />
+                                        <audio controls="" preload="auto">
+                                            <source src="resources/ablation_studies/impacttype_sample_1_1.wav" type="audio/wav" />
+                                        </audio>
+                                    </div>
+                                    <div class="col-3 border">
+                                        <img src="resources/ablation_studies_images/impacttype_sample_1_2.png" width="100%" />
+                                        <audio controls="" preload="auto">
+                                            <source src="resources/ablation_studies/impacttype_sample_1_2.wav" type="audio/wav" />
+                                        </audio>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-3 border">
+                                        N=6
+                                    </div>
+                                    <div class="col-3 border">
+                                        <img src="resources/ablation_studies_images/impacttype_sample_3_0.png" width="100%" />
+                                        <audio controls="" preload="auto">
+                                            <source src="resources/ablation_studies/impacttype_sample_3_0.wav" type="audio/wav" />
+                                        </audio>
+                                    </div>
+                                    <div class="col-3 border">
+                                        <img src="resources/ablation_studies_images/impacttype_sample_3_1.png" width="100%" />
+                                        <audio controls="" preload="auto">
+                                            <source src="resources/ablation_studies/impacttype_sample_3_1.wav" type="audio/wav" />
+                                        </audio>
+                                    </div>
+                                    <div class="col-3 border">
+                                        <img src="resources/ablation_studies_images/impacttype_sample_3_2.png" width="100%" />
+                                        <audio controls="" preload="auto">
+                                            <source src="resources/ablation_studies/impacttype_sample_3_2.wav" type="audio/wav" />
+                                        </audio>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-3 border">
+                                        N=4
+                                    </div>
+                                    <div class="col-3 border">
+                                        <img src="resources/ablation_studies_images/impacttype_sample_2_0.png" width="100%" />
+                                        <audio controls="" preload="auto">
+                                            <source src="resources/ablation_studies/impacttype_sample_2_0.wav" type="audio/wav" />
+                                        </audio>
+                                    </div>
+                                    <div class="col-3 border">
+                                        <img src="resources/ablation_studies_images/impacttype_sample_2_1.png" width="100%" />
+                                        <audio controls="" preload="auto">
+                                            <source src="resources/ablation_studies/impacttype_sample_2_1.wav" type="audio/wav" />
+                                        </audio>
+                                    </div>
+                                    <div class="col-3 border">
+                                        <img src="resources/ablation_studies_images/impacttype_sample_2_2.png" width="100%" />
+                                        <audio controls="" preload="auto">
+                                            <source src="resources/ablation_studies/impacttype_sample_2_2.wav" type="audio/wav" />
+                                        </audio>
+                                    </div>
+                                </div>
+                                
+                                <div class="row">
+                                    <div class="col-3 border">
+                                        N=8
+                                    </div>
+                                    <div class="col-3 border">
+                                        <img src="resources/ablation_studies_images/impacttype_sample_4_0.png" width="100%" />
+                                        <audio controls="" preload="auto">
+                                            <source src="resources/ablation_studies/impacttype_sample_4_0.wav" type="audio/wav" />
+                                        </audio>
+                                    </div>
+                                    <div class="col-3 border">
+                                        <img src="resources/ablation_studies_images/impacttype_sample_4_1.png" width="100%" />
+                                        <audio controls="" preload="auto">
+                                            <source src="resources/ablation_studies/impacttype_sample_4_1.wav" type="audio/wav" />
+                                        </audio>
+                                    </div>
+                                    <div class="col-3 border">
+                                        <img src="resources/ablation_studies_images/impacttype_sample_4_2.png" width="100%" />
+                                        <audio controls="" preload="auto">
+                                            <source src="resources/ablation_studies/impacttype_sample_4_2.wav" type="audio/wav" />
+                                        </audio>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-3 border">
+                                        N=10
+                                    </div>
+                                    <div class="col-3 border">
+                                        <img src="resources/ablation_studies_images/impacttype_sample_5_0.png" width="100%" />
+                                        <audio controls="" preload="auto">
+                                            <source src="resources/ablation_studies/impacttype_sample_5_0.wav" type="audio/wav" />
+                                        </audio>
+                                    </div>
+                                    <div class="col-3 border">
+                                        <img src="resources/ablation_studies_images/impacttype_sample_5_1.png" width="100%" />
+                                        <audio controls="" preload="auto">
+                                            <source src="resources/ablation_studies/impacttype_sample_5_1.wav" type="audio/wav" />
+                                        </audio>
+                                    </div>
+                                    <div class="col-3 border">
+                                        <img src="resources/ablation_studies_images/impacttype_sample_5_2.png" width="100%" />
+                                        <audio controls="" preload="auto">
+                                            <source src="resources/ablation_studies/impacttype_sample_5_2.wav" type="audio/wav" />
+                                        </audio>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-1">
+                        &nbsp;
+                    </div>
+                </div>
 
 
-
-
-
+                <div class='row'>
+                    <div class='col-2'>
+                        &nbsp;
+                    </div>
+                    <div class='col-8 table-center-align dashed-boder'>
+                        <a href="javascript:scrollToTheTop()">Back to top</a>
+                    </div>
+                    <div class='col-2'>
+                        &nbsp;
+                    </div>
+                </div>
 
 
 
