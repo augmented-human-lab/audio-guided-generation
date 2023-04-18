@@ -12,7 +12,7 @@
         integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
 
     <!-- <link href="lib/bootstrap-extension-5.3.0/css/bootstrap-extension.min.css" rel="stylesheet"> -->
-    <title>An Analysis-Synthesis Approach To Perceptually Guided Audio Texture Generation</title>
+    <title>A Framework for Perceptually Guided Audio Texture Generation</title>
     <style>
         body {
             font-family: 'Open Sans', sans-serif;
@@ -97,7 +97,7 @@
             </div>
             <div class="col-8 text-center p-1" style="border: solid darkgray 2px;">
                 <i>A Companion Webpage For</i>
-                <h2><b>An Analysis-Synthesis <br />Approach To Perceptually Guided Audio Texture Generation</b>
+                <h2><b>A Framework for Perceptually Guided Audio Texture Generation</b>
                 </h2>
                 <br />
             </div>
@@ -191,8 +191,8 @@
                 &nbsp;
             </div>
             <div class="col-8 text-start pt-2" id="greatesthits-examples">
-                For the GreatestHits dataset, we develop semantic concept clusters and directions
-                for concepts of -
+                For the GreatestHits dataset, we develop semantic attribute clusters, prototypes and directions
+                for attributes of -
                 <ul>
                     <li><b>Perceived Brightness</b> (whether the
                         sound contains mostly high frequency components or is dark or dull
@@ -229,7 +229,7 @@
                 </div>
                 <div class="col-8">
                     See samples below. The leftmost sounds are randomly generated from the latent space and are edited
-                    using the direction vector for <b>brightness</b>.
+                    using the direction vector for <b>Perceived Brightness</b>.
                     <br />
                     <br />
 
@@ -490,7 +490,7 @@
                 </div>
                 <div class="col-8">
                     See samples below. The leftmost sounds are randomly generated from the latent space and are edited
-                    using the direction vector for <b>impact type</b>.
+                    using the direction vector for <b>Impact Type</b>.
                     <br />
                     <br />
 
@@ -742,7 +742,7 @@
                 </div>
                 <div class="col-8">
                     See samples below. The leftmost sounds are randomly generated from the latent space and are edited
-                    using the direction vector for <b>rate</b>.
+                    using the direction vector for <b>Rate</b>.
                     <br />
                     <br />
 
@@ -1020,8 +1020,8 @@
                 &nbsp;
             </div>
             <div class="col-8 text-start pt-2">
-                For this dataset, we develop semantic concept clusters and directions for the continuously valued
-                concept of <b>fill-level</b> of the container.
+                For this dataset, we develop semantic attribute clusters and directions for the continuously valued
+                attribute of <b>fill-level</b> of the container.
             </div>
             <div class="col-2">
                 &nbsp;
@@ -1033,7 +1033,7 @@
             </div>
             <div class="col-8">
                 The leftmost sounds are that of water filling an empty container (i.e. <b>fill-level=0</b>). <br />
-                As you move to the right, the the fill-level progressively increases to finally <b>fill-level=1</b>.
+                As you move to the right, the the fill-level progressively increases to finally <b>fill-level=10</b>.
             </div>
             <div class="col-2">
                 &nbsp;
@@ -1369,7 +1369,7 @@
                     and transfer the color to another object. With selective semantic attribute transfer,
                     we would like to select a semantic attribute (such as say <b>brightness</b>) from a <b>reference
                         sample</b>
-                    and transfer it to the <b>target sample</b>.
+                    and transfer it to the <b>target sample</b> without changing other attributes or the time domain structure of the original sample.
                 </div>
                 <div class="col-2">
                     &nbsp;
@@ -1866,7 +1866,7 @@
                     &nbsp;
                 </div>
                 <div class="col-8 text-start pt-2">
-                    Semantic Factorization algorithm or SeFa (see references in paper) scores lower in terms of
+                    Semantic Factorization algorithm or SeFa (see references in paper) scores lower than our method in terms of
                     re-scoring accuracy. This can be attributed to
                     the tendency of the algorithm to generate out-of-distribution sounds or have required effect on only
                     few samples.
@@ -2262,14 +2262,13 @@
                         with fill-level.
                         <br />
                         <br />
-                        The most prominent dimension (dimension 0) is associated with perpetually filling of the water
-                        container, while never reaching fill-level=1.
-                        The other dimension (dimension 2) is associated with perpertually unfilling of the water
-                        container, while never leaving fill-level=1 or never
-                        reaching fill-level=0.
+                        The most prominent dimension - i.e., the dimension with the highest Singular Value (dimension 0) - is associated with 
+                        <b>"perpetually filling"</b> of the water container, while never reaching fill-level=10 (or full container).
+                        The other dimension (dimension 2) is associated with <b>"perpertually unfilling"</b> of the water
+                        container, while never leaving fill-level=10 or never reaching fill-level=0.
                         <br />
                         <br />
-                        Whimsicial, sure, but not controllable. Makes you wonder, especially for dimension 0 which has
+                        Whimsicial, sure, but not controllable. Makes one wonder, especially for dimension 0 which has
                         the highest Singular Value
                         (from the eigendecomposition of weights), if not fill-level then what
                         other factor of variation did SeFa find?
@@ -2456,7 +2455,7 @@
                         &nbsp;
                     </div>
                     <div class="col-8 h4 text-start pt-2" id="ablation-studies-numsamples">
-                        <u><b>Ablation studies for number of exemplars needed for guidance</b></u>
+                        <u><b>Ablation studies for number of examples needed for guidance</b></u>
                     </div>
                     <div class="col-2">
                         &nbsp;
@@ -2481,6 +2480,12 @@
                         The Brightness or Impact Type changes from left to right. As observed, as the N increases, the
                         effectiveness of the directional vectors edits increases.
                         Also, the edits preserve other un-edited attributes better with higher N.
+
+                        <br />
+                        <br />
+
+                        For instance, for Brightness, for all N&lt;10 the Rate is not preserved. 
+                        Also, for N&lt;6, the Impact Type is partially preserved (some hits become scratches).
                     </div>
                     <div class="col-2">
                         &nbsp;
@@ -2513,7 +2518,8 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-3 border">
-                                        N=2
+                                        N=2<br/>
+                                        (1 per cluster)
                                     </div>
                                     <div class="col-3 border">
                                         <img src="resources/ablation_studies_images/brightness_sample_1_0.png"
@@ -2542,7 +2548,8 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-3 border">
-                                        N=4
+                                        N=4<br/>
+                                        (2 per cluster)
                                     </div>
                                     <div class="col-3 border">
                                         <img src="resources/ablation_studies_images/brightness_sample_2_0.png"
@@ -2571,7 +2578,8 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-3 border">
-                                        N=6
+                                        N=6<br/>
+                                        (3 per cluster)
                                     </div>
                                     <div class="col-3 border">
                                         <img src="resources/ablation_studies_images/brightness_sample_3_0.png"
@@ -2600,7 +2608,8 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-3 border">
-                                        N=8
+                                        N=8<br/>
+                                        (4 per cluster)
                                     </div>
                                     <div class="col-3 border">
                                         <img src="resources/ablation_studies_images/brightness_sample_4_0.png"
@@ -2629,7 +2638,8 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-3 border">
-                                        N=10
+                                        N=10<br/>
+                                        (5 per cluster)
                                     </div>
                                     <div class="col-3 border">
                                         <img src="resources/ablation_studies_images/brightness_sample_5_0.png"
@@ -2674,7 +2684,8 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-3 border">
-                                        N=2
+                                        N=2<br/>
+                                        (1 per cluster)
                                     </div>
                                     <div class="col-3 border">
                                         <img src="resources/ablation_studies_images/impacttype_sample_1_0.png"
@@ -2703,7 +2714,8 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-3 border">
-                                        N=4
+                                        N=4<br/>
+                                        (2 per cluster)
                                     </div>
                                     <div class="col-3 border">
                                         <img src="resources/ablation_studies_images/impacttype_sample_3_0.png"
@@ -2733,7 +2745,8 @@
 
                                 <div class="row">
                                     <div class="col-3 border">
-                                        N=6
+                                        N=6<br/>
+                                        (3 per cluster)
                                     </div>
                                     <div class="col-3 border">
                                         <img src="resources/ablation_studies_images/impacttype_sample_2_0.png"
@@ -2763,7 +2776,8 @@
 
                                 <div class="row">
                                     <div class="col-3 border">
-                                        N=8
+                                        N=8<br/>
+                                        (4 per cluster)
                                     </div>
                                     <div class="col-3 border">
                                         <img src="resources/ablation_studies_images/impacttype_sample_4_0.png"
@@ -2792,7 +2806,8 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-3 border">
-                                        N=10
+                                        N=10<br/>
+                                        (5 per cluster)
                                     </div>
                                     <div class="col-3 border">
                                         <img src="resources/ablation_studies_images/impacttype_sample_5_0.png"
@@ -2993,13 +3008,14 @@
                         compute mel-spectrogram of a signal using different window sizes and hop-lengths of [25ms,
                         10ms], [50ms, 25ms], and [100ms, 50ms] for each channel respectively. The different window sizes
                         and hop-lengths ensure the network has different levels of information from the frequency and
-                        time domain on each channel. Using these classifiers we can check if the samples modified using
-                        the requisite direction vectors faithfully represent the change in concept. We manipulate the
+                        time domain on each channel. 
+                        <!-- Using these classifiers we can check if the samples modified using
+                        the requisite direction vectors faithfully represent the change in attribute. We manipulate the
                         same curated samples using our method and SeFa and report the change in scores as shown in the paper. 
                         To compare this with SeFa, we manipulate all the curated
                         samples using the top-10 dimensions retrieved using SeFa and select the most prominent
-                        dimensions which modify the concept. Standard error of
-                        means are reported by bootstrapping over 100 iterations.
+                        dimensions which modify the attribute. Standard error of
+                        means are reported by bootstrapping over 100 iterations. -->
                     </div>
                     <div class="col-2">
                         &nbsp;
@@ -3025,7 +3041,9 @@
 
 
 
-
+                <div class="row">&nbsp;</div>
+                <div class="row">&nbsp;</div>
+                <div class="row">&nbsp;</div>
 
 
 
