@@ -96,7 +96,7 @@
                 &nbsp;
             </div>
             <div class="col-8 text-center p-1" style="border: solid darkgray 2px;">
-                <i>A Companion Webpage For</i>
+                <i>Supplementary Webpage For</i>
                 <h2><b>A Framework for Perceptually Guided Audio Texture Generation</b>
                 </h2>
                 <br />
@@ -159,6 +159,10 @@
                     <li class="pt-2"><a href="#codebase">7. Codebase</a></li>
                     <li class="pt-2"><a href="#training-details">8. StyleGAN2 and Encoder training details</a></li>
                     <li class="pt-2"><a href="#rescoring-classifier-details">9. Re-scoring Classifier Details</a></li>
+                        <ul>
+                            <li class="pt-2"><a href="#rescoring-classifier-details-arch">9.1 Classifier Architecture</a></li>
+                            <li class="pt-2"><a href="#rescoring-classifier-details-curation">9.2 Curated Dataset for Training Classifier</a></li>
+                        </ul>
                 </ul>
             </div>
             <div class="col-2">
@@ -1369,7 +1373,8 @@
                     and transfer the color to another object. With selective semantic attribute transfer,
                     we would like to select a semantic attribute (such as say <b>brightness</b>) from a <b>reference
                         sample</b>
-                    and transfer it to the <b>target sample</b> without changing other attributes or the time domain structure of the original sample.
+                    and transfer it to the <b>target sample</b> without changing other attributes or the time domain
+                    structure of the original sample.
                 </div>
                 <div class="col-2">
                     &nbsp;
@@ -1866,7 +1871,8 @@
                     &nbsp;
                 </div>
                 <div class="col-8 text-start pt-2">
-                    Semantic Factorization algorithm or SeFa (see references in paper) scores lower than our method in terms of
+                    Semantic Factorization algorithm or SeFa (see references in paper) scores lower than our method in
+                    terms of
                     re-scoring accuracy. This can be attributed to
                     the tendency of the algorithm to generate out-of-distribution sounds or have required effect on only
                     few samples.
@@ -2130,7 +2136,7 @@
                         <br />
                         <br />
                         The leftmost samples below are sharp hits. As we go progressively towards the right the samples
-                        either do not change or predominantly lower rate.
+                        either do not change or quickly go OOD before effectively modifying the attribute.
                     </div>
                     <div class="col-2">
                         &nbsp;
@@ -2191,6 +2197,102 @@
                     <div class="col-8 pt-2">
                         <div class="row">
                             <div class="col-1 pt-5 text-center example-headings">sample 2</div>
+                            <div class="p-0 col-2">
+                                <img src="resources/sefa-failure-mode_images/brightness_ref_b_5.png" width="100%" />
+                                <audio controls="" preload="auto">
+                                    <source src="resources/sefa-failure-mode/brightness_ref_b_5.wav" type="audio/wav" />
+                                </audio>
+                            </div>
+                            <div class=" p-0 col-2">
+                                <img src="resources/sefa-failure-mode_images/brightness_sefa_5_0.png" width="100%" />
+                                <audio controls="" preload="auto">
+                                    <source src="resources/sefa-failure-mode/brightness_sefa_5_0.wav"
+                                        type="audio/wav" />
+                                </audio>
+                            </div>
+                            <div class=" p-0 col-2">
+                                <img src="resources/sefa-failure-mode_images/brightness_sefa_5_1.png" width="100%" />
+                                <audio controls="" preload="auto">
+                                    <source src="resources/sefa-failure-mode/brightness_sefa_5_1.wav"
+                                        type="audio/wav" />
+                                </audio>
+                            </div>
+                            <div class=" p-0 col-2">
+                                <img src="resources/sefa-failure-mode_images/brightness_sefa_5_2.png" width="100%" />
+                                <audio controls="" preload="auto">
+                                    <source src="resources/sefa-failure-mode/brightness_sefa_5_2.wav"
+                                        type="audio/wav" />
+                                </audio>
+                            </div>
+                            <div class=" p-0 col-2">
+                                <img src="resources/sefa-failure-mode_images/brightness_sefa_5_3.png" width="100%" />
+                                <audio controls="" preload="auto">
+                                    <source src="resources/sefa-failure-mode/brightness_sefa_5_3.wav"
+                                        type="audio/wav" />
+                                </audio>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-2">
+                        &nbsp;
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-2">
+                        &nbsp;
+                    </div>
+                    <div class="col-8 pt-2">
+                        <div class="row">
+                            <div class="col-1 pt-5 text-center example-headings">sample 3</div>
+                            <div class="p-0 col-2">
+                                <img src="resources/sefa-failure-mode_images/brightness_ref_b_6.png" width="100%" />
+                                <audio controls="" preload="auto">
+                                    <source src="resources/sefa-failure-mode/brightness_ref_b_6.wav" type="audio/wav" />
+                                </audio>
+                            </div>
+                            <div class=" p-0 col-2">
+                                <img src="resources/sefa-failure-mode_images/brightness_sefa_6_0.png" width="100%" />
+                                <audio controls="" preload="auto">
+                                    <source src="resources/sefa-failure-mode/brightness_sefa_6_0.wav"
+                                        type="audio/wav" />
+                                </audio>
+                            </div>
+                            <div class=" p-0 col-2">
+                                <img src="resources/sefa-failure-mode_images/brightness_sefa_6_1.png" width="100%" />
+                                <audio controls="" preload="auto">
+                                    <source src="resources/sefa-failure-mode/brightness_sefa_6_1.wav"
+                                        type="audio/wav" />
+                                </audio>
+                            </div>
+                            <div class=" p-0 col-2">
+                                <img src="resources/sefa-failure-mode_images/brightness_sefa_6_2.png" width="100%" />
+                                <audio controls="" preload="auto">
+                                    <source src="resources/sefa-failure-mode/brightness_sefa_6_2.wav"
+                                        type="audio/wav" />
+                                </audio>
+                            </div>
+                            <div class=" p-0 col-2">
+                                <img src="resources/sefa-failure-mode_images/brightness_sefa_6_3.png" width="100%" />
+                                <audio controls="" preload="auto">
+                                    <source src="resources/sefa-failure-mode/brightness_sefa_6_3.wav"
+                                        type="audio/wav" />
+                                </audio>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-2">
+                        &nbsp;
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-2">
+                        &nbsp;
+                    </div>
+                    <div class="col-8 pt-2">
+                        <div class="row">
+                            <div class="col-1 pt-5 text-center example-headings">sample 4</div>
                             <div class="p-0 col-2">
                                 <img src="resources/sefa-failure-mode_images/brightness_ref_b_3.png" width="100%" />
                                 <audio controls="" preload="auto">
@@ -2262,9 +2364,12 @@
                         with fill-level.
                         <br />
                         <br />
-                        The most prominent dimension - i.e., the dimension with the highest Singular Value (dimension 0) - is associated with 
-                        <b>"perpetually filling"</b> of the water container, while never reaching fill-level=10 (or full container).
-                        The other dimension (dimension 2) is associated with <b>"perpertually unfilling"</b> of the water
+                        The most prominent dimension - i.e., the dimension with the highest Singular Value (dimension 0)
+                        - is associated with
+                        <b>"perpetually filling"</b> of the water container, while never reaching fill-level=10 (or full
+                        container).
+                        The other dimension (dimension 2) is associated with <b>"perpertually unfilling"</b> of the
+                        water
                         container, while never leaving fill-level=10 or never reaching fill-level=0.
                         <br />
                         <br />
@@ -2484,7 +2589,7 @@
                         <br />
                         <br />
 
-                        For instance, for Brightness, for all N&lt;10 the Rate is not preserved. 
+                        For instance, for Brightness, for all N&lt;10 the Rate is not preserved.
                         Also, for N&lt;6, the Impact Type is partially preserved (some hits become scratches).
                     </div>
                     <div class="col-2">
@@ -2518,7 +2623,7 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-3 border">
-                                        N=2<br/>
+                                        N=2<br />
                                         (1 per cluster)
                                     </div>
                                     <div class="col-3 border">
@@ -2548,7 +2653,7 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-3 border">
-                                        N=4<br/>
+                                        N=4<br />
                                         (2 per cluster)
                                     </div>
                                     <div class="col-3 border">
@@ -2578,7 +2683,7 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-3 border">
-                                        N=6<br/>
+                                        N=6<br />
                                         (3 per cluster)
                                     </div>
                                     <div class="col-3 border">
@@ -2608,7 +2713,7 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-3 border">
-                                        N=8<br/>
+                                        N=8<br />
                                         (4 per cluster)
                                     </div>
                                     <div class="col-3 border">
@@ -2638,7 +2743,7 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-3 border">
-                                        N=10<br/>
+                                        N=10<br />
                                         (5 per cluster)
                                     </div>
                                     <div class="col-3 border">
@@ -2684,7 +2789,7 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-3 border">
-                                        N=2<br/>
+                                        N=2<br />
                                         (1 per cluster)
                                     </div>
                                     <div class="col-3 border">
@@ -2714,7 +2819,7 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-3 border">
-                                        N=4<br/>
+                                        N=4<br />
                                         (2 per cluster)
                                     </div>
                                     <div class="col-3 border">
@@ -2745,7 +2850,7 @@
 
                                 <div class="row">
                                     <div class="col-3 border">
-                                        N=6<br/>
+                                        N=6<br />
                                         (3 per cluster)
                                     </div>
                                     <div class="col-3 border">
@@ -2776,7 +2881,7 @@
 
                                 <div class="row">
                                     <div class="col-3 border">
-                                        N=8<br/>
+                                        N=8<br />
                                         (4 per cluster)
                                     </div>
                                     <div class="col-3 border">
@@ -2806,7 +2911,7 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-3 border">
-                                        N=10<br/>
+                                        N=10<br />
                                         (5 per cluster)
                                     </div>
                                     <div class="col-3 border">
@@ -2878,13 +2983,16 @@
                         &nbsp;
                     </div>
                     <div class="col-8 text-start pt-2">
-                        Encoder (GAN Inversion) adapted for audio codebase (Anonymised): <a href="https://anonymous.4open.science/r/audio-latent-composition-DC66">https://anonymous.4open.science/r/audio-latent-composition-DC66</a>
-                        <br/> 
-                        The Encoder repository also contains the code for generating prototypes and attribute guidance vectors.
+                        Encoder (GAN Inversion) adapted for audio codebase (Anonymised): <a
+                            href="https://anonymous.4open.science/r/audio-latent-composition-DC66">https://anonymous.4open.science/r/audio-latent-composition-DC66</a>
+                        <br />
+                        The Encoder repository also contains the code for generating prototypes and attribute guidance
+                        vectors.
                         <br />
                         <br />
                         <br />
-                        StyleGAN2 adapted for audio codebase (Anonymised): <a href="https://anonymous.4open.science/r/audio-stylegan2-45EC">https://anonymous.4open.science/r/audio-stylegan2-45EC</a>
+                        StyleGAN2 adapted for audio codebase (Anonymised): <a
+                            href="https://anonymous.4open.science/r/audio-stylegan2-45EC">https://anonymous.4open.science/r/audio-stylegan2-45EC</a>
                     </div>
                     <div class="col-2">
                         &nbsp;
@@ -2910,7 +3018,7 @@
                 <div class="row">&nbsp;</div>
                 <div class="row">&nbsp;</div>
 
-                
+
 
                 <div class="row">
                     <div class="col-2">
@@ -3050,23 +3158,73 @@
                 </div>
                 <div class="row">&nbsp;</div>
                 <div class="row">
+                    <div class="row">
+                        <div class="col-2">
+                            &nbsp;
+                        </div>
+                        <div class="col-8 h5 text-start pt-2 ps-5" id="rescoring-classifier-details-arch">
+                            <u><b>Architecture Details</b></u>
+                        </div>
+                        <div class="col-2">
+                            &nbsp;
+                        </div>
+                    </div>
                     <div class="col-2">
                         &nbsp;
                     </div>
-                    <div class="col-8 text-start pt-2">
-                        We use a classifier based on <a href="https://arxiv.org/pdf/2007.11154.pdf">this paper</a>. 
-                        For the classifier we use a DenseNet (with pre-training) based network with 3 channels as input to capture information at 3 different time scales, i.e. we
+                    <div class="col-8 text-start pt-2 ps-5">
+                        We use a classifier based on <a href="https://arxiv.org/pdf/2007.11154.pdf">this paper</a>.
+                        For the classifier we use a DenseNet (with pre-training) based network, where the last layer is modified
+                        depending upon the number of classes we need. For binary re-scoring analysis the number of classes is 2 (to 
+                        indicate presence of absence of the semantic attribute) and for multi-class classification, such as for the Water Filling dataset, 
+                        the number of classes is set to 10. 
+                        The input to the classifier are 3 mel-spectrograms appended along the channel axis. As in the original paper, we follow this method 
+                        to capture information at 3 different time scales, i.e. we
                         compute mel-spectrogram of a signal using different window sizes and hop-lengths of [25ms,
                         10ms], [50ms, 25ms], and [100ms, 50ms] for each channel respectively. The different window sizes
                         and hop-lengths ensure the network has different levels of information from the frequency and
-                        time domain on each channel. 
-                        <!-- Using these classifiers we can check if the samples modified using
-                        the requisite direction vectors faithfully represent the change in attribute. We manipulate the
-                        same curated samples using our method and SeFa and report the change in scores as shown in the paper. 
-                        To compare this with SeFa, we manipulate all the curated
-                        samples using the top-10 dimensions retrieved using SeFa and select the most prominent
-                        dimensions which modify the attribute. Standard error of
-                        means are reported by bootstrapping over 100 iterations. -->
+                        time domain on each channel. We use Adam optimizer
+                        while training with a learning rate of 0.0001, weight decay of 0.001 and train for 100 epochs.  
+                    </div>
+                    <div class="col-2">
+                        &nbsp;
+                    </div>
+                </div>
+
+                <div class="row">&nbsp;</div>
+                <div class="row">
+                    <div class="row">
+                        <div class="col-2">
+                            &nbsp;
+                        </div>
+                        <div class="col-8 h5 text-start pt-2 ps-5" id="rescoring-classifier-details-curation">
+                            <u><b>Curated Dataset for Training Re-Scoring Classifier</b></u>
+                        </div>
+                        <div class="col-2">
+                            &nbsp;
+                        </div>
+                    </div>
+                    <div class="col-2">
+                        &nbsp;
+                    </div>
+                    <div class="col-8 text-start pt-2 ps-5">
+                        To train the attribute re-scoring classifier, we manually curate and label a small dataset, from both Greatest Hits and Water Filling datasets.
+                        We use this classifier to quantitatively evaluate the
+                        effectiveness of our method. For this, we manually curate approximately 250 samples of 2
+                        seconds sounds for each semantic attribute from both the datasets. This manual curation involved
+                        visually analysing the video and auditioning the associated sound files to detect the semantic
+                        attribute being curated. For <b><i>Perceived Brightness</i></b>, we manually curated a set
+                        of bright sounds from hits made on dense material surfaces such as glass, tile, ceramic or metal
+                        to indicate the presence of the brightness attribute. And a set of dull or dark sounds made by
+                        impacts on soft materials such as cloth, carpet or paper to indicate an absence of the
+                        brightness attribute. For <b><i>Rate</i></b> we curated sound samples with just 1-2 impact
+                        sounds in a sample to indicate low-rate and all other samples as high-rate. For
+                        <b><i>Impact Type</i></b>, we curated a set of sound samples where the drumstick sharply hit
+                        the surface and another set of sounds where the drumstick scratched the surface. For
+                        <b><i>Fill-Level</i></b> for Water, we curated the sounds by splitting each file into 10
+                        fill-levels, where fill-level=0 indicates an empty bucket and fill-level=10 indicates a full
+                        bucket, and collect samples at each fill level. These datasets are used to train attribute
+                        presence classifiers during evaluation.
                     </div>
                     <div class="col-2">
                         &nbsp;
