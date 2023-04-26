@@ -3210,7 +3210,7 @@
                     <div class="col-8 text-start pt-2 ps-5">
                         To train the attribute re-scoring classifier, we manually curate and label a small dataset, from both Greatest Hits and Water Filling datasets.
                         We use this classifier to quantitatively evaluate the
-                        effectiveness of our method. For this, we manually curate approximately 250 samples of 2
+                        effectiveness of our method in comparison with SeFa. For this, we manually curate approximately 250 samples of 2
                         seconds sounds for each semantic attribute from both the datasets. This manual curation involved
                         visually analysing the video and auditioning the associated sound files to detect the semantic
                         attribute being curated. For <b><i>Perceived Brightness</i></b>, we manually curated a set
@@ -3221,9 +3221,9 @@
                         sounds in a sample to indicate low-rate and all other samples as high-rate. For
                         <b><i>Impact Type</i></b>, we curated a set of sound samples where the drumstick sharply hit
                         the surface and another set of sounds where the drumstick scratched the surface. For
-                        <b><i>Fill-Level</i></b> for Water, we curated the sounds by splitting each file into 10
-                        fill-levels, where fill-level=0 indicates an empty bucket and fill-level=10 indicates a full
-                        bucket, and collect samples at each fill level. These datasets are used to train attribute
+                        <b><i>Fill-Level</i></b> for Water, we curated the sounds by sampling the first and last ~3 seconds of each file from the original dataset 
+                        (of ~30 seconds length files) to indicate 
+                        an empty bucket and a full bucket. These datasets are used to train attribute
                         presence classifiers during evaluation.
                     </div>
                     <div class="col-2">
