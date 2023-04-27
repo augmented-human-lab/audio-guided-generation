@@ -12,7 +12,7 @@
         integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
 
     <!-- <link href="lib/bootstrap-extension-5.3.0/css/bootstrap-extension.min.css" rel="stylesheet"> -->
-    <title>A Framework for Perceptually Guided Audio Texture Generation</title>
+    <title>An Example-Based Framework for Perceptually Guided Audio Texture Generation</title>
     <style>
         body {
             font-family: 'Open Sans', sans-serif;
@@ -97,7 +97,7 @@
             </div>
             <div class="col-8 text-center p-1" style="border: solid darkgray 2px;">
                 <i>Supplementary Webpage For</i>
-                <h2><b>A Framework for Perceptually Guided Audio Texture Generation</b>
+                <h2><b>An Example-Based Framework for Perceptually Guided Audio Texture Generation</b>
                 </h2>
                 <br />
             </div>
@@ -154,15 +154,16 @@
                     <li class="pt-2"><a href="#selective-attr-transfer-examples">4. Examples for Selective Semantic
                             Attribute Transfer</a></li>
                     <li class="pt-2"><a href="#sefa-failure-modes">5. SeFa Failure Modes</a></li>
-                    <li class="pt-2"><a href="#ablation-studies-numsamples">6. Ablation studies for number of
-                            exemplars</a></li>
+                    <li class="pt-2"><a href="#ablation-studies-numsamples">6. Ablation studies - Gaver Sound Synthesis</a></li>
                     <li class="pt-2"><a href="#codebase">7. Codebase</a></li>
-                    <li class="pt-2"><a href="#training-details">8. StyleGAN2 and Encoder training details</a></li>
+                    <li class="pt-2"><a href="#experimental_setup">8. Experimental Setup</a></li>
                     <li class="pt-2"><a href="#rescoring-classifier-details">9. Re-scoring Classifier Details</a></li>
-                        <ul>
-                            <li class="pt-2"><a href="#rescoring-classifier-details-arch">9.1 Classifier Architecture</a></li>
-                            <li class="pt-2"><a href="#rescoring-classifier-details-curation">9.2 Curated Dataset for Training Classifier</a></li>
-                        </ul>
+                    <ul>
+                        <li class="pt-2"><a href="#rescoring-classifier-details-arch">9.1 Classifier Architecture</a>
+                        </li>
+                        <li class="pt-2"><a href="#rescoring-classifier-details-curation">9.2 Curated Dataset for
+                                Training Classifier</a></li>
+                    </ul>
                 </ul>
             </div>
             <div class="col-2">
@@ -2560,7 +2561,7 @@
                         &nbsp;
                     </div>
                     <div class="col-8 h4 text-start pt-2" id="ablation-studies-numsamples">
-                        <u><b>Ablation studies for number of examples needed for guidance</b></u>
+                        <u><b>Ablation studies for number of examples needed for guidance - Gaver Sound Synthesis</b></u>
                     </div>
                     <div class="col-2">
                         &nbsp;
@@ -3024,8 +3025,8 @@
                     <div class="col-2">
                         &nbsp;
                     </div>
-                    <div class="col-8 h4 text-start pt-2" id="training-details">
-                        <u><b>StyleGAN2 and Encoder training details</b></u>
+                    <div class="col-8 h4 text-start pt-2" id="experimental_setup">
+                        <u><b>Experimental Setup</b></u>
                     </div>
                     <div class="col-2">
                         &nbsp;
@@ -3033,15 +3034,36 @@
                 </div>
                 <div class="row">&nbsp;</div>
 
-
                 <div class="row">
                     <div class="col-2">
                         &nbsp;
                     </div>
-                    <div class="col-8 text-start pt-2">
-                        We report FAD scores and training details for StyleGAN2 and the GAN Inversion networks
-
-                        <br />
+                    <div class="col-8 h4 text-start pt-2 ps-5" id="experimental_setup_stylegan2">
+                        <u><b>StyleGAN2 Training Details</b></u>
+                    </div>
+                    <div class="col-2">
+                        &nbsp;
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-2">
+                        &nbsp;
+                    </div>
+                    <div class="col-8 text-start pt-2 ps-5">
+                        We set <b>Z</b> and <b>W</b> space dimensions both to 128 for all our
+                        experiments across the two datasets. We also use only 4 mapping layers (as compared to 8 in the original StyleGAN2 paper).
+                        Further, we use the log-magnitude spectrogram
+                        representations generated using a Gabor
+                        transform(n_frames=256, stft_channels=512,
+                        hop_size=128), a Short-Time Fourier Transform (STFT) with a Gaussian window, to train the
+                        StyleGAN2 and the Phase Gradient Heap Integration (PGHI) for
+                        high-fidelity spectrogram inversion of textures to audio. For Greatest
+                        Hits dataset, we train the models for 2800kimgs with a batch size of 16, taking ~20 hours
+                        to train on a single RTX 2080 Ti GPU with 11GB memory. For Water Filling dataset, we train for
+                        1400kimgs with the same batch size running for ~14 hours on the same GPU. The metrics for
+                        quality of the generated sounds in terms of Frechet Audio Distance
+                        (FAD) along with the StyleGAN2 code adapted for audio textures can be
+                        found below.
                     </div>
                     <div class="col-2">
                         &nbsp;
@@ -3052,7 +3074,7 @@
                     <div class="col-2">
                         &nbsp;
                     </div>
-                    <div class="col-5 text-start pt-2">
+                    <div class="col-5 text-start pt-2 ps-5">
                         Table: StyleGAN2 Frechet Audio Distance (FAD)
 
                         <br />
@@ -3086,11 +3108,46 @@
                     </div>
                 </div>
 
+
+
+
+                <div class="row">&nbsp;</div>
+
+
                 <div class="row">
                     <div class="col-2">
                         &nbsp;
                     </div>
-                    <div class="col-5 text-start pt-2">
+                    <div class="col-8 h4 text-start pt-2 ps-5" id="experimental_setup_encoder">
+                        <u><b>Encoder/GAN Inversion Training Details</b></u>
+                    </div>
+                    <div class="col-2">
+                        &nbsp;
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-2">
+                        &nbsp;
+                    </div>
+                    <div class="col-8 text-start pt-2 ps-5">
+                        We use a RestNet-34 backbone as the architecture for our GAN inversion
+                        network. For both datasets, we train the Encoder for 1500 iterations with a batch size of 8 and
+                        choose the checkpoint with the lowest validation loss for inference. As in the original GAN
+                        Encoder paper we use an Adam optimizer with learning rate of 0.0001.
+                        Further, for the Water dataset, we apply a thresholding of -17db, i.e. we mask the frequency
+                        components with magnitude below -17db. For both datasets, the training took $\sim$ 25 hours to
+                        complete on a single GPU.
+                    </div>
+                    <div class="col-2">
+                        &nbsp;
+                    </div>
+                </div>
+                <div class="row">&nbsp;</div>
+                <div class="row">
+                    <div class="col-2">
+                        &nbsp;
+                    </div>
+                    <div class="col-5 text-start pt-2 ps-5">
                         Table: GAN Inversion/Encoder (netE) Frechet Audio Distance (FAD)
 
                         <br />
@@ -3123,6 +3180,71 @@
                         &nbsp;
                     </div>
                 </div>
+
+
+
+                <div class="row">&nbsp;</div>
+
+
+                <div class="row">
+                    <div class="col-2">
+                        &nbsp;
+                    </div>
+                    <div class="col-8 h4 text-start pt-2 ps-5" id="experimental_setup_gaver">
+                        <u><b>Gaver Sound Synthesis</b></u>
+                    </div>
+                    <div class="col-2">
+                        &nbsp;
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-2">
+                        &nbsp;
+                    </div>
+                    <div class="col-8 text-start pt-2 ps-5">
+                        To model impact sounds, such as those in the Greatest Hits dataset, we use a combination of
+                        sounds synthesized using method 1 and 2. For method 1, we choose damping constant
+                        &delta;<sub>n</sub>=0.001 for hard surfaces and &delta;<sub>n</sub>=0.5 for soft surfaces. We
+                        provide variations
+                        in the generated sounds by using different impact surface sizes, &phi; and n (number of
+                        partials). We vary the first partial of &omega; between 60-240Hz for large impact surfaces and
+                        between 250-660Hz for smaller surfaces. For method 2, we vary the impulse width of each impact
+                        between 0.4 - 1.0 seconds to model scratches and between 0.1 - 0.4 seconds to model sharp
+                        hits. Further, we model dull sounds by configuring low frequency bands roughly between
+                        10-1.5kHz and bright sounds using frequency bands above 4kHz. Water filling Gaver sounds are
+                        modelled as a combination of multiple impulses (modelled as individual water drops) concatenated
+                        with each other. We generate each drop using method 1 with an impulse width of 0.05 seconds.
+                        Each fill-level is controlled by linearly increasing or decreasing &omega; and its partials
+                        across the sound sample.
+                    </div>
+                    <div class="col-2">
+                        &nbsp;
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-2">
+                        &nbsp;
+                    </div>
+                    <div class="col-8 text-start pt-2 ps-5">
+                        In all our experiments, we use 10 synthetic Gaver examples (5 per semantic attribute cluster) to
+                        generate the guidance vectors for controllable generation. Please see the
+                        for ablation studies section of this webpage for generating guidance vectors using different number of Gaver samples. Our
+                        code repository has all the Gaver configurations we used in our experiments.
+                    </div>
+                    
+                    <div class="col-2">
+                        &nbsp;
+                    </div>
+                </div>
+
+
+
+
+
+
+
+
+
 
                 <div class='row'>
                     <div class='col-2'>
@@ -3174,17 +3296,19 @@
                     </div>
                     <div class="col-8 text-start pt-2 ps-5">
                         We use a classifier based on <a href="https://arxiv.org/pdf/2007.11154.pdf">this paper</a>.
-                        For the classifier we use a DenseNet (with pre-training) based network, where the last layer is modified
-                        depending upon the number of classes we need. For binary re-scoring analysis the number of classes is 2 (to 
-                        indicate presence of absence of the semantic attribute) and for multi-class classification, such as for the Water Filling dataset, 
-                        the number of classes is set to 10. 
-                        The input to the classifier are 3 mel-spectrograms appended along the channel axis. As in the original paper, we follow this method 
+                        For the classifier we use a DenseNet (with pre-training) based network, where the last layer is
+                        modified
+                        depending upon the number of classes we need. For binary re-scoring analysis the number of
+                        classes is 2 (to
+                        indicate presence of absence of the semantic attribute).
+                        The input to the classifier are 3 mel-spectrograms appended along the channel axis. As in the
+                        original paper, we follow this method
                         to capture information at 3 different time scales, i.e. we
                         compute mel-spectrogram of a signal using different window sizes and hop-lengths of [25ms,
                         10ms], [50ms, 25ms], and [100ms, 50ms] for each channel respectively. The different window sizes
                         and hop-lengths ensure the network has different levels of information from the frequency and
                         time domain on each channel. We use Adam optimizer
-                        while training with a learning rate of 0.0001, weight decay of 0.001 and train for 100 epochs.  
+                        while training with a learning rate of 0.0001, weight decay of 0.001 and train for 100 epochs.
                     </div>
                     <div class="col-2">
                         &nbsp;
@@ -3208,9 +3332,11 @@
                         &nbsp;
                     </div>
                     <div class="col-8 text-start pt-2 ps-5">
-                        To train the attribute re-scoring classifier, we manually curate and label a small dataset, from both Greatest Hits and Water Filling datasets.
+                        To train the attribute re-scoring classifier, we manually curate and label a small dataset, from
+                        both Greatest Hits and Water Filling datasets.
                         We use this classifier to quantitatively evaluate the
-                        effectiveness of our method in comparison with SeFa. For this, we manually curate approximately 250 samples of 2
+                        effectiveness of our method in comparison with SeFa. For this, we manually curate approximately
+                        250 samples of 2
                         seconds sounds for each semantic attribute from both the datasets. This manual curation involved
                         visually analysing the video and auditioning the associated sound files to detect the semantic
                         attribute being curated. For <b><i>Perceived Brightness</i></b>, we manually curated a set
@@ -3221,10 +3347,11 @@
                         sounds in a sample to indicate low-rate and all other samples as high-rate. For
                         <b><i>Impact Type</i></b>, we curated a set of sound samples where the drumstick sharply hit
                         the surface and another set of sounds where the drumstick scratched the surface. For
-                        <b><i>Fill-Level</i></b> for Water, we curated the sounds by sampling the first and last ~3 seconds of each file from the original dataset 
-                        (of ~30 seconds length files) to indicate 
+                        <b><i>Fill-Level</i></b> for Water, we curated the sounds by sampling the first and last ~3
+                        seconds of each file from the original dataset
+                        (of ~30 seconds length files) to indicate
                         an empty bucket and a full bucket. These datasets are used to train attribute
-                        presence classifiers during evaluation.
+                        change or re-scoring classifiers during evaluation.
                     </div>
                     <div class="col-2">
                         &nbsp;
