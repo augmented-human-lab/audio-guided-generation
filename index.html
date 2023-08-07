@@ -192,20 +192,27 @@
                             Dataset</a></li>
                     <li class="pt-2"><a href="#water-examples">2. Perceptually Guided Examples for Water</a></li>
                     
-                    <li class="pt-2"><a href="#experimental_setup">3. Experimental Setup <b>(Paper Section 5.1)</b></a></li>
-                    <li class="pt-2"><a href="#codebase">4. Codebase <b>(Paper Section 5.1)</b></a></li>
-                    <li class="pt-2"><a href="#ablation-studies-numsamples">5. Ablation studies - Gaver Sound Synthesis <b>(Paper Section 5.1)</b></a></li>
-                    <li class="pt-2"><a href="#rescoring-classifier-details">6. Re-scoring Classifier Details <b>(Paper Section 5.2)</b></a></li>
+            
+                    <li class="pt-2"><a href="#experimental_setup">3. Experimental Setup <b>(Paper Section IV.B)</b></a></li>
                     <ul>
-                        <li class="pt-2"><a href="#rescoring-classifier-details-arch">9.1 Classifier Architecture</a>
+                        <li class="pt-2"><a href="#umap">3.1 UMAP Clusters for Real and Synthetic Sounds based on semantic attributes<b>(Paper Section IV.B)</b></a></li>
+                        <li class="pt-2"><a href="#codebase">3.2 Codebase <b>(Paper Section IV.B)</b></a></li>
+                    </ul>
+
+                    
+                    <li class="pt-2"><a href="#rescoring-classifier-details">5. Re-scoring Classifier Details <b>(Paper Section IV.C)</b></a></li>
+                    <ul>
+                        <li class="pt-2"><a href="#rescoring-classifier-details-arch">5.1 Classifier Architecture</a>
                         </li>
-                        <li class="pt-2"><a href="#rescoring-classifier-details-curation">9.2 Curated Dataset for
+                        <li class="pt-2"><a href="#rescoring-classifier-details-curation">5.2 Curated Dataset for
                                 Training Classifier</a></li>
                     </ul>
-                    <li class="pt-2"><a href="#sefa-failure-modes">7. SeFa Failure Modes <b>(Paper Section 5.2)</b></a></li>
-                    <li class="pt-2"><a href="#listening-test-interface">8. Listening Test Interfaces <b>(Paper Section 5.3)</b></a></li>
+                    <li class="pt-2"><a href="#ab-s-n">4. Ablation studies - Gaver Sound Synthesis <b>(Paper Section IV.E.1)</b></a></li>
                     
-                    <li class="pt-2"><a href="#selective-attr-transfer-examples">9. Examples for Selective Semantic Attribute Transfer <b>(Paper Section 6)</b></a></li>
+                    <li class="pt-2"><a href="#sefa-failure-modes">6. SeFa Failure Modes <b>(Paper Section IV.E.2)</b></a></li>
+                    <li class="pt-2"><a href="#listening-test-interface">7. Listening Test Interfaces <b>(Paper Section IV.E.3)</b></a></li>
+                    
+                    <li class="pt-2"><a href="#selective-attr-transfer-examples">8. Examples for Selective Semantic Attribute Transfer <b>(Paper Section V)</b></a></li>
                 </ul>
             </div>
             <div class="col-2">
@@ -2602,7 +2609,7 @@
                     <div class="col-2">
                         &nbsp;
                     </div>
-                    <div class="col-8 h4 text-start pt-2" id="ablation-studies-numsamples">
+                    <div class="col-8 h4 text-start pt-2" id="ab-s-n">
                         <u><b>Ablation studies for number of examples needed for guidance - Gaver Sound Synthesis</b></u>
                     </div>
                     <div class="col-2">
@@ -3009,57 +3016,13 @@
                 <div class="row">&nbsp;</div>
                 <div class="row">&nbsp;</div>
 
-                <div class="row">
-                    <div class="col-2">
-                        &nbsp;
-                    </div>
-                    <div class="col-8 h4 text-start pt-2" id="codebase">
-                        <u><b>Codebase</b></u>
-                    </div>
-                    <div class="col-2">
-                        &nbsp;
-                    </div>
-                </div>
-                <div class="row">&nbsp;</div>
-                <div class="row">
-                    <div class="col-2">
-                        &nbsp;
-                    </div>
-                    <div class="col-8 text-start pt-2">
-                        Encoder (GAN Inversion) adapted for audio codebase (Anonymised): <a
-                            href="https://anonymous.4open.science/r/audio-latent-composition-DC66">https://anonymous.4open.science/r/audio-latent-composition-DC66</a>
-                        <br />
-                        The Encoder repository also contains the code for generating prototypes and attribute guidance
-                        vectors.
-                        <br />
-                        <br />
-                        <br />
-                        StyleGAN2 adapted for audio codebase (Anonymised): <a
-                            href="https://anonymous.4open.science/r/audio-stylegan2-45EC">https://anonymous.4open.science/r/audio-stylegan2-45EC</a>
-                    </div>
-                    <div class="col-2">
-                        &nbsp;
-                    </div>
-                </div>
+               
 
-                <div class="row">&nbsp;</div>
-                <div class="row">&nbsp;</div>
 
-                <div class='row'>
-                    <div class='col-2'>
-                        &nbsp;
-                    </div>
-                    <div class='col-8 table-center-align dashed-boder'>
-                        <a href="javascript:scrollToTheTop()">Back to top</a>
-                    </div>
-                    <div class='col-2'>
-                        &nbsp;
-                    </div>
-                </div>
 
-                <div class="row">&nbsp;</div>
-                <div class="row">&nbsp;</div>
-                <div class="row">&nbsp;</div>
+
+
+                
 
 
 
@@ -3134,13 +3097,13 @@
                                     <th scope="row">Greatest Hits Dataset</th>
                                     <td>128</td>
                                     <td>2800</td>
-                                    <td>0.51</td>
+                                    <td>0.6</td>
                                 </tr>
                                 <tr>
                                     <th scope="row">Water Filling Dataset</th>
                                     <td>128</td>
                                     <td>1400</td>
-                                    <td>1.87</td>
+                                    <td>1.17</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -3177,7 +3140,7 @@
                         choose the checkpoint with the lowest validation loss for inference. As in the original GAN
                         Encoder paper we use an Adam optimizer with learning rate of 0.0001.
                         Further, for the Water dataset, we apply a thresholding of -17db, i.e. we mask the frequency
-                        components with magnitude below -17db. For both datasets, the training took $\sim$ 25 hours to
+                        components with magnitude below -17db. For both datasets, the training took ~25 hours to
                         complete on a single GPU.
                     </div>
                     <div class="col-2">
@@ -3300,7 +3263,118 @@
                     </div>
                 </div>
 
+                <div class="row">&nbsp;</div>
+                <div class="row">&nbsp;</div>
+                <div class="row">&nbsp;</div>
 
+
+
+
+                <div class="row">
+                    <div class="col-2">
+                        &nbsp;
+                    </div>
+                    <div class="col-8 h4 text-start pt-2" id="umap">
+                        <u><b>UMAP Clusters for Real and Synthetic Sounds based on semantic attributes</b></u>
+                    </div>
+                    <div class="col-2">
+                        &nbsp;
+                    </div>
+                </div>
+                <div class="row">&nbsp;</div>
+                <div class='row'>
+                    <div class='col-2'>
+                        &nbsp;
+                    </div>
+                    <div class='col-8'>
+                        This section shows the UMAP clusters for the Greatest Hits dataset for the attributes of Brightness, Impact Type and Rate. The clusters are generated for both 
+                        Real sounds (from the training dataset) as well as Gaver sounds. <br/><br/>
+                        We find the W-vector for each sound using the Encoder. We then run UMAP algorithm (something like t-SNE) on the W-vectors to find the clusters.<br/><br/>
+                        Notice how separable the clusters for each attribute are. Also, see how the clusters for the synthetic sounds are similar to the real sounds.
+                    </div>
+                    <div class='col-2'>
+                        &nbsp;
+                    </div>
+                </div>
+
+                <div class="row">&nbsp;</div>
+                <div class='row'>
+                    <div class='col-2'>
+                        &nbsp;
+                    </div>
+                    <div class='col-8'>
+                        <img src="resources/umaps.png" width="100%">
+                    </div>
+                    <div class='col-2'>
+                        &nbsp;
+                    </div>
+                </div>
+
+                <div class='row'>
+                    <div class='col-2'>
+                        &nbsp;
+                    </div>
+                    <div class='col-8 table-center-align dashed-boder'>
+                        <a href="javascript:scrollToTheTop()">Back to top</a>
+                    </div>
+                    <div class='col-2'>
+                        &nbsp;
+                    </div>
+                </div>
+
+                <div class="row">&nbsp;</div>
+                <div class="row">&nbsp;</div>
+                <div class="row">&nbsp;</div>
+
+                <div class="row">
+                    <div class="col-2">
+                        &nbsp;
+                    </div>
+                    <div class="col-8 h4 text-start pt-2" id="codebase">
+                        <u><b>Codebase</b></u>
+                    </div>
+                    <div class="col-2">
+                        &nbsp;
+                    </div>
+                </div>
+                <div class="row">&nbsp;</div>
+                <div class="row">
+                    <div class="col-2">
+                        &nbsp;
+                    </div>
+                    <div class="col-8 text-start pt-2">
+                        Encoder (GAN Inversion) adapted for audio codebase: <a
+                            href="https://github.com/pkamath2/audio-latent-composition">https://github.com/pkamath2/audio-latent-composition</a>
+                        <br />
+                        The Encoder repository also contains the code for generating prototypes and attribute guidance
+                        vectors.
+                        <br />
+                        <br />
+                        <br />
+                        StyleGAN2 adapted for audio codebase: <a
+                            href="https://github.com/pkamath2/audio-stylegan2">https://github.com/pkamath2/audio-stylegan2</a>
+                    </div>
+                    <div class="col-2">
+                        &nbsp;
+                    </div>
+                </div>
+
+                <div class="row">&nbsp;</div>
+                <div class="row">&nbsp;</div>
+
+                <div class='row'>
+                    <div class='col-2'>
+                        &nbsp;
+                    </div>
+                    <div class='col-8 table-center-align dashed-boder'>
+                        <a href="javascript:scrollToTheTop()">Back to top</a>
+                    </div>
+                    <div class='col-2'>
+                        &nbsp;
+                    </div>
+                </div>
+
+                
 
 
 
