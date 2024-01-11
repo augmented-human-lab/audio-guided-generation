@@ -180,8 +180,8 @@
                     textures by conditioning the model with labeled data. While datasets for audio textures can be
                     easily recorded, semantically labeling them is difficult due to human annotator subjectivity. Thus,
                     to controllably generate audio textures, there is a need to automatically infer semantic factors of
-                    variation in the latent space of a StyleGAN trained on unlabeled textures. 
-                    <br/> <br/>
+                    variation in the latent space of a StyleGAN trained on unlabeled textures.
+                    <br /> <br />
                     In this paper, we propose
                     an example-based framework to determine vectors to guide texture generation based on user-defined
                     semantic attributes. By synthesizing a few synthetic examples to indicate the presence or absence of
@@ -234,8 +234,9 @@
                     </ul>
                     <li class="pt-2"><a href="#ab-s-n">5. Ablation studies - Gaver Sound Synthesis <b>(Paper Section
                                 IV.E.1)</b></a></li>
-                    <li class="pt-2"><a href="#ab-moresteps">6. Ablation studies - Effect of Scalar <b>&alpha;</b> <b>(Paper Section
-                                    IV.E.1)</b></a></li>
+                    <li class="pt-2"><a href="#ab-moresteps">6. Ablation studies - Effect of Scalar <b>&alpha;</b>
+                            <b>(Paper Section
+                                IV.E.1)</b></a></li>
 
                     <li class="pt-2"><a href="#sefa-failure-modes">7. SeFa Failure Modes <b>(Paper Section
                                 IV.E.2)</b></a></li>
@@ -244,6 +245,8 @@
 
                     <li class="pt-2"><a href="#selective-attr-transfer-examples">9. Examples for Selective Semantic
                             Attribute Transfer <b>(Paper Section V)</b></a></li>
+                    <li class="pt-2"><a href="#discussion-text-to-audio">10. Limitations: Approaching semantic edits
+                            using text-to-audio models <b>(Paper Section VI)</b></a></li>
                 </ul>
             </div>
             <div class="col-2">
@@ -2635,7 +2638,7 @@
 
 
 
-                
+
                 <div class="row">
                     <div class="col-2">
                         &nbsp;
@@ -3077,10 +3080,13 @@
                         $$ \mathbf{w_{edited}} = \mathbf{w} + \boldsymbol{\alpha} * \mathbf{d} $$
 
                         <br />
-                        Where $\mathbf{d}$ is the $direction$ vector between the two prototypes. For all examples on this Supplementary webpage, we use -
+                        Where $\mathbf{d}$ is the $direction$ vector between the two prototypes. For all examples on
+                        this Supplementary webpage, we use -
                         $$ 0 &lt; \boldsymbol{\alpha} &lt; 1$$
 
-                        In this section we show the effect of using steps greater than $1$. We see that as the value of $\boldsymbol{\alpha}$ moves further away from $1 * \mathbf{d}$, the samples tend to go out of distribution. 
+                        In this section we show the effect of using steps greater than $1$. We see that as the value of
+                        $\boldsymbol{\alpha}$ moves further away from $1 * \mathbf{d}$, the samples tend to go out of
+                        distribution.
                     </div>
                     <div class="col-2">
                         &nbsp;
@@ -3097,35 +3103,46 @@
                     </div>
                     <div class="col-8 pt-2">
                         <div class="row">
-                            <div class="col-1 pt-5 text-center example-headings">sample 1 <br/>(Editing Brightness)</div>
+                            <div class="col-1 pt-5 text-center example-headings">sample 1 <br />(Editing Brightness)
+                            </div>
                             <div class="p-0 col-2">
-                                <img src="resources/paper_samples_moresteps_images/brightness_sample_moresteps1_0.png" width="100%" />
+                                <img src="resources/paper_samples_moresteps_images/brightness_sample_moresteps1_0.png"
+                                    width="100%" />
                                 <audio controls="" preload="auto">
-                                    <source src="resources/paper_samples_moresteps/brightness_sample_moresteps1_0.wav" type="audio/wav" />
+                                    <source src="resources/paper_samples_moresteps/brightness_sample_moresteps1_0.wav"
+                                        type="audio/wav" />
                                 </audio>
                             </div>
                             <div class=" p-0 col-2">
-                                <img src="resources/paper_samples_moresteps_images/brightness_sample_moresteps1_1.png" width="100%" />
+                                <img src="resources/paper_samples_moresteps_images/brightness_sample_moresteps1_1.png"
+                                    width="100%" />
                                 <audio controls="" preload="auto">
-                                    <source src="resources/paper_samples_moresteps/brightness_sample_moresteps1_1.wav" type="audio/wav" />
+                                    <source src="resources/paper_samples_moresteps/brightness_sample_moresteps1_1.wav"
+                                        type="audio/wav" />
                                 </audio>
                             </div>
                             <div class=" p-0 col-2">
-                                <img src="resources/paper_samples_moresteps_images/brightness_sample_moresteps1_2.png" width="100%" />
+                                <img src="resources/paper_samples_moresteps_images/brightness_sample_moresteps1_2.png"
+                                    width="100%" />
                                 <audio controls="" preload="auto">
-                                    <source src="resources/paper_samples_moresteps/brightness_sample_moresteps1_2.wav" type="audio/wav" />
+                                    <source src="resources/paper_samples_moresteps/brightness_sample_moresteps1_2.wav"
+                                        type="audio/wav" />
                                 </audio>
                             </div>
                             <div class=" p-0 col-2">
-                                <img src="resources/paper_samples_moresteps_images/brightness_sample_moresteps1_3.png" width="100%" />
+                                <img src="resources/paper_samples_moresteps_images/brightness_sample_moresteps1_3.png"
+                                    width="100%" />
                                 <audio controls="" preload="auto">
-                                    <source src="resources/paper_samples_moresteps/brightness_sample_moresteps1_3.wav" type="audio/wav" />
+                                    <source src="resources/paper_samples_moresteps/brightness_sample_moresteps1_3.wav"
+                                        type="audio/wav" />
                                 </audio>
                             </div>
                             <div class=" p-0 col-2">
-                                <img src="resources/paper_samples_moresteps_images/brightness_sample_moresteps1_4.png" width="100%" />
+                                <img src="resources/paper_samples_moresteps_images/brightness_sample_moresteps1_4.png"
+                                    width="100%" />
                                 <audio controls="" preload="auto">
-                                    <source src="resources/paper_samples_moresteps/brightness_sample_moresteps1_4.wav" type="audio/wav" />
+                                    <source src="resources/paper_samples_moresteps/brightness_sample_moresteps1_4.wav"
+                                        type="audio/wav" />
                                 </audio>
                             </div>
 
@@ -3141,35 +3158,46 @@
                     </div>
                     <div class="col-8 pt-2">
                         <div class="row">
-                            <div class="col-1 pt-5 text-center example-headings">sample 2 <br/>(Editing Brightness)</div>
+                            <div class="col-1 pt-5 text-center example-headings">sample 2 <br />(Editing Brightness)
+                            </div>
                             <div class="p-0 col-2">
-                                <img src="resources/paper_samples_moresteps_images/brightness_sample_moresteps2_0.png" width="100%" />
+                                <img src="resources/paper_samples_moresteps_images/brightness_sample_moresteps2_0.png"
+                                    width="100%" />
                                 <audio controls="" preload="auto">
-                                    <source src="resources/paper_samples_moresteps/brightness_sample_moresteps2_0.wav" type="audio/wav" />
+                                    <source src="resources/paper_samples_moresteps/brightness_sample_moresteps2_0.wav"
+                                        type="audio/wav" />
                                 </audio>
                             </div>
                             <div class=" p-0 col-2">
-                                <img src="resources/paper_samples_moresteps_images/brightness_sample_moresteps2_1.png" width="100%" />
+                                <img src="resources/paper_samples_moresteps_images/brightness_sample_moresteps2_1.png"
+                                    width="100%" />
                                 <audio controls="" preload="auto">
-                                    <source src="resources/paper_samples_moresteps/brightness_sample_moresteps2_1.wav" type="audio/wav" />
+                                    <source src="resources/paper_samples_moresteps/brightness_sample_moresteps2_1.wav"
+                                        type="audio/wav" />
                                 </audio>
                             </div>
                             <div class=" p-0 col-2">
-                                <img src="resources/paper_samples_moresteps_images/brightness_sample_moresteps2_2.png" width="100%" />
+                                <img src="resources/paper_samples_moresteps_images/brightness_sample_moresteps2_2.png"
+                                    width="100%" />
                                 <audio controls="" preload="auto">
-                                    <source src="resources/paper_samples_moresteps/brightness_sample_moresteps2_2.wav" type="audio/wav" />
+                                    <source src="resources/paper_samples_moresteps/brightness_sample_moresteps2_2.wav"
+                                        type="audio/wav" />
                                 </audio>
                             </div>
                             <div class=" p-0 col-2">
-                                <img src="resources/paper_samples_moresteps_images/brightness_sample_moresteps2_3.png" width="100%" />
+                                <img src="resources/paper_samples_moresteps_images/brightness_sample_moresteps2_3.png"
+                                    width="100%" />
                                 <audio controls="" preload="auto">
-                                    <source src="resources/paper_samples_moresteps/brightness_sample_moresteps2_3.wav" type="audio/wav" />
+                                    <source src="resources/paper_samples_moresteps/brightness_sample_moresteps2_3.wav"
+                                        type="audio/wav" />
                                 </audio>
                             </div>
                             <div class=" p-0 col-2">
-                                <img src="resources/paper_samples_moresteps_images/brightness_sample_moresteps2_4.png" width="100%" />
+                                <img src="resources/paper_samples_moresteps_images/brightness_sample_moresteps2_4.png"
+                                    width="100%" />
                                 <audio controls="" preload="auto">
-                                    <source src="resources/paper_samples_moresteps/brightness_sample_moresteps2_4.wav" type="audio/wav" />
+                                    <source src="resources/paper_samples_moresteps/brightness_sample_moresteps2_4.wav"
+                                        type="audio/wav" />
                                 </audio>
                             </div>
 
@@ -3185,35 +3213,46 @@
                     </div>
                     <div class="col-8 pt-2">
                         <div class="row">
-                            <div class="col-1 pt-5 text-center example-headings">sample 3 <br/>(Editing Impact Type)</div>
+                            <div class="col-1 pt-5 text-center example-headings">sample 3 <br />(Editing Impact Type)
+                            </div>
                             <div class="p-0 col-2">
-                                <img src="resources/paper_samples_moresteps_images/impacttype_sample_moresteps1_0.png" width="100%" />
+                                <img src="resources/paper_samples_moresteps_images/impacttype_sample_moresteps1_0.png"
+                                    width="100%" />
                                 <audio controls="" preload="auto">
-                                    <source src="resources/paper_samples_moresteps/impacttype_sample_moresteps1_0.wav" type="audio/wav" />
+                                    <source src="resources/paper_samples_moresteps/impacttype_sample_moresteps1_0.wav"
+                                        type="audio/wav" />
                                 </audio>
                             </div>
                             <div class=" p-0 col-2">
-                                <img src="resources/paper_samples_moresteps_images/impacttype_sample_moresteps1_1.png" width="100%" />
+                                <img src="resources/paper_samples_moresteps_images/impacttype_sample_moresteps1_1.png"
+                                    width="100%" />
                                 <audio controls="" preload="auto">
-                                    <source src="resources/paper_samples_moresteps/impacttype_sample_moresteps1_1.wav" type="audio/wav" />
+                                    <source src="resources/paper_samples_moresteps/impacttype_sample_moresteps1_1.wav"
+                                        type="audio/wav" />
                                 </audio>
                             </div>
                             <div class=" p-0 col-2">
-                                <img src="resources/paper_samples_moresteps_images/impacttype_sample_moresteps1_2.png" width="100%" />
+                                <img src="resources/paper_samples_moresteps_images/impacttype_sample_moresteps1_2.png"
+                                    width="100%" />
                                 <audio controls="" preload="auto">
-                                    <source src="resources/paper_samples_moresteps/impacttype_sample_moresteps1_2.wav" type="audio/wav" />
+                                    <source src="resources/paper_samples_moresteps/impacttype_sample_moresteps1_2.wav"
+                                        type="audio/wav" />
                                 </audio>
                             </div>
                             <div class=" p-0 col-2">
-                                <img src="resources/paper_samples_moresteps_images/impacttype_sample_moresteps1_3.png" width="100%" />
+                                <img src="resources/paper_samples_moresteps_images/impacttype_sample_moresteps1_3.png"
+                                    width="100%" />
                                 <audio controls="" preload="auto">
-                                    <source src="resources/paper_samples_moresteps/impacttype_sample_moresteps1_3.wav" type="audio/wav" />
+                                    <source src="resources/paper_samples_moresteps/impacttype_sample_moresteps1_3.wav"
+                                        type="audio/wav" />
                                 </audio>
                             </div>
                             <div class=" p-0 col-2">
-                                <img src="resources/paper_samples_moresteps_images/impacttype_sample_moresteps1_5.png" width="100%" />
+                                <img src="resources/paper_samples_moresteps_images/impacttype_sample_moresteps1_5.png"
+                                    width="100%" />
                                 <audio controls="" preload="auto">
-                                    <source src="resources/paper_samples_moresteps/impacttype_sample_moresteps1_5.wav" type="audio/wav" />
+                                    <source src="resources/paper_samples_moresteps/impacttype_sample_moresteps1_5.wav"
+                                        type="audio/wav" />
                                 </audio>
                             </div>
 
@@ -3229,80 +3268,46 @@
                     </div>
                     <div class="col-8 pt-2">
                         <div class="row">
-                            <div class="col-1 pt-5 text-center example-headings">sample 4 <br/>(Editing Impact Type)</div>
+                            <div class="col-1 pt-5 text-center example-headings">sample 4 <br />(Editing Impact Type)
+                            </div>
                             <div class="p-0 col-2">
-                                <img src="resources/paper_samples_moresteps_images/impacttype_sample_moresteps3_0.png" width="100%" />
+                                <img src="resources/paper_samples_moresteps_images/impacttype_sample_moresteps3_0.png"
+                                    width="100%" />
                                 <audio controls="" preload="auto">
-                                    <source src="resources/paper_samples_moresteps/impacttype_sample_moresteps3_0.wav" type="audio/wav" />
+                                    <source src="resources/paper_samples_moresteps/impacttype_sample_moresteps3_0.wav"
+                                        type="audio/wav" />
                                 </audio>
                             </div>
                             <div class=" p-0 col-2">
-                                <img src="resources/paper_samples_moresteps_images/impacttype_sample_moresteps3_1.png" width="100%" />
+                                <img src="resources/paper_samples_moresteps_images/impacttype_sample_moresteps3_1.png"
+                                    width="100%" />
                                 <audio controls="" preload="auto">
-                                    <source src="resources/paper_samples_moresteps/impacttype_sample_moresteps3_1.wav" type="audio/wav" />
+                                    <source src="resources/paper_samples_moresteps/impacttype_sample_moresteps3_1.wav"
+                                        type="audio/wav" />
                                 </audio>
                             </div>
                             <div class=" p-0 col-2">
-                                <img src="resources/paper_samples_moresteps_images/impacttype_sample_moresteps3_2.png" width="100%" />
+                                <img src="resources/paper_samples_moresteps_images/impacttype_sample_moresteps3_2.png"
+                                    width="100%" />
                                 <audio controls="" preload="auto">
-                                    <source src="resources/paper_samples_moresteps/impacttype_sample_moresteps3_2.wav" type="audio/wav" />
+                                    <source src="resources/paper_samples_moresteps/impacttype_sample_moresteps3_2.wav"
+                                        type="audio/wav" />
                                 </audio>
                             </div>
                             <div class=" p-0 col-2">
-                                <img src="resources/paper_samples_moresteps_images/impacttype_sample_moresteps3_3.png" width="100%" />
+                                <img src="resources/paper_samples_moresteps_images/impacttype_sample_moresteps3_3.png"
+                                    width="100%" />
                                 <audio controls="" preload="auto">
-                                    <source src="resources/paper_samples_moresteps/impacttype_sample_moresteps3_3.wav" type="audio/wav" />
+                                    <source src="resources/paper_samples_moresteps/impacttype_sample_moresteps3_3.wav"
+                                        type="audio/wav" />
                                 </audio>
                             </div>
                             <div class=" p-0 col-2">
-                                <img src="resources/paper_samples_moresteps_images/impacttype_sample_moresteps3_5.png" width="100%" />
+                                <img src="resources/paper_samples_moresteps_images/impacttype_sample_moresteps3_5.png"
+                                    width="100%" />
                                 <audio controls="" preload="auto">
-                                    <source src="resources/paper_samples_moresteps/impacttype_sample_moresteps3_5.wav" type="audio/wav" />
-                                </audio>
-                            </div>
-
-                        </div>
-                    </div>
-                    <div class="col-2">
-                        &nbsp;
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-2">
-                        &nbsp;
-                    </div>
-                    <div class="col-8 pt-2">
-                        <div class="row">
-                            <div class="col-1 pt-5 text-center example-headings">sample 5 <br/>(Editing Rate)</div>
-                            <div class="p-0 col-2">
-                                <img src="resources/paper_samples_moresteps_images/rate_sample_moresteps1_0.png" width="100%" />
-                                <audio controls="" preload="auto">
-                                    <source src="resources/paper_samples_moresteps/rate_sample_moresteps1_0.wav" type="audio/wav" />
-                                </audio>
-                            </div>
-                            <div class=" p-0 col-2">
-                                <img src="resources/paper_samples_moresteps_images/rate_sample_moresteps1_1.png" width="100%" />
-                                <audio controls="" preload="auto">
-                                    <source src="resources/paper_samples_moresteps/rate_sample_moresteps1_1.wav" type="audio/wav" />
-                                </audio>
-                            </div>
-                            <div class=" p-0 col-2">
-                                <img src="resources/paper_samples_moresteps_images/rate_sample_moresteps1_2.png" width="100%" />
-                                <audio controls="" preload="auto">
-                                    <source src="resources/paper_samples_moresteps/rate_sample_moresteps1_2.wav" type="audio/wav" />
-                                </audio>
-                            </div>
-                            <div class=" p-0 col-2">
-                                <img src="resources/paper_samples_moresteps_images/rate_sample_moresteps1_3.png" width="100%" />
-                                <audio controls="" preload="auto">
-                                    <source src="resources/paper_samples_moresteps/rate_sample_moresteps1_3.wav" type="audio/wav" />
-                                </audio>
-                            </div>
-                            <div class=" p-0 col-2">
-                                <img src="resources/paper_samples_moresteps_images/rate_sample_moresteps1_5.png" width="100%" />
-                                <audio controls="" preload="auto">
-                                    <source src="resources/paper_samples_moresteps/rate_sample_moresteps1_5.wav" type="audio/wav" />
+                                    <source src="resources/paper_samples_moresteps/impacttype_sample_moresteps3_5.wav"
+                                        type="audio/wav" />
                                 </audio>
                             </div>
 
@@ -3319,35 +3324,100 @@
                     </div>
                     <div class="col-8 pt-2">
                         <div class="row">
-                            <div class="col-1 pt-5 text-center example-headings">sample 6 <br/>(Editing Rate)</div>
+                            <div class="col-1 pt-5 text-center example-headings">sample 5 <br />(Editing Rate)</div>
                             <div class="p-0 col-2">
-                                <img src="resources/paper_samples_moresteps_images/rate_sample_moresteps3_0.png" width="100%" />
+                                <img src="resources/paper_samples_moresteps_images/rate_sample_moresteps1_0.png"
+                                    width="100%" />
                                 <audio controls="" preload="auto">
-                                    <source src="resources/paper_samples_moresteps/rate_sample_moresteps3_0.wav" type="audio/wav" />
+                                    <source src="resources/paper_samples_moresteps/rate_sample_moresteps1_0.wav"
+                                        type="audio/wav" />
                                 </audio>
                             </div>
                             <div class=" p-0 col-2">
-                                <img src="resources/paper_samples_moresteps_images/rate_sample_moresteps3_1.png" width="100%" />
+                                <img src="resources/paper_samples_moresteps_images/rate_sample_moresteps1_1.png"
+                                    width="100%" />
                                 <audio controls="" preload="auto">
-                                    <source src="resources/paper_samples_moresteps/rate_sample_moresteps3_1.wav" type="audio/wav" />
+                                    <source src="resources/paper_samples_moresteps/rate_sample_moresteps1_1.wav"
+                                        type="audio/wav" />
                                 </audio>
                             </div>
                             <div class=" p-0 col-2">
-                                <img src="resources/paper_samples_moresteps_images/rate_sample_moresteps3_2.png" width="100%" />
+                                <img src="resources/paper_samples_moresteps_images/rate_sample_moresteps1_2.png"
+                                    width="100%" />
                                 <audio controls="" preload="auto">
-                                    <source src="resources/paper_samples_moresteps/rate_sample_moresteps3_2.wav" type="audio/wav" />
+                                    <source src="resources/paper_samples_moresteps/rate_sample_moresteps1_2.wav"
+                                        type="audio/wav" />
                                 </audio>
                             </div>
                             <div class=" p-0 col-2">
-                                <img src="resources/paper_samples_moresteps_images/rate_sample_moresteps3_3.png" width="100%" />
+                                <img src="resources/paper_samples_moresteps_images/rate_sample_moresteps1_3.png"
+                                    width="100%" />
                                 <audio controls="" preload="auto">
-                                    <source src="resources/paper_samples_moresteps/rate_sample_moresteps3_3.wav" type="audio/wav" />
+                                    <source src="resources/paper_samples_moresteps/rate_sample_moresteps1_3.wav"
+                                        type="audio/wav" />
                                 </audio>
                             </div>
                             <div class=" p-0 col-2">
-                                <img src="resources/paper_samples_moresteps_images/rate_sample_moresteps3_5.png" width="100%" />
+                                <img src="resources/paper_samples_moresteps_images/rate_sample_moresteps1_5.png"
+                                    width="100%" />
                                 <audio controls="" preload="auto">
-                                    <source src="resources/paper_samples_moresteps/rate_sample_moresteps3_5.wav" type="audio/wav" />
+                                    <source src="resources/paper_samples_moresteps/rate_sample_moresteps1_5.wav"
+                                        type="audio/wav" />
+                                </audio>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-2">
+                        &nbsp;
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-2">
+                        &nbsp;
+                    </div>
+                    <div class="col-8 pt-2">
+                        <div class="row">
+                            <div class="col-1 pt-5 text-center example-headings">sample 6 <br />(Editing Rate)</div>
+                            <div class="p-0 col-2">
+                                <img src="resources/paper_samples_moresteps_images/rate_sample_moresteps3_0.png"
+                                    width="100%" />
+                                <audio controls="" preload="auto">
+                                    <source src="resources/paper_samples_moresteps/rate_sample_moresteps3_0.wav"
+                                        type="audio/wav" />
+                                </audio>
+                            </div>
+                            <div class=" p-0 col-2">
+                                <img src="resources/paper_samples_moresteps_images/rate_sample_moresteps3_1.png"
+                                    width="100%" />
+                                <audio controls="" preload="auto">
+                                    <source src="resources/paper_samples_moresteps/rate_sample_moresteps3_1.wav"
+                                        type="audio/wav" />
+                                </audio>
+                            </div>
+                            <div class=" p-0 col-2">
+                                <img src="resources/paper_samples_moresteps_images/rate_sample_moresteps3_2.png"
+                                    width="100%" />
+                                <audio controls="" preload="auto">
+                                    <source src="resources/paper_samples_moresteps/rate_sample_moresteps3_2.wav"
+                                        type="audio/wav" />
+                                </audio>
+                            </div>
+                            <div class=" p-0 col-2">
+                                <img src="resources/paper_samples_moresteps_images/rate_sample_moresteps3_3.png"
+                                    width="100%" />
+                                <audio controls="" preload="auto">
+                                    <source src="resources/paper_samples_moresteps/rate_sample_moresteps3_3.wav"
+                                        type="audio/wav" />
+                                </audio>
+                            </div>
+                            <div class=" p-0 col-2">
+                                <img src="resources/paper_samples_moresteps_images/rate_sample_moresteps3_5.png"
+                                    width="100%" />
+                                <audio controls="" preload="auto">
+                                    <source src="resources/paper_samples_moresteps/rate_sample_moresteps3_5.wav"
+                                        type="audio/wav" />
                                 </audio>
                             </div>
 
@@ -3365,35 +3435,46 @@
                     </div>
                     <div class="col-8 pt-2">
                         <div class="row">
-                            <div class="col-1 pt-5 text-center example-headings">sample 7 <br/>(Editing Water Fill-Level)</div>
+                            <div class="col-1 pt-5 text-center example-headings">sample 7 <br />(Editing Water
+                                Fill-Level)</div>
                             <div class="p-0 col-2">
-                                <img src="resources/paper_samples_moresteps_images/water_sample_moresteps2_0.png" width="100%" />
+                                <img src="resources/paper_samples_moresteps_images/water_sample_moresteps2_0.png"
+                                    width="100%" />
                                 <audio controls="" preload="auto">
-                                    <source src="resources/paper_samples_moresteps/water_sample_moresteps2_0.wav" type="audio/wav" />
+                                    <source src="resources/paper_samples_moresteps/water_sample_moresteps2_0.wav"
+                                        type="audio/wav" />
                                 </audio>
                             </div>
                             <div class=" p-0 col-2">
-                                <img src="resources/paper_samples_moresteps_images/water_sample_moresteps2_1.png" width="100%" />
+                                <img src="resources/paper_samples_moresteps_images/water_sample_moresteps2_1.png"
+                                    width="100%" />
                                 <audio controls="" preload="auto">
-                                    <source src="resources/paper_samples_moresteps/water_sample_moresteps2_1.wav" type="audio/wav" />
+                                    <source src="resources/paper_samples_moresteps/water_sample_moresteps2_1.wav"
+                                        type="audio/wav" />
                                 </audio>
                             </div>
                             <div class=" p-0 col-2">
-                                <img src="resources/paper_samples_moresteps_images/water_sample_moresteps2_2.png" width="100%" />
+                                <img src="resources/paper_samples_moresteps_images/water_sample_moresteps2_2.png"
+                                    width="100%" />
                                 <audio controls="" preload="auto">
-                                    <source src="resources/paper_samples_moresteps/water_sample_moresteps2_2.wav" type="audio/wav" />
+                                    <source src="resources/paper_samples_moresteps/water_sample_moresteps2_2.wav"
+                                        type="audio/wav" />
                                 </audio>
                             </div>
                             <div class=" p-0 col-2">
-                                <img src="resources/paper_samples_moresteps_images/water_sample_moresteps2_3.png" width="100%" />
+                                <img src="resources/paper_samples_moresteps_images/water_sample_moresteps2_3.png"
+                                    width="100%" />
                                 <audio controls="" preload="auto">
-                                    <source src="resources/paper_samples_moresteps/water_sample_moresteps2_3.wav" type="audio/wav" />
+                                    <source src="resources/paper_samples_moresteps/water_sample_moresteps2_3.wav"
+                                        type="audio/wav" />
                                 </audio>
                             </div>
                             <div class=" p-0 col-2">
-                                <img src="resources/paper_samples_moresteps_images/water_sample_moresteps2_4.png" width="100%" />
+                                <img src="resources/paper_samples_moresteps_images/water_sample_moresteps2_4.png"
+                                    width="100%" />
                                 <audio controls="" preload="auto">
-                                    <source src="resources/paper_samples_moresteps/water_sample_moresteps2_4.wav" type="audio/wav" />
+                                    <source src="resources/paper_samples_moresteps/water_sample_moresteps2_4.wav"
+                                        type="audio/wav" />
                                 </audio>
                             </div>
 
@@ -3876,8 +3957,8 @@
                         time domain on each channel. We use Adam optimizer
                         while training with a learning rate of 0.0001, weight decay of 0.001 and train for 100 epochs.
 
-                        <br/>
-                        <br/>
+                        <br />
+                        <br />
 
                         The codebase for the classifier can be found here: <a
                             href="https://github.com/pkamath2/Audio-Classification">Audio-Classification Github Fork</a>
@@ -3953,6 +4034,186 @@
                 <div class="row">&nbsp;</div>
                 <div class="row">&nbsp;</div>
 
+                <div class="row">
+                    <div class="col-2">
+                        &nbsp;
+                    </div>
+                    <div class="col-8 h4 text-start pt-2" id="discussion-text-to-audio">
+                        <u><b>Discussion: Approaching semantic edits using text-to-audio models (Paper Section
+                                VI)</b></u>
+                    </div>
+                    <div class="col-2">
+                        &nbsp;
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-2">
+                        &nbsp;
+                    </div>
+                    <div class="col-8 text-start pt-2">
+                        Although we are unable to perform a systematic comparison of our method with text-to-audio
+                        models, on our supplementary webpage (see section on text-to-audio comparison in section VI) we
+                        demonstrate some text prompts that assist in achieving the semantic editing goals of our
+                        framework using text-to-audio models such as <a href="https://audiocraft.metademolab.com/audiogen.html">AudioGen</a> and
+                        <a href="https://huggingface.co/spaces/haoheliu/audioldm-text-to-audio-generation">AudioLDM</a>. For impact sounds, we designed prompts by describing
+                        the material properties of the impact surface, along with certain acoustic properties of the
+                        sound. Similarly, for water filling, we described the material properties of the container as
+                        well as the fill level of the water.
+
+                        <br/>
+                        <br/>
+
+                        In the examples below, we begin with one prompt, and continuously edit it with additional textual descriptions of how we want to modify the sounds. 
+
+                        <br/>
+
+                        For impact sounds, observe how adding <span style="background-color: rgb(120, 198, 107);">regularity</span> and rate (<span style="background-color: rgb(236, 96, 96);">and
+                            very fast</span>) edits to the prompt, unintentionally also changes other attributes such as brightness. 
+
+                        <br/>
+                        <br/>
+
+                        <b>Note</b>: These examples are not intended to be a systematic study or comparison of our method to text-to-audio. We only show these examples here 
+                        to highlight some differences between these results and ours, and thus pave the way for our future work.
+                    </div>
+                    <div class="col-2">
+                        &nbsp;
+                    </div>
+                </div>
+
+
+
+                <div class="row">
+                    <div class="col-2">
+                        &nbsp;
+                    </div>
+                    <div class="col-8 pt-2">
+                        <div class="row">
+                            <div class="col-1 pt-5 text-center example-headings"></div>
+                            <div class="p-0 col-2 text-center">
+                                <b>Prompt:</b> <br />"<span style="background-color: rgb(122, 170, 232);">stick hitting
+                                    a very hard metal surface</span>"
+                            </div>
+                            <div class="col-1">&nbsp;</div>
+                            <div class=" p-0 col-2 text-center">
+                                <b>Prompt:</b> <br />"<span style="background-color: rgb(122, 170, 232);">stick hitting
+                                    a very hard metal surface</span>&nbsp;<br /><span
+                                    style="background-color: rgb(231, 208, 77);">with resonance and long sustain</span>"
+                            </div>
+                            <div class="col-1">&nbsp;</div>
+                            <div class=" p-0 col-2 text-center">
+                                <b>Prompt:</b> <br />"<span style="background-color: rgb(122, 170, 232);">stick hitting
+                                    a very hard metal surface</span>&nbsp;<br /><span
+                                    style="background-color: rgb(231, 208, 77);">with resonance and long
+                                    sustain</span>&nbsp;<br /><span style="background-color: rgb(120, 198, 107);">and
+                                    regularity</span>"
+                            </div>
+                            <div class="col-1">&nbsp;</div>
+                            <div class=" p-0 col-2 text-center">
+                                <b>Prompt:</b> <br />"<span style="background-color: rgb(122, 170, 232);">stick hitting
+                                    a very hard metal surface</span>&nbsp;<br /><span
+                                    style="background-color: rgb(231, 208, 77);">with resonance and long
+                                    sustain</span>&nbsp;<br /><span style="background-color: rgb(120, 198, 107);">and
+                                    regularity</span>&nbsp;<br /><span style="background-color: rgb(236, 96, 96);">and
+                                    very fast</span>"
+                            </div>
+
+
+                        </div>
+                    </div>
+                    <div class="col-2">
+                        &nbsp;
+                    </div>
+                </div>
+
+
+
+                <div class="row">
+                    <div class="col-2">
+                        &nbsp;
+                    </div>
+                    <div class="col-8 pt-2">
+                        <div class="row">
+                            <div class="col-1 pt-5 text-center example-headings">Samples from AudioGen</div>
+                            <div class="p-0 col-2">
+                                <img src="resources/paper_samples_text2audio_images/audiogen/1.png" width="100%" />
+                                <audio controls="" preload="auto">
+                                    <source src="resources/paper_samples_text2audio/audiogen/1.wav" type="audio/wav" />
+                                </audio>
+                            </div>
+                            <div class="col-1">&nbsp;</div>
+                            <div class=" p-0 col-2">
+                                <img src="resources/paper_samples_text2audio_images/audiogen/2.png" width="100%" />
+                                <audio controls="" preload="auto">
+                                    <source src="resources/paper_samples_text2audio/audiogen/2.wav" type="audio/wav" />
+                                </audio>
+                            </div>
+                            <div class="col-1">&nbsp;</div>
+                            <div class=" p-0 col-2">
+                                <img src="resources/paper_samples_text2audio_images/audiogen/3.png" width="100%" />
+                                <audio controls="" preload="auto">
+                                    <source src="resources/paper_samples_text2audio/audiogen/3.wav" type="audio/wav" />
+                                </audio>
+                            </div>
+                            <div class="col-1">&nbsp;</div>
+                            <div class=" p-0 col-2">
+                                <img src="resources/paper_samples_text2audio_images/audiogen/4.png" width="100%" />
+                                <audio controls="" preload="auto">
+                                    <source src="resources/paper_samples_text2audio/audiogen/4.wav" type="audio/wav" />
+                                </audio>
+                            </div>
+
+
+                        </div>
+                    </div>
+                    <div class="col-2">
+                        &nbsp;
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-2">
+                        &nbsp;
+                    </div>
+                    <div class="col-8 pt-2">
+                        <div class="row">
+                            <div class="col-1 pt-5 text-center example-headings">Samples from AudioLDM</div>
+                            <div class="p-0 col-2">
+                                <img src="resources/paper_samples_text2audio_images/audioldm/1.png" width="100%" />
+                                <audio controls="" preload="auto">
+                                    <source src="resources/paper_samples_text2audio/audioldm/1.mp4" type="audio/mp4" />
+                                </audio>
+                            </div>
+                            <div class="col-1">&nbsp;</div>
+                            <div class=" p-0 col-2">
+                                <img src="resources/paper_samples_text2audio_images/audioldm/2.png" width="100%" />
+                                <audio controls="" preload="auto">
+                                    <source src="resources/paper_samples_text2audio/audioldm/2.mp4" type="audio/mp4" />
+                                </audio>
+                            </div>
+                            <div class="col-1">&nbsp;</div>
+                            <div class=" p-0 col-2">
+                                <img src="resources/paper_samples_text2audio_images/audioldm/3.png" width="100%" />
+                                <audio controls="" preload="auto">
+                                    <source src="resources/paper_samples_text2audio/audioldm/3.mp4" type="audio/mp4" />
+                                </audio>
+                            </div>
+                            <div class="col-1">&nbsp;</div>
+                            <div class=" p-0 col-2">
+                                <img src="resources/paper_samples_text2audio_images/audioldm/4.png" width="100%" />
+                                <audio controls="" preload="auto">
+                                    <source src="resources/paper_samples_text2audio/audioldm/4.mp4" type="audio/mp4" />
+                                </audio>
+                            </div>
+
+
+                        </div>
+                    </div>
+                    <div class="col-2">
+                        &nbsp;
+                    </div>
+                </div>
 
 
 
@@ -3961,6 +4222,217 @@
 
 
 
+
+
+                <div class="row">&nbsp;</div>
+                <div class='row'>
+                    <div class='col-2'>
+                        &nbsp;
+                    </div>
+                    <div class='col-8 table-center-align border-top'>
+                    </div>
+                    <div class='col-2'>
+                        &nbsp;
+                    </div>
+                </div>
+
+                <div class="row">&nbsp;</div>
+
+                <div class="row">
+                    <div class="col-2">
+                        &nbsp;
+                    </div>
+                    <div class="col-8 text-start pt-2">
+                        
+                        <br/>
+
+                        For water filling, as we are interested in continuously editing the fill level, we edit the prompts using a start fill level and and end fill level. 
+                        <br/>
+
+                        For the prompts used below, AudioGen performs comparitively better than AudioLDM in terms of the quality of the generated sounds.
+                        <br/>
+                        <br/>
+
+                        <b>Note</b>: These examples are not intended to be a systematic study or comparison of our method to text-to-audio. We only show these examples here 
+                        to highlight some differences between these results and ours, and thus pave the way for our future work.
+                    </div>
+                    <div class="col-2">
+                        &nbsp;
+                    </div>
+                </div>
+
+
+                <div class="row">&nbsp;</div>
+
+
+                <div class="row">
+                    <div class="col-2">
+                        &nbsp;
+                    </div>
+                    <div class="col-8 pt-2">
+                        <div class="row">
+                            <div class="col-1 pt-5 text-center example-headings"></div>
+                            <div class="p-0 col-2 text-center">
+                                <b>Prompt:</b> <br />"<span style="background-color: rgb(122, 170, 232);">water filling
+                                    a metal container that is</span>&nbsp;<br /><span
+                                    style="background-color: rgb(231, 208, 77);">empty until it is quarter full</span>"
+                            </div>
+                            <div class="col-1">&nbsp;</div>
+                            <div class=" p-0 col-2 text-center">
+                                <b>Prompt:</b> <br />"<span style="background-color: rgb(122, 170, 232);">water filling
+                                    a metal container that is</span>&nbsp;<br /><span
+                                    style="background-color: rgb(231, 208, 77);">quarter full until it is half
+                                    full</span>"
+                            </div>
+                            <div class="col-1">&nbsp;</div>
+                            <div class=" p-0 col-2 text-center">
+                                <b>Prompt:</b> <br />"<span style="background-color: rgb(122, 170, 232);">water filling
+                                    a metal container that is</span>&nbsp;<br /><span
+                                    style="background-color: rgb(231, 208, 77);">half full until it is three-fourths
+                                    full</span>"
+                            </div>
+                            <div class="col-1">&nbsp;</div>
+                            <div class=" p-0 col-2 text-center">
+                                <b>Prompt:</b> <br />"<span style="background-color: rgb(122, 170, 232);">water filling
+                                    a metal container that is</span>&nbsp;<br /><span
+                                    style="background-color: rgb(231, 208, 77);">three-fourths full until it is
+                                    completely full</span>"
+                            </div>
+
+
+                        </div>
+                    </div>
+                    <div class="col-2">
+                        &nbsp;
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-2">
+                        &nbsp;
+                    </div>
+                    <div class="col-8 pt-2">
+                        <div class="row">
+                            <div class="col-1 pt-5 text-center example-headings">Samples from AudioGen</div>
+                            <div class="p-0 col-2">
+                                <img src="resources/paper_samples_text2audio_images/audiogen/water_empty_to_quarter.png"
+                                    width="100%" />
+                                <audio controls="" preload="auto">
+                                    <source src="resources/paper_samples_text2audio/audiogen/water_empty_to_quarter.wav"
+                                        type="audio/wav" />
+                                </audio>
+                            </div>
+                            <div class="col-1">&nbsp;</div>
+                            <div class=" p-0 col-2">
+                                <img src="resources/paper_samples_text2audio_images/audiogen/water_quarter_to_half.png"
+                                    width="100%" />
+                                <audio controls="" preload="auto">
+                                    <source src="resources/paper_samples_text2audio/audiogen/water_quarter_to_half.wav"
+                                        type="audio/wav" />
+                                </audio>
+                            </div>
+                            <div class="col-1">&nbsp;</div>
+                            <div class=" p-0 col-2">
+                                <img src="resources/paper_samples_text2audio_images/audiogen/water_half_to_three4ths.png"
+                                    width="100%" />
+                                <audio controls="" preload="auto">
+                                    <source
+                                        src="resources/paper_samples_text2audio/audiogen/water_half_to_three4ths.wav"
+                                        type="audio/wav" />
+                                </audio>
+                            </div>
+                            <div class="col-1">&nbsp;</div>
+                            <div class=" p-0 col-2">
+                                <img src="resources/paper_samples_text2audio_images/audiogen/water_three4ths_to_full.png"
+                                    width="100%" />
+                                <audio controls="" preload="auto">
+                                    <source
+                                        src="resources/paper_samples_text2audio/audiogen/water_three4ths_to_full.wav"
+                                        type="audio/wav" />
+                                </audio>
+                            </div>
+
+
+                        </div>
+                    </div>
+                    <div class="col-2">
+                        &nbsp;
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-2">
+                        &nbsp;
+                    </div>
+                    <div class="col-8 pt-2">
+                        <div class="row">
+                            <div class="col-1 pt-5 text-center example-headings">Samples from AudioLDM</div>
+                            <div class="p-0 col-2">
+                                <img src="resources/paper_samples_text2audio_images/audioldm/water_empty_to_quarter.png"
+                                    width="100%" />
+                                <audio controls="" preload="auto">
+                                    <source src="resources/paper_samples_text2audio/audioldm/water_empty_to_quarter.mp4"
+                                        type="audio/mp4" />
+                                </audio>
+                            </div>
+                            <div class="col-1">&nbsp;</div>
+                            <div class=" p-0 col-2">
+                                <img src="resources/paper_samples_text2audio_images/audioldm/water_quarter_to_half.png"
+                                    width="100%" />
+                                <audio controls="" preload="auto">
+                                    <source src="resources/paper_samples_text2audio/audioldm/water_quarter_to_half.mp4"
+                                        type="audio/mp4" />
+                                </audio>
+                            </div>
+                            <div class="col-1">&nbsp;</div>
+                            <div class=" p-0 col-2">
+                                <img src="resources/paper_samples_text2audio_images/audioldm/water_half_to_three4ths.png"
+                                    width="100%" />
+                                <audio controls="" preload="auto">
+                                    <source
+                                        src="resources/paper_samples_text2audio/audioldm/water_half_to_three4ths.mp4"
+                                        type="audio/mp4" />
+                                </audio>
+                            </div>
+                            <div class="col-1">&nbsp;</div>
+                            <div class=" p-0 col-2">
+                                <img src="resources/paper_samples_text2audio_images/audioldm/water_three4ths_to_full.png"
+                                    width="100%" />
+                                <audio controls="" preload="auto">
+                                    <source
+                                        src="resources/paper_samples_text2audio/audioldm/water_three4ths_to_full.mp4"
+                                        type="audio/mp4" />
+                                </audio>
+                            </div>
+
+
+                        </div>
+                    </div>
+                    <div class="col-2">
+                        &nbsp;
+                    </div>
+                </div>
+
+
+
+                <div class='row'>
+                    <div class='col-2'>
+                        &nbsp;
+                    </div>
+                    <div class='col-8 table-center-align dashed-boder'>
+                        <a href="javascript:scrollToTheTop()">Back to top</a>
+                    </div>
+                    <div class='col-2'>
+                        &nbsp;
+                    </div>
+                </div>
+
+
+
+
+                <div class="row">&nbsp;</div>
+                <div class="row">&nbsp;</div>
+                <div class="row">&nbsp;</div>
 
 
             </div>
