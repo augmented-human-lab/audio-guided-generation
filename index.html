@@ -245,7 +245,7 @@
 
                     <li class="pt-2"><a href="#selective-attr-transfer-examples">9. Examples for Selective Semantic
                             Attribute Transfer <b>(Paper Section V)</b></a></li>
-                    <li class="pt-2"><a href="#discussion-text-to-audio">10. Limitations: Approaching semantic edits
+                    <li class="pt-2"><a href="#t-to-a">10. Limitations: Approaching semantic edits
                             using text-to-audio models <b>(Paper Section VI)</b></a></li>
                 </ul>
             </div>
@@ -4038,7 +4038,7 @@
                     <div class="col-2">
                         &nbsp;
                     </div>
-                    <div class="col-8 h4 text-start pt-2" id="discussion-text-to-audio">
+                    <div class="col-8 h4 text-start pt-2" id="t-to-a">
                         <u><b>Discussion: Approaching semantic edits using text-to-audio models (Paper Section
                                 VI)</b></u>
                     </div>
@@ -4054,12 +4054,24 @@
                     <div class="col-8 text-start pt-2">
                         Although we are unable to perform a systematic comparison of our method with text-to-audio
                         models, in this section we
-                        demonstrate some text prompts that assist in achieving the semantic editing goals of our
+                        demonstrate the results from some text prompts that could assist in achieving the semantic editing goals of our
                         framework using text-to-audio models such as <a href="https://audiocraft.metademolab.com/audiogen.html">AudioGen</a> and
-                        <a href="https://huggingface.co/spaces/haoheliu/audioldm-text-to-audio-generation">AudioLDM</a>. For impact sounds, we designed prompts by describing
+                        <a href="https://huggingface.co/spaces/haoheliu/audioldm-text-to-audio-generation">AudioLDM</a>. 
+                        
+                        <br/>
+                        <br/>
+
+                        For both impact sounds as well as water filling, we device a 'starting' prompt (shown in the first column in the examples below). 
+                        We subsequently edit the prompt to change different semantic attributes using textual descriptions (as demonstrated in the subsequent columns). The prompt edits are 
+                        highlighted in different colors.
+
+                        <br/>
+                        <br/>
+
+                        <!-- For impact sounds, we designed prompts by describing
                         the material properties of the impact surface, along with certain acoustic properties of the
                         sound. Similarly, for water filling, we described the material properties of the container as
-                        well as the fill level of the water.
+                        well as the fill level of the water. -->
 
                         <br/>
                         <br/>
@@ -4069,7 +4081,8 @@
                         <br/>
 
                         For impact sounds, observe how adding <span style="background-color: rgb(120, 198, 107);">regularity</span> and rate (<span style="background-color: rgb(236, 96, 96);">and
-                            very fast</span>) edits to the prompt, unintentionally also changes other attributes such as brightness. 
+                        very fast</span>) edits to the prompt, unintentionally also changes other attributes such as brightness. Further, by modifying the prompt using <span style="background-color: rgb(236, 96, 96);">
+                        very fast</span>, is negating the effect of <span style="background-color: rgb(231, 208, 77);">long sustain</span>
 
                         <br/>
                         <br/>
