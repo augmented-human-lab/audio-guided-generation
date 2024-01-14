@@ -3943,18 +3943,27 @@
                     </div>
                     <div class="col-8 text-start pt-2 ps-5">
                         We use a classifier based on <a href="https://arxiv.org/pdf/2007.11154.pdf">this paper</a>.
+
+                        <br/> <br/>
+
                         For the classifier we use a DenseNet (with pre-training) based network, where the last layer is
                         modified
                         depending upon the number of classes we need. For binary re-scoring analysis the number of
                         classes is 2 (to
                         indicate presence of absence of the semantic attribute).
+
+                        <br/> <br/>
+
                         The input to the classifier are 3 mel-spectrograms appended along the channel axis. As in the
                         original paper, we follow this method
                         to capture information at 3 different time scales, i.e. we
                         compute mel-spectrogram of a signal using different window sizes and hop-lengths of [25ms,
                         10ms], [50ms, 25ms], and [100ms, 50ms] for each channel respectively. The different window sizes
                         and hop-lengths ensure the network has different levels of information from the frequency and
-                        time domain on each channel. We use Adam optimizer
+                        time domain on each channel. 
+                        
+                        <br/> <br/>
+                        We use Adam optimizer
                         while training with a learning rate of 0.0001, weight decay of 0.001 and train for 100 epochs.
 
                         <br />
