@@ -176,7 +176,7 @@
                     Furthermore, we demonstrate the application of this method
                     to other tasks such as selective semantic attribute transfer. -->
 
-                    Generative adversarial networks, such as StyleGANs, can be trained to controllably generate audio
+                    <!-- Generative adversarial networks, such as StyleGANs, can be trained to controllably generate audio
                     textures by conditioning the model with labeled data. While datasets for audio textures can be
                     easily recorded, semantically labeling them is difficult due to human annotator subjectivity. Thus,
                     to controllably generate audio textures, there is a need to automatically infer semantic factors of
@@ -188,7 +188,20 @@
                     a semantic attribute, we can infer the guidance vectors in the latent space of a StyleGAN to control
                     that attribute during generation. Our results show that our method is capable of finding
                     user-defined and perceptually relevant guidance vectors for controllable generation for both
-                    discrete event-based as well as continuously varying audio textures.
+                    discrete event-based as well as continuously varying audio textures. -->
+
+                    Controllable generation in StyleGANs is usually achieved by training the model using labeled data.
+                    For audio textures, however, there is currently a lack of large semantically labeled datasets.
+                    Therefore, to control generation, we develop a method for semantic control over an unconditionally
+                    trained StyleGAN in the absence of such labeled datasets. In this paper, we propose an example-based
+                    framework to determine guidance vectors for audio texture generation based on user-defined semantic
+                    attributes. Our approach leverages the semantically disentangled latent space of an unconditionally
+                    trained StyleGAN. By using a few synthetic examples to indicate the presence or absence of a
+                    semantic attribute, we infer the guidance vectors in the latent space of the StyleGAN to control
+                    that attribute during generation. Our results show that our framework can find user-defined and
+                    perceptually relevant guidance vectors for controllable generation for audio textures. Furthermore,
+                    we demonstrate an application of our framework to other tasks such as selective semantic attribute
+                    transfer.
 
                 </div>
 
@@ -234,9 +247,10 @@
                     </ul>
 
                     <li class="pt-2"><a href="#ab-s-n">5. Ablation Studies <b>(Paper
-                        Section IV.E.1)</b></a></li>
+                                Section IV.E.1)</b></a></li>
                     <ul>
-                        <li class="pt-2"><a href="#ab-s-n">5.1 Ablation studies - Gaver Sound Synthesis <b>(Paper Section
+                        <li class="pt-2"><a href="#ab-s-n">5.1 Ablation studies - Gaver Sound Synthesis <b>(Paper
+                                    Section
                                     IV.E.1)</b></a></li>
                         <li class="pt-2"><a href="#ab-moresteps">5.2 Ablation studies - Effect of Scalar <b>&alpha;</b>
                                 <b>(Paper Section
@@ -3949,7 +3963,7 @@
                     <div class="col-8 text-start pt-2 ps-5">
                         We use a classifier based on <a href="https://arxiv.org/pdf/2007.11154.pdf">this paper</a>.
 
-                        <br/> <br/>
+                        <br /> <br />
 
                         For the classifier we use a DenseNet (with pre-training) based network, where the last layer is
                         modified
@@ -3957,7 +3971,7 @@
                         classes is 2 (to
                         indicate presence of absence of the semantic attribute).
 
-                        <br/> <br/>
+                        <br /> <br />
 
                         The input to the classifier are 3 mel-spectrograms appended along the channel axis. As in the
                         original paper, we follow this method
@@ -3965,9 +3979,9 @@
                         compute mel-spectrogram of a signal using different window sizes and hop-lengths of [25ms,
                         10ms], [50ms, 25ms], and [100ms, 50ms] for each channel respectively. The different window sizes
                         and hop-lengths ensure the network has different levels of information from the frequency and
-                        time domain on each channel. 
-                        
-                        <br/> <br/>
+                        time domain on each channel.
+
+                        <br /> <br />
                         We use Adam optimizer
                         while training with a learning rate of 0.0001, weight decay of 0.001 and train for 100 epochs.
 
@@ -4053,7 +4067,8 @@
                         &nbsp;
                     </div>
                     <div class="col-8 h4 text-start pt-2" id="t-to-a">
-                        <u><b>Limitations &amp; Future Work: Approaching semantic edits using text-to-audio models (Paper Section
+                        <u><b>Limitations &amp; Future Work: Approaching semantic edits using text-to-audio models
+                                (Paper Section
                                 VI)</b></u>
                     </div>
                     <div class="col-2">
@@ -4068,41 +4083,53 @@
                     <div class="col-8 text-start pt-2">
                         Although we are unable to perform a systematic comparison of our method with text-to-audio
                         models, in this section we
-                        demonstrate the results from some text prompts that could assist in achieving the semantic editing goals of our
-                        framework using text-to-audio models such as <a href="https://audiocraft.metademolab.com/audiogen.html">AudioGen</a> and
-                        <a href="https://huggingface.co/spaces/haoheliu/audioldm-text-to-audio-generation">AudioLDM</a>. 
-                        
-                        <br/>
-                        <br/>
+                        demonstrate the results from some text prompts that could assist in achieving the semantic
+                        editing goals of our
+                        framework using text-to-audio models such as <a
+                            href="https://audiocraft.metademolab.com/audiogen.html">AudioGen</a> and
+                        <a href="https://huggingface.co/spaces/haoheliu/audioldm-text-to-audio-generation">AudioLDM</a>.
 
-                        For both impact sounds as well as water filling, we device a 'starting' prompt (shown in the first column in the examples below). 
-                        We subsequently edit the prompt to change different semantic attributes using textual descriptions (as demonstrated in the subsequent columns). The prompt edits are 
+                        <br />
+                        <br />
+
+                        For both impact sounds as well as water filling, we device a 'starting' prompt (shown in the
+                        first column in the examples below).
+                        We subsequently edit the prompt to change different semantic attributes using textual
+                        descriptions (as demonstrated in the subsequent columns). The prompt edits are
                         highlighted in different colors.
 
-                        <br/>
-                        <br/>
+                        <br />
+                        <br />
 
                         <!-- For impact sounds, we designed prompts by describing
                         the material properties of the impact surface, along with certain acoustic properties of the
                         sound. Similarly, for water filling, we described the material properties of the container as
                         well as the fill level of the water. -->
 
-                        <br/>
-                        <br/>
+                        <br />
+                        <br />
 
-                        In the examples below, we begin with one prompt, and continuously edit it with additional textual descriptions of how we want to modify the sounds. 
+                        In the examples below, we begin with one prompt, and continuously edit it with additional
+                        textual descriptions of how we want to modify the sounds.
 
-                        <br/>
+                        <br />
 
-                        For impact sounds, observe how adding <span style="background-color: rgb(120, 198, 107);">regularity</span> and rate (<span style="background-color: rgb(236, 96, 96);">and
-                        very fast</span>) edits to the prompt, unintentionally also changes other attributes such as brightness. Further, by modifying the prompt using <span style="background-color: rgb(236, 96, 96);">
-                        very fast</span>, is negating the effect of <span style="background-color: rgb(231, 208, 77);">long sustain</span>
+                        For impact sounds, observe how adding <span
+                            style="background-color: rgb(120, 198, 107);">regularity</span> and rate (<span
+                            style="background-color: rgb(236, 96, 96);">and
+                            very fast</span>) edits to the prompt, unintentionally also changes other attributes such as
+                        brightness. Further, by modifying the prompt using <span
+                            style="background-color: rgb(236, 96, 96);">
+                            very fast</span>, is negating the effect of <span
+                            style="background-color: rgb(231, 208, 77);">long sustain</span>
 
-                        <br/>
-                        <br/>
+                        <br />
+                        <br />
 
-                        <b>Note</b>: These examples are not intended to be a systematic study or comparison of our method to text-to-audio. We only show these examples here 
-                        to highlight some differences between these results and ours, and thus pave the way for our future work.
+                        <b>Note</b>: These examples are not intended to be a systematic study or comparison of our
+                        method to text-to-audio. We only show these examples here
+                        to highlight some differences between these results and ours, and thus pave the way for our
+                        future work.
                     </div>
                     <div class="col-2">
                         &nbsp;
@@ -4270,18 +4297,22 @@
                         &nbsp;
                     </div>
                     <div class="col-8 text-start pt-2">
-                        
-                        <br/>
 
-                        For water filling, as we are interested in continuously editing the fill level, we edit the prompts using a start fill level and and end fill level. 
-                        <br/>
+                        <br />
 
-                        For the prompts used below, AudioGen performs comparitively better than AudioLDM in terms of the quality of the generated sounds.
-                        <br/>
-                        <br/>
+                        For water filling, as we are interested in continuously editing the fill level, we edit the
+                        prompts using a start fill level and and end fill level.
+                        <br />
 
-                        <b>Note</b>: These examples are not intended to be a systematic study or comparison of our method to text-to-audio. We only show these examples here 
-                        to highlight some differences between these results and ours, and thus pave the way for our future work.
+                        For the prompts used below, AudioGen performs comparitively better than AudioLDM in terms of the
+                        quality of the generated sounds.
+                        <br />
+                        <br />
+
+                        <b>Note</b>: These examples are not intended to be a systematic study or comparison of our
+                        method to text-to-audio. We only show these examples here
+                        to highlight some differences between these results and ours, and thus pave the way for our
+                        future work.
                     </div>
                     <div class="col-2">
                         &nbsp;
