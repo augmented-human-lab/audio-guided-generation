@@ -262,8 +262,19 @@
                     <li class="pt-2"><a href="#listening-test-interface">7. Listening Test Interfaces <b>(Paper Section
                                 IV.E.3)</b></a></li>
 
-                    <li class="pt-2"><a href="#selective-attr-transfer-examples">8. Examples for Selective Semantic
+                    <li class="pt-2"><a href="#selective-attr-transfer-examples">8. Selective Semantic
                             Attribute Transfer <b>(Paper Section V)</b></a></li>
+                    <ul>
+                        <li class="pt-2"><a href="#selective-attr-transfer-examples">8.1 Examples for Selective Semantic
+                            Attribute Transfer</a></li>
+                        <li class="pt-2"><a href="#selective-attr-transfer-algo">8.2 Algorithm for Selective Semantic
+                            Attribute Transfer</a></li>
+                    </ul>
+
+
+                            
+
+
                     <li class="pt-2"><a href="#t-to-a">9. Limitations &amp; Future Work: Approaching semantic edits
                             using text-to-audio models <b>(Paper Section VI)</b></a></li>
                 </ul>
@@ -1936,6 +1947,54 @@
                 </div>
             </div>
             <!-- impact type timbre transfer:end-->
+
+
+            <div class="row">&nbsp;</div>
+            <div class='row'>&nbsp;</div>
+            <div class="row">
+                <div class="col-2">
+                    &nbsp;
+                </div>
+                <div class="col-8 h4 text-start pt-2" id="selective-attr-transfer-algo">
+                    <u><b>Algorithm for Selective Semantic Attribute Transfer</b></u>
+                </div>
+                <div class="col-2">
+                    &nbsp;
+                </div>
+            </div>
+            <div class="row">&nbsp;</div>
+
+            <div class="row">
+                <div class="col-2">
+                    &nbsp;
+                </div>
+                <div class="col-8 text-start pt-2" id="selective-attr-transfer-algo">
+                    Here we outline the algorithm for selective semantic attribute transfer. As denoted in the paper, we first project the reference sample 
+                    $\mathbf{w_{ref}}$ and the target sample $\mathbf{w}$ onto guidance vector $\mathbf{d}$ by means of dot product between them (indicated by "$\cdot$" below). 
+                    We compute the difference between the projections and edit the the target sample $\mathbf{w}$ in the direction of the difference vector to create $\mathbf{w'}$. 
+                    The resulting sample $\mathbf{w'}$ is the target sample with the semantic attribute transferred from the reference sample.
+                </div>
+                <div class="col-2">
+                    &nbsp;
+                </div>
+            </div>
+            <div class="row">&nbsp;</div>
+
+
+            <div class="row">
+                <div class="col-2">
+                    &nbsp;
+                </div>
+                <div class="col-8 text-center pt-2">
+                    <img src="resources/algo-semantic-attribute-transfer.png" width="50%" />
+                </div>
+                <div class="col-2">
+                    &nbsp;
+                </div>
+            </div>
+            <div class="row">&nbsp;</div>
+            <div class="row">&nbsp;</div>
+
 
             <div class='row'>&nbsp;</div>
 
